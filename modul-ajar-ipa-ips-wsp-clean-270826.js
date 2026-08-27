@@ -116,17 +116,30 @@ mapel: ["IPA", "IPS"],
 fase: ["Fase D Kelas 7", "Fase D Kelas 8", "Fase D Kelas 9"]
 },
 "SMA/MA/SMK": {
-mapel: ["IPA", "IPS"],
-fase: ["Fase E Kelas 10"]
+fase: ["Fase E Kelas 10", "Fase F Kelas 11", "Fase F Kelas 12"],
+mapelByFase: {
+"Fase E": ["IPA", "IPS"],
+"Fase F": ["Biologi", "Fisika", "Kimia", "Ekonomi", "Geografi", "Sosiologi", "Sejarah", "Sejarah Lanjutan"]
+}
 }
 };
+// Ringkasan CP Fase F mengacu pada CP 2025 (KepKaBSKAP No. 046/H/KR/2025)
+// dan Panduan Mata Pelajaran Kemendikdasmen 2025. Ringkasan dipakai agar kolom CP tetap ringkas dan praktis.
 const CP_PER_MAPEL_FASE = {
 "IPAS|Fase B": "Pada akhir Fase B, murid menjelaskan bentuk dan fungsi pancaindra; menganalisis siklus hidup makhluk hidup dan upaya pelestariannya; menghasilkan solusi pelestarian sumber daya alam sebagai mitigasi perubahan iklim; menyimpulkan perubahan wujud zat; menjelaskan sumber dan bentuk energi serta perubahan bentuk energi dalam kehidupan sehari-hari; membedakan jenis gaya dan pengaruhnya; menjelaskan peran, tugas, tanggung jawab, dan interaksi sosial di sekitar; mengenali letak kabupaten/kota dan provinsi dengan peta; mengklasifikasikan bentang alam dan keterkaitannya dengan profesi serta budaya; menganalisis sejarah masyarakat sekitar; serta menjelaskan nilai dan fungsi uang serta pengelolaan keuangan bijak. Murid menerapkan keterampilan proses: mengamati, mempertanyakan dan memprediksi, merencanakan dan melakukan penyelidikan dengan panduan pendidik, mengorganisasikan data sederhana, mengevaluasi dan merefleksi, serta mengomunikasikan hasil secara lisan dan tertulis.",
 "IPAS|Fase C": "Pada akhir Fase C, murid merefleksikan sistem organ tubuh manusia dan cara menjaga kesehatan; menganalisis hubungan komponen biotik dan abiotik serta pengaruhnya terhadap ekosistem; menjelaskan gelombang bunyi dan cahaya dalam kehidupan sehari-hari; menghasilkan upaya penghematan energi dan pemanfaatan energi alternatif sebagai mitigasi perubahan iklim; menjelaskan tata surya serta kaitannya dengan rotasi dan revolusi bumi; menjelaskan letak dan kondisi geografis Indonesia dengan peta; meninjau sejarah perjuangan pahlawan di sekitar; menemukan keragaman budaya nasional berdasarkan kearifan lokal; serta menerapkan kegiatan ekonomi masyarakat sekitar. Murid menerapkan keterampilan proses mengamati, mempertanyakan dan memprediksi, merencanakan dan melakukan penyelidikan, mengolah dan menganalisis data, mengevaluasi dan merefleksi, serta mengomunikasikan hasil secara utuh.",
 "IPA|Fase D": "Pada akhir Fase D, murid menelaah identifikasi makhluk hidup; menganalisis klasifikasi, sifat, dan perubahan materi; sistem organisasi kehidupan; interaksi makhluk hidup dan lingkungan dalam upaya perubahan iklim; pewarisan sifat; bioteknologi konvensional; pengukuran aspek fisis; gerak, gaya, tekanan, usaha dan energi; kalor; gelombang; kemagnetan dan kelistrikan; posisi bumi-bulan-matahari; serta keputusan untuk menghindari zat aditif dan adiktif berbahaya. Murid menerapkan keterampilan proses mengamati, mempertanyakan dan memprediksi, merencanakan dan melakukan penyelidikan, memproses dan menganalisis data, mengevaluasi dan merefleksi, serta mengomunikasikan hasil secara sistematis.",
 "IPA|Fase E": "Pada akhir Fase E, murid menerapkan prinsip klasifikasi dan strategi pelestarian keanekaragaman hayati; mendeskripsikan peranan virus, bakteri, dan jamur; menganalisis interaksi komponen ekosistem dan pengaruhnya terhadap keseimbangan ekosistem; menggunakan sistem pengukuran dalam kerja ilmiah; menganalisis gerak dua dimensi; menganalisis pemanfaatan energi alternatif; menganalisis partikel penyusun materi dan menerapkan konsep stoikiometri; serta menerapkan konsep IPA untuk mengatasi permasalahan perubahan iklim. Murid menerapkan keterampilan proses mengamati, mempertanyakan dan memprediksi, merencanakan dan melakukan penyelidikan, memproses dan menganalisis data, mengevaluasi dan merefleksi, serta mengomunikasikan hasil secara sistematis.",
 "IPS|Fase D": "Pada akhir Fase D, murid menjelaskan keberagaman kondisi geografis Indonesia dan konektivitas antarruang; memprediksi dampak perubahan iklim serta merefleksikan adaptasi dan mitigasi bencana; mengidentifikasi kegiatan ekonomi, harga, pasar, lembaga keuangan, dan perdagangan internasional; menelaah peran masyarakat dan negara dalam pertumbuhan ekonomi digital; mengelaborasi interaksi sosial, lembaga sosial, dinamika sosial, dan perubahan sosial budaya; menjelaskan konsep dasar sejarah; serta menganalisis keterhubungan masa lampau, kini, dan masa depan dalam sejarah lokal, nasional, dan global. Murid menerapkan keterampilan proses mengamati, menanya, mengumpulkan dan mengolah informasi, menguji dan menerapkan konsep, mengevaluasi, merefleksi, serta mengomunikasikan hasil penyelidikan.",
-"IPS|Fase E": "Pada akhir Fase E, murid menjelaskan konsep dasar geografi serta fenomena geografi fisik melalui litosfer, atmosfer, dan hidrosfer sebagai ruang hidup; mengimplementasikan teknologi geospasial berupa peta, penginderaan jauh, dan SIG; menelaah hakikat ilmu ekonomi dan membedakan produk keuangan bank dan nonbank; menjelaskan fungsi sosiologi dan menelaah status serta peran individu dalam kelompok sosial; menganalisis keragaman manusia dan budaya dalam masyarakat multikultural; serta menelaah konsep dasar sejarah dan mengimplementasikan penelitian sejarah dari masa kerajaan Hindu-Buddha hingga kerajaan Islam. Murid menerapkan keterampilan proses mengamati, membuat pertanyaan, mengumpulkan dan menyimpulkan informasi, mengomunikasikan hasil analisis, merefleksi, dan menyusun tindak lanjut."
+"IPS|Fase E": "Pada akhir Fase E, murid menjelaskan konsep dasar geografi serta fenomena geografi fisik melalui litosfer, atmosfer, dan hidrosfer sebagai ruang hidup; mengimplementasikan teknologi geospasial berupa peta, penginderaan jauh, dan SIG; menelaah hakikat ilmu ekonomi dan membedakan produk keuangan bank dan nonbank; menjelaskan fungsi sosiologi dan menelaah status serta peran individu dalam kelompok sosial; menganalisis keragaman manusia dan budaya dalam masyarakat multikultural; serta menelaah konsep dasar sejarah dan mengimplementasikan penelitian sejarah dari masa kerajaan Hindu-Buddha hingga kerajaan Islam. Murid menerapkan keterampilan proses mengamati, membuat pertanyaan, mengumpulkan dan menyimpulkan informasi, mengomunikasikan hasil analisis, merefleksi, dan menyusun tindak lanjut.",
+"Biologi|Fase F": "Pada akhir Fase F, murid mengaitkan struktur dan fungsi organel sel; menerapkan prinsip bioproses di dalam sel; menganalisis keterkaitan antarsistem organ dalam merespons stimulus internal dan eksternal; menerapkan prinsip pewarisan sifat; mengaitkan mekanisme evolusi dengan keanekaragaman dan kelangsungan hidup organisme; menerapkan prinsip pertumbuhan dan perkembangan; serta menganalisis proses bioteknologi modern. Murid menerapkan keterampilan proses ilmiah melalui kegiatan mengamati, merumuskan pertanyaan dan prediksi, merencanakan dan melakukan penyelidikan, memproses dan menganalisis data, mengevaluasi dan merefleksi, serta mengomunikasikan hasil.",
+"Fisika|Fase F": "Pada akhir Fase F, murid menganalisis hubungan gerak dan gaya serta penerapannya pada fenomena alam, desain, atau rekayasa; menerapkan hukum fluida; menganalisis kalor dan termodinamika termasuk kaitannya dengan perubahan iklim; menganalisis gejala gelombang; mengevaluasi rangkaian listrik; menganalisis fenomena elektromagnetik; memahami dasar fisika modern dan pengaruhnya terhadap teknologi; serta menerapkan dasar sistem digital dalam kehidupan sehari-hari. Murid menerapkan keterampilan proses ilmiah melalui pengamatan, perumusan pertanyaan dan prediksi, penyelidikan, analisis data, evaluasi, refleksi, dan komunikasi hasil.",
+"Kimia|Fase F": "Pada akhir Fase F, murid menganalisis keterkaitan struktur atom dengan sistem periodik unsur; membandingkan ikatan kimia, bentuk molekul, dan gaya antarmolekul untuk memprediksi sifat materi; mengaitkan perubahan entalpi dengan sumber energi; menganalisis faktor laju reaksi dan kesetimbangan kimia; menjelaskan daya hantar listrik dan sifat koligatif larutan; menerapkan konsep elektrokimia; serta menganalisis senyawa karbon dan makromolekul dalam konteks kehidupan. Murid menerapkan keterampilan proses ilmiah melalui pengamatan, pertanyaan dan prediksi, penyelidikan, pengolahan dan analisis data, evaluasi, refleksi, dan komunikasi hasil.",
+"Ekonomi|Fase F": "Pada akhir Fase F, murid menjelaskan konsep dasar ekonomi dan menganalisis masalah ekonomi serta keuangan termasuk literasi ekonomi-keuangan digital; memahami pendapatan nasional, pertumbuhan ekonomi, kemiskinan dan kesenjangan; ketenagakerjaan; uang, inflasi, dan kebijakan moneter; akuntansi keuangan dasar; kebijakan fiskal, anggaran dan perpajakan; serta ekonomi internasional. Murid mengamati dan mengkaji masalah ekonomi di lingkungan lokal, regional, atau nasional, memvalidasi dan menganalisis informasi, menarik kesimpulan dan solusi, mengomunikasikan hasil, merefleksikan solusi, serta merencanakan projek lanjutan secara kolaboratif.",
+"Geografi|Fase F": "Pada akhir Fase F, murid menganalisis keuntungan posisi strategis Indonesia secara astronomis, geografis, dan geologis serta pemanfaatan sumber daya alam; memahami pola keanekaragaman hayati Indonesia dan dunia; karakteristik geografi penduduk; perubahan iklim, kebencanaan, dan lingkungan hidup; serta kewilayahan, pembangunan, dan kerja sama antarnegara. Murid mengamati fenomena geografi, merumuskan pertanyaan, mengumpulkan dan menganalisis data, menyimpulkan dan mengomunikasikan hasil melalui peta, grafik, tabel, infografis, atau media digital, merefleksikan proses, dan mengembangkan projek kolaboratif.",
+"Sosiologi|Fase F": "Pada akhir Fase F, murid berpikir kritis dan kreatif melalui kajian literasi fenomena sosiologi; menganalisis, menyajikan, melaporkan, dan mengomunikasikan hasil kajian; serta menghasilkan projek inovatif. Kompetensi dikembangkan melalui analisis masalah sosial, konflik dan integrasi sosial, pemecahan masalah dengan pendekatan pemberdayaan, prinsip kesetaraan dalam masyarakat multikultural, perubahan sosial, globalisasi, dan masyarakat digital. Murid menerapkan keterampilan proses dengan mengamati, mendokumentasikan, mengumpulkan, mengolah, menyajikan, melaporkan, mengomunikasikan, merefleksikan, dan merencanakan projek kolaboratif terkait fenomena sosial.",
+"Sejarah|Fase F": "Pada akhir Fase F, murid menjelaskan perjalanan sejarah Indonesia mulai dari penjajahan bangsa Barat, perlawanan rakyat, pergerakan kebangsaan, pendudukan Jepang, Proklamasi Kemerdekaan, upaya mempertahankan kemerdekaan, pemerintahan Sukarno, pemerintahan Suharto, hingga Reformasi. Murid menerapkan proses berpikir sejarah, literasi dan penelitian sejarah, menunjukkan kesadaran sejarah melalui inkuiri, serta mengevaluasi nilai-nilai peristiwa masa lalu agar dapat dikontekstualisasikan dalam kehidupan masa kini. Keterampilan proses mencakup berpikir diakronis dan sinkronis, analisis sumber, interpretasi, riset, pengambilan keputusan, dan pemaknaan sejarah.",
+"Sejarah Lanjutan|Fase F": "Pada akhir Fase F, murid mengembangkan kesadaran dan cara berpikir historis melalui literasi, penelitian, dan penulisan sejarah dunia berwawasan global yang dihubungkan dengan konteks Indonesia. Kajian mencakup asal-usul manusia, peradaban besar dunia, pemikiran besar dunia, revolusi besar, Perang Dunia I dan II, Perang Dingin, serta peristiwa kontemporer dunia hingga abad ke-21. Murid menerapkan analisis signifikansi sejarah, pencarian dan kritik sumber, perubahan dan keberlanjutan, perkembangan dan keruntuhan, keruangan sejarah, empati, keputusan moral, dan analisis pelaku sejarah serta menghasilkan projek sejarah digital atau nondigital."
 };
 function fillSelect(select, options, preferred) {
 select.innerHTML = "";
@@ -138,28 +151,45 @@ select.appendChild(option);
 });
 select.value = options.includes(preferred) ? preferred : options[0];
 }
-function updateEducationOptions(preserveCurrent) {
+function getFaseKey(faseKelas) {
+const faseMatch = (faseKelas || "").match(/Fase\s+([B-F])/);
+return faseMatch ? `Fase ${faseMatch[1]}` : "";
+}
+function getMapelOptions(config, faseKelas) {
+if (config.mapelByFase) {
+const faseKey = getFaseKey(faseKelas);
+return config.mapelByFase[faseKey] || [];
+}
+return config.mapel || [];
+}
+function updateMapelOptions(preserveCurrent) {
 const jenjang = document.getElementById("jenjang_pendidikan").value;
 const config = EDUCATION_CONFIG[jenjang] || EDUCATION_CONFIG["SD/MI"];
 const faseSelect = document.getElementById("fase_kelas");
 const mapelSelect = document.getElementById("mata_pelajaran");
-const currentFase = preserveCurrent ? faseSelect.value : "";
 const currentMapel = preserveCurrent ? mapelSelect.value : "";
+const mapelOptions = getMapelOptions(config, faseSelect.value);
+fillSelect(mapelSelect, mapelOptions, currentMapel);
+mapelSelect.disabled = mapelOptions.length === 1;
+mapelSelect.classList.toggle("bg-slate-100", mapelOptions.length === 1);
+mapelSelect.classList.toggle("text-slate-500", mapelOptions.length === 1);
+mapelSelect.title = mapelOptions.length === 1
+? "Mata pelajaran ditentukan otomatis oleh jenjang dan fase pendidikan."
+: "Pilih mata pelajaran sesuai fase dan kebutuhan.";
+}
+function updateEducationOptions(preserveCurrent) {
+const jenjang = document.getElementById("jenjang_pendidikan").value;
+const config = EDUCATION_CONFIG[jenjang] || EDUCATION_CONFIG["SD/MI"];
+const faseSelect = document.getElementById("fase_kelas");
+const currentFase = preserveCurrent ? faseSelect.value : "";
 fillSelect(faseSelect, config.fase, currentFase);
-fillSelect(mapelSelect, config.mapel, currentMapel);
-mapelSelect.disabled = config.mapel.length === 1;
-mapelSelect.classList.toggle("bg-slate-100", config.mapel.length === 1);
-mapelSelect.classList.toggle("text-slate-500", config.mapel.length === 1);
-mapelSelect.title = config.mapel.length === 1
-? "Mata pelajaran ditentukan otomatis oleh jenjang pendidikan."
-: "Pilih IPA atau IPS sesuai kebutuhan.";
+updateMapelOptions(preserveCurrent);
 updateCapaianPembelajaran();
 }
 function updateCapaianPembelajaran() {
 const faseKelas = document.getElementById("fase_kelas").value;
 const mapel = document.getElementById("mata_pelajaran").value;
-const faseMatch = faseKelas.match(/Fase\s+([B-E])/);
-const fase = faseMatch ? `Fase ${faseMatch[1]}` : "";
+const fase = getFaseKey(faseKelas);
 const cp = CP_PER_MAPEL_FASE[`${mapel}|${fase}`];
 document.getElementById("capaian_pembelajaran").value = cp
 ? `${mapel} - ${fase} (${faseKelas})\n\n${cp}`
@@ -187,7 +217,10 @@ updateEducationOptions(true);
 document.getElementById("fase_kelas").value = "Fase B Kelas 4";
 updateCapaianPembelajaran();
 document.getElementById("jenjang_pendidikan").addEventListener("change", function () { updateEducationOptions(false); });
-document.getElementById("fase_kelas").addEventListener("change", updateCapaianPembelajaran);
+document.getElementById("fase_kelas").addEventListener("change", function () {
+updateMapelOptions(false);
+updateCapaianPembelajaran();
+});
 document.getElementById("mata_pelajaran").addEventListener("change", updateCapaianPembelajaran);
 }
 function generatePrompt() {
