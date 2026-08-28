@@ -90,8 +90,36 @@ const PG_CODE = 'bank_soal_matematika_240826';
             select.innerHTML = classes.map(value => `<option value="${value}">${value}</option>`).join('');
             if (classes.includes(previous)) select.value = previous;
             else if (jenjang === 'SD/MI') select.value = 'Fase A Kelas 1';
-            updateCapaianPembelajaran();
+            updateMataPelajaran();
             scheduleAutosave();
+        }
+
+        function updateFaseDanMapel() {
+            updateMataPelajaran();
+            scheduleAutosave();
+        }
+
+        function updateMataPelajaran(preferredMapel) {
+            const faseKelas = document.getElementById('fase_kelas').value;
+            const mapelSelect = document.getElementById('mata_pelajaran');
+            const mapelStatus = document.getElementById('mapel-status');
+            const previous = preferredMapel || mapelSelect.value;
+            const isFaseF = /Fase\s+F/.test(faseKelas);
+            const options = isFaseF ? ['Matematika', 'Matematika Tingkat Lanjut'] : ['Matematika'];
+
+            mapelSelect.innerHTML = options.map(value => `<option value="${value}">${value}</option>`).join('');
+            mapelSelect.value = options.includes(previous) ? previous : 'Matematika';
+            mapelSelect.disabled = !isFaseF;
+            mapelSelect.classList.toggle('cursor-not-allowed', !isFaseF);
+            mapelSelect.classList.toggle('bg-slate-100', !isFaseF);
+            mapelSelect.setAttribute('aria-label', isFaseF ? 'Pilih mata pelajaran Fase F' : 'Mata pelajaran terkunci');
+
+            if (mapelStatus) {
+                mapelStatus.textContent = isFaseF
+                    ? 'Fase F menyediakan Matematika dan Matematika Tingkat Lanjut.'
+                    : 'Mata pelajaran otomatis Matematika untuk fase yang dipilih.';
+            }
+            updateCapaianPembelajaran();
         }
 
         function updateCapaianPembelajaran() {
@@ -100,13 +128,16 @@ const PG_CODE = 'bank_soal_matematika_240826';
             const fase = match ? match[1] : 'B';
             const cpField = document.getElementById('capaian_pembelajaran');
             const status = document.getElementById('cp-status');
-            const cpMatematika = window.CP_MATEMATIKA || {};
-            const cp = cpMatematika[fase];
+            const mapel = document.getElementById('mata_pelajaran').value;
+            const cpData = mapel === 'Matematika Tingkat Lanjut'
+                ? (window.CP_MATEMATIKA_TINGKAT_LANJUT || {})
+                : (window.CP_MATEMATIKA || {});
+            const cp = cpData[fase];
 
             if (!cp) {
-                cpField.value = 'CP Matematika belum berhasil dimuat. Muat ulang halaman dan pastikan koneksi ke jsDelivr tersedia.';
+                cpField.value = `CP ${mapel} belum berhasil dimuat. Muat ulang halaman dan pastikan koneksi ke jsDelivr tersedia.`;
                 if (status) {
-                    status.textContent = 'CP Matematika belum tersedia. Silakan muat ulang halaman.';
+                    status.textContent = `CP ${mapel} belum tersedia. Silakan muat ulang halaman.`;
                     status.className = 'text-[11px] text-red-700 mt-1';
                 }
                 scheduleAutosave();
@@ -116,7 +147,7 @@ const PG_CODE = 'bank_soal_matematika_240826';
             cpField.value = cp;
 
             if (status) {
-                status.textContent = 'CP resmi Matematika diperbarui otomatis berdasarkan fase yang dipilih.';
+                status.textContent = `CP resmi ${mapel} diperbarui otomatis berdasarkan fase dan mata pelajaran yang dipilih.`;
                 status.className = 'text-[11px] text-emerald-700 mt-1';
             }
             scheduleAutosave();
@@ -292,6 +323,7 @@ const PG_CODE = 'bank_soal_matematika_240826';
                 if (element) element.value = value;
             });
             if (state.fase_kelas) document.getElementById('fase_kelas').value = state.fase_kelas;
+            updateMataPelajaran(state.mata_pelajaran);
             (state.checkboxes || []).forEach(item => {
                 const element = document.querySelector(`input[type="checkbox"][name="${item.name}"][value="${item.value}"]`);
                 if (element) element.checked = item.checked;
