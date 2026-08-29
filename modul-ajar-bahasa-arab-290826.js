@@ -15,12 +15,12 @@
   .login{min-height:100vh;display:grid;place-items:center;padding:24px}.login-card{width:min(405px,100%);background:#fff;border-radius:18px;padding:30px;box-shadow:0 24px 70px #02061780}
   .logo{height:58px;max-width:220px;object-fit:contain;display:block;margin:0 auto 12px}.eyebrow{text-align:center;color:#1d4ed8;font-size:12px;font-weight:700}.login h1{text-align:center;font-size:23px;margin:4px 0}.sub{text-align:center;color:#1d4ed8;font-size:12px;margin:0 0 24px}
   .field{margin:0 0 13px}.field label,.label{display:block;font-size:11px;font-weight:800;letter-spacing:.045em;text-transform:uppercase;color:#334155;margin-bottom:5px}.req{color:#dc2626}.hint{display:block;color:#64748b;font-size:11px;line-height:1.45;margin-top:5px}
-  .control{width:100%;border:1px solid #cbd5e1;border-radius:9px;padding:10px 11px;background:#f8fafc;color:#0f172a;outline:none;transition:.15s}.other-field{margin-top:8px}.control:focus{border-color:#1e40af;box-shadow:0 0 0 3px #dbeafe}.control[readonly]{background:#e2e8f0;color:#475569;cursor:not-allowed}.textarea{resize:vertical;min-height:72px;line-height:1.5}.cp{min-height:150px;background:#fff!important;border:2px solid #f59e0b}.invalid{border-color:#dc2626!important;box-shadow:0 0 0 3px #fee2e2!important}
+  .control{width:100%;border:1px solid #cbd5e1;border-radius:9px;padding:10px 11px;background:#f8fafc;color:#0f172a;outline:none;transition:.15s}.other-field{margin-top:8px}.bab-stepper{display:grid;grid-template-columns:38px 1fr 38px;gap:7px;align-items:center}.bab-stepper button{height:40px;border:1px solid #cbd5e1;border-radius:9px;background:#f8fafc;color:#1e3a8a;cursor:pointer}.bab-stepper button:hover{background:#dbeafe}.bab-stepper input{text-align:center;font-weight:800}.control:focus{border-color:#1e40af;box-shadow:0 0 0 3px #dbeafe}.control[readonly]{background:#e2e8f0;color:#475569;cursor:not-allowed}.textarea{resize:vertical;min-height:72px;line-height:1.5}.cp{min-height:150px;background:#fff!important;border:2px solid #f59e0b}.invalid{border-color:#dc2626!important;box-shadow:0 0 0 3px #fee2e2!important}
   .input-icon{position:relative}.input-icon>i{position:absolute;left:12px;top:13px;color:#94a3b8}.input-icon .control{padding-left:36px}.eye{position:absolute;right:4px;top:3px;width:38px;height:36px;border:0;background:transparent;color:#64748b;cursor:pointer}
   .primary,.secondary,.danger,.smallbtn{border:0;border-radius:10px;font-weight:800;cursor:pointer;transition:.15s}.primary{background:#1e3a8a;color:#fff;padding:11px 15px}.primary:hover{background:#1e40af}.secondary{background:#e2e8f0;color:#334155;padding:10px 14px}.secondary:hover{background:#cbd5e1}.danger{background:#fff1f2;color:#be123c;padding:10px 14px}.smallbtn{background:#059669;color:white;padding:7px 11px;font-size:12px}.full{width:100%}
   .error{color:#b91c1c;background:#fef2f2;border:1px solid #fecaca;border-radius:9px;padding:9px 11px;font-size:12px;font-weight:700;margin-bottom:12px}.foot{border-top:1px solid #e2e8f0;margin-top:20px;padding-top:15px;text-align:center;color:#94a3b8;font-size:10px;line-height:1.6}
   .app{min-height:100vh;background:#f1f5f9}.topbar{height:72px;background:#fff;border-bottom:1px solid #e2e8f0;display:flex;align-items:center;justify-content:space-between;padding:0 24px;position:sticky;top:0;z-index:20;box-shadow:0 2px 12px #0f172a0a}.brand{display:flex;gap:12px;align-items:center}.brand-icon{width:42px;height:42px;border-radius:12px;background:#1e3a8a;color:#fff;display:grid;place-items:center}.brand h2{font-size:17px;margin:0}.brand p{font-size:11px;color:#64748b;margin:2px 0 0}
-  .layout{max-width:1480px;margin:auto;padding:22px;display:grid;grid-template-columns:minmax(430px,5fr) minmax(500px,7fr);gap:20px}.card{background:#fff;border:1px solid #e2e8f0;border-radius:14px;box-shadow:0 4px 16px #0f172a0a;overflow:hidden}.cardhead{background:#f8fafc;border-bottom:1px solid #e2e8f0;padding:13px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}.cardhead h3{font-size:13px;margin:0;display:flex;gap:8px;align-items:center}.form-scroll{padding:16px;max-height:calc(100vh - 120px);overflow:auto}.section-title{font-size:11px;color:#1e3a8a;font-weight:900;text-transform:uppercase;letter-spacing:.06em;border-top:1px solid #e2e8f0;padding-top:12px;margin:18px 0 12px}.section-title:first-child{border-top:0;margin-top:0;padding-top:0}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.checks{display:grid;grid-template-columns:1fr 1fr;gap:7px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:9px;padding:10px;font-size:12px}.checks label{display:flex;align-items:flex-start;gap:7px}.checks.single{grid-template-columns:1fr}.bab-stepper{display:grid;grid-template-columns:38px minmax(0,1fr) 38px;gap:7px;align-items:center}.bab-stepper button{height:40px;border:1px solid #cbd5e1;border-radius:9px;background:#f1f5f9;color:#1e3a8a;cursor:pointer;font-weight:800}.bab-stepper button:hover{background:#dbeafe}.bab-stepper input{text-align:center;font-weight:800}.notice{background:#fffbeb;border:1px solid #fde68a;color:#92400e;border-radius:10px;padding:10px;font-size:11px;line-height:1.5;margin:8px 0 13px}
+  .layout{max-width:1480px;margin:auto;padding:22px;display:grid;grid-template-columns:minmax(430px,5fr) minmax(500px,7fr);gap:20px}.card{background:#fff;border:1px solid #e2e8f0;border-radius:14px;box-shadow:0 4px 16px #0f172a0a;overflow:hidden}.cardhead{background:#f8fafc;border-bottom:1px solid #e2e8f0;padding:13px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}.cardhead h3{font-size:13px;margin:0;display:flex;gap:8px;align-items:center}.form-scroll{padding:16px;max-height:calc(100vh - 120px);overflow:auto}.section-title{font-size:11px;color:#1e3a8a;font-weight:900;text-transform:uppercase;letter-spacing:.06em;border-top:1px solid #e2e8f0;padding-top:12px;margin:18px 0 12px}.section-title:first-child{border-top:0;margin-top:0;padding-top:0}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.checks{display:grid;grid-template-columns:1fr 1fr;gap:7px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:9px;padding:10px;font-size:12px}.checks label{display:flex;align-items:flex-start;gap:7px}.checks.single{grid-template-columns:1fr}.notice{background:#fffbeb;border:1px solid #fde68a;color:#92400e;border-radius:10px;padding:10px;font-size:11px;line-height:1.5;margin:8px 0 13px}
   .actions{display:flex;gap:9px;flex-wrap:wrap;position:sticky;bottom:-16px;background:#fff;border-top:1px solid #e2e8f0;margin:18px -16px -16px;padding:13px 16px}.actions .primary{flex:2}.actions .secondary,.actions .danger{flex:1}
   .output-col{display:flex;flex-direction:column;gap:14px;min-width:0}.output-card{display:flex;flex-direction:column;height:calc(100vh - 120px)}.output-actions{display:flex;gap:8px}.output{margin:0;padding:18px;background:#020617;color:#cbd5e1;white-space:pre-wrap;overflow:auto;flex:1;font:12px/1.55 ui-monospace,SFMono-Regular,Consolas,monospace;-webkit-user-select:text;user-select:text}.usage{padding:13px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;color:#1e3a8a;font-size:12px;line-height:1.55}.status{font-size:11px;color:#047857;font-weight:800;min-height:16px;margin:7px 0 0}
   @media(max-width:980px){.layout{grid-template-columns:1fr}.form-scroll{max-height:none}.output-card{height:72vh}.topbar{position:relative}.grid3{grid-template-columns:1fr}.layout{padding:12px}.output-col{min-width:0}}
@@ -43,13 +43,13 @@
   </div>
 
   <div id="appScreen" class="app hidden">
-    <header class="topbar"><div class="brand"><div class="brand-icon"><i class="fa-solid fa-language"></i></div><div><h2>Modul Ajar Bahasa Arab</h2><p>Urutan formulir mengikuti Template Modul Ajar</p></div></div><button id="logoutBtn" class="danger" type="button"><i class="fa-solid fa-right-from-bracket"></i> Keluar</button></header>
+    <header class="topbar"><div class="brand"><div class="brand-icon"><i class="fa-solid fa-language"></i></div><div><h2>Modul Ajar Bahasa Arab</h2><p>Mengikuti Template Modul Ajar Final</p></div></div><button id="logoutBtn" class="danger" type="button"><i class="fa-solid fa-right-from-bracket"></i> Keluar</button></header>
     <main class="layout">
       <section class="card"><div class="cardhead"><h3><i class="fa-solid fa-list-check"></i> Form Parameter Modul Ajar</h3><button id="exampleBtn" class="smallbtn" type="button"><i class="fa-solid fa-flask"></i> Muat Contoh</button></div>
         <form id="generatorForm" class="form-scroll" novalidate>
           <div class="section-title">1. Identitas Penyusun</div>
           <div class="field"><label>Nama Penyusun <span class="req">*</span></label><input id="nama_penyusun" class="control" required></div>
-          <div class="field"><label>Guru Kelas / Guru Mapel <span class="req">*</span></label><input id="guru_kelas" class="control" required></div>
+          <div class="field"><label>Guru Kelas / Mata Pelajaran <span class="req">*</span></label><input id="guru_kelas" class="control" required></div>
           <div class="field"><label>Institusi <span class="req">*</span></label><input id="institusi" class="control" required></div>
 
           <div class="section-title">2. Informasi Umum</div>
@@ -64,7 +64,7 @@
 
           <div class="section-title">3. Identifikasi</div>
           <div class="grid2"><div class="field"><label>Target Peserta Didik <span class="req">*</span></label><select id="target" class="control"><option>Peserta Didik Reguler/Tipikal</option><option>Peserta Didik dengan Pencapaian Tinggi</option><option>Peserta Didik dengan Kesulitan Belajar</option><option>Peserta Didik CIBI</option></select><span class="hint"><b>CIBI</b> = Cerdas Istimewa dan/atau Berbakat Istimewa, yaitu peserta didik dengan kemampuan atau bakat menonjol yang memerlukan layanan belajar sesuai kebutuhannya.</span></div><div class="field"><label>Jumlah Peserta Didik <span class="req">*</span></label><input id="jumlah" class="control" required></div></div>
-          <div class="field"><label>Kompetensi Awal (poin a, b, c) <span class="req">*</span></label><textarea id="kompetensi_awal" class="control textarea" required></textarea></div>
+          <div class="field"><label>Kompetensi Awal <span class="req">*</span></label><textarea id="kompetensi_awal" class="control textarea" required></textarea></div>
           <div class="field"><span class="label">Dimensi Profil Lulusan</span><div class="checks">
             <label><input type="checkbox" name="profil" value="Keimanan dan Ketakwaan terhadap Tuhan YME" checked>Keimanan dan Ketakwaan terhadap Tuhan YME</label><label><input type="checkbox" name="profil" value="Kewargaan">Kewargaan</label><label><input type="checkbox" name="profil" value="Penalaran Kritis" checked>Penalaran Kritis</label><label><input type="checkbox" name="profil" value="Kreativitas">Kreativitas</label><label><input type="checkbox" name="profil" value="Kolaborasi" checked>Kolaborasi</label><label><input type="checkbox" name="profil" value="Kemandirian" checked>Kemandirian</label><label><input type="checkbox" name="profil" value="Kesehatan">Kesehatan</label><label><input type="checkbox" name="profil" value="Komunikasi" checked>Komunikasi</label>
           </div></div>
@@ -75,9 +75,9 @@
           <div class="field"><label>Capaian Pembelajaran (diisi guru) <span class="req">*</span></label><textarea id="cp" class="control textarea cp" required placeholder="Tempel teks Capaian Pembelajaran Bahasa Arab di sini. Kolom sengaja dikosongkan."></textarea><span class="hint">Jangan mengisi dengan ringkasan. Gunakan redaksi CP resmi sekolah/madrasah.</span></div>
 
           <div class="section-title">5. Desain Pembelajaran</div>
-          <div class="field"><label>Tujuan Pembelajaran (poin a, b, c) <span class="req">*</span></label><textarea id="tp" class="control textarea" required></textarea></div>
+          <div class="field"><label>Tujuan Pembelajaran <span class="req">*</span></label><textarea id="tp" class="control textarea" required></textarea></div>
           <div class="field"><label>Pemahaman Bermakna <span class="req">*</span></label><textarea id="pemahaman" class="control textarea" required></textarea></div>
-          <div class="field"><label>Pertanyaan Pemantik (poin a, b, c) <span class="req">*</span></label><textarea id="pemantik" class="control textarea" required></textarea></div>
+          <div class="field"><label>Pertanyaan Pemantik <span class="req">*</span></label><textarea id="pemantik" class="control textarea" required></textarea></div>
           <div class="grid2"><div class="field"><label>Lintas Disiplin Ilmu</label><input id="lintas" class="control"></div><div class="field"><label>Topik Pembelajaran <span class="req">*</span></label><input id="topik_pembelajaran" class="control" required></div></div>
           <div class="field"><label>Pendekatan Pembelajaran <span class="req">*</span></label><select id="pendekatan" class="control" required><option selected>Pembelajaran Mendalam (Deep Learning), Berdiferensiasi</option><option>Pembelajaran Mendalam (Deep Learning)</option><option>Pembelajaran Berdiferensiasi</option><option>Komunikatif (Communicative Language Teaching)</option><option>Kontekstual (Contextual Teaching and Learning/CTL)</option><option>TaRL (Teaching at the Right Level)</option><option value="Lainnya">Lainnya</option></select><input id="pendekatan_lain" class="control other-field hidden" placeholder="Tuliskan pendekatan pembelajaran lainnya"></div>
           <div class="field"><label>Model Pembelajaran <span class="req">*</span></label><select id="model" class="control" required><option selected>Problem Based Learning (PBL)</option><option>Project Based Learning (PjBL)</option><option>Cooperative Learning</option><option>Discovery Learning</option><option>Inquiry Learning</option><option>Direct Instruction</option><option>Task-Based Language Teaching</option><option value="Lainnya">Lainnya</option></select><input id="model_lain" class="control other-field hidden" placeholder="Tuliskan model pembelajaran lainnya"></div>
@@ -109,12 +109,12 @@
           <div class="field"><label>Asesmen Sumatif <span class="req">*</span></label><textarea id="sumatif" class="control textarea" required></textarea><span class="hint">Tabel wajib: Pengetahuan, Keterampilan × Teknik, Instrumen, Rubrik, Keterangan.</span></div>
 
           <div class="section-title">8. Refleksi</div>
-          <div class="field"><label>Refleksi untuk Guru (3 butir) <span class="req">*</span></label><textarea id="refleksi_guru" class="control textarea" required></textarea></div>
-          <div class="field"><label>Refleksi untuk Peserta Didik (3 butir) <span class="req">*</span></label><textarea id="refleksi_siswa" class="control textarea" required></textarea></div>
+          <div class="field"><label>Refleksi untuk Guru <span class="req">*</span></label><textarea id="refleksi_guru" class="control textarea" required></textarea></div>
+          <div class="field"><label>Refleksi untuk Peserta Didik <span class="req">*</span></label><textarea id="refleksi_siswa" class="control textarea" required></textarea></div>
 
           <div class="section-title">9. Pengayaan dan Remidial</div>
-          <div class="field"><label>Pengayaan (3 butir) <span class="req">*</span></label><textarea id="pengayaan" class="control textarea" required></textarea></div>
-          <div class="field"><label>Remidial (3 butir) <span class="req">*</span></label><textarea id="remidial" class="control textarea" required></textarea></div>
+          <div class="field"><label>Pengayaan <span class="req">*</span></label><textarea id="pengayaan" class="control textarea" required></textarea></div>
+          <div class="field"><label>Remidial <span class="req">*</span></label><textarea id="remidial" class="control textarea" required></textarea></div>
 
           <div class="section-title">10. Lampiran Pendukung</div>
           <div class="field"><div class="checks"><label><input type="checkbox" name="lampiran" value="Bahan Ajar" checked>Bahan Ajar</label><label><input type="checkbox" name="lampiran" value="Lembar Kerja Peserta Didik (LKPD)" checked>LKPD</label><label><input type="checkbox" name="lampiran" value="Rubrik Penilaian" checked>Rubrik Penilaian</label><label><input id="lampiran_lain_cb" type="checkbox" name="lampiran" value="Lainnya">Lainnya</label></div><input id="lampiran_lain" class="control other-field hidden" placeholder="Tuliskan lampiran pendukung lainnya"></div>
@@ -123,12 +123,11 @@
           <div class="field"><label>Sumber Rujukan <span class="req">*</span></label><textarea id="pustaka" class="control textarea" required></textarea></div>
 
           <div class="section-title">12. Pengesahan</div>
-          <div class="field"><label>Kota, Tanggal</label><input id="kota_tanggal" class="control"></div>
           <div class="grid2"><div class="field"><label>Nama Kepala Sekolah <span class="req">*</span></label><input id="kepala" class="control" required></div><div class="field"><label>NIP Kepala Sekolah</label><input id="nip_kepala" class="control"></div></div>
           <div class="grid2"><div class="field"><label>Nama Guru</label><input id="nama_guru" class="control" readonly aria-readonly="true" title="Terisi otomatis dari Nama Penyusun"><span class="hint">Terisi otomatis mengikuti “Nama Penyusun” pada bagian Identitas Penyusun.</span></div><div class="field"><label>NIP Guru</label><input id="nip_penyusun" class="control"></div></div>
 
           <div class="section-title">13. Format Output dari AI</div>
-          <div class="field"><label>Format Output dari AI <span class="req">*</span></label><select id="format_output" class="control"><option value="docx" selected>File Word (.docx) siap diunduh</option><option value="chat">Teks langsung di percakapan AI</option></select><span class="hint">Untuk hasil paling presisi, lampirkan juga <b>Template Modul Ajar - Acuan.docx</b> saat menempel prompt ke AI. Bagian sampul/cover diabaikan.</span></div>
+          <div class="field"><label>Format Output dari AI <span class="req">*</span></label><select id="format_output" class="control"><option value="docx" selected>File Word (.docx) siap diunduh</option><option value="chat">Teks langsung di percakapan AI</option></select><span class="hint"><b>Template Modul Ajar - Acuan.docx bersifat opsional.</b> Jika tersedia, lampirkan agar tata letak lebih presisi. Jika tidak memiliki atau lupa melampirkannya, AI tetap harus membuat Modul Ajar lengkap berdasarkan blueprint struktur yang sudah tertanam di dalam prompt.</span></div>
           <div class="field"><label>Instruksi Tambahan</label><textarea id="tambahan" class="control textarea"></textarea></div>
           <div id="formStatus" class="status"></div>
           <div class="actions"><button id="resetBtn" class="danger" type="button"><i class="fa-solid fa-rotate-left"></i> Reset</button><button id="generateBtn" class="primary" type="submit"><i class="fa-solid fa-wand-magic-sparkles"></i> Hasilkan Prompt</button></div>
@@ -136,7 +135,7 @@
       </section>
 
       <section class="output-col"><div class="card output-card"><div class="cardhead"><h3><i class="fa-solid fa-terminal" style="color:#059669"></i> AI Prompt Ready</h3><div class="output-actions"><button id="copyBtn" class="smallbtn" type="button"><i class="fa-solid fa-copy"></i> Salin</button><button id="downloadBtn" class="secondary" type="button"><i class="fa-solid fa-download"></i> Unduh .txt</button></div></div><pre id="output" class="output selectable">Isi formulir di sebelah kiri. Kolom CP sengaja kosong dan wajib diisi guru. Setelah itu klik “Hasilkan Prompt”.</pre></div>
-        <div class="usage"><b>Cara menggunakan:</b> salin prompt, lampirkan <i>Template Modul Ajar - Acuan.docx</i> dan materi ajar pada ChatGPT/Gemini/Claude, lalu kirim. Acuan dimulai dari Identitas Penyusun; sampul diabaikan. Pilihan default meminta AI mengembalikan file Word (.docx) siap diunduh—bukan hanya teks.</div>
+        <div class="usage"><b>Cara menggunakan:</b> salin prompt lalu kirim ke ChatGPT/Gemini/Claude. Jika tersedia, Anda dapat melampirkan <i>Template Modul Ajar - Acuan.docx</i> dan materi ajar untuk hasil yang lebih presisi. <b>Template tidak wajib</b>; tanpa template pun AI tetap diperintahkan membuat Modul Ajar lengkap berdasarkan blueprint yang tertanam di prompt. Pilihan default meminta AI mengembalikan file Word (.docx) siap diunduh—bukan hanya teks.</div>
       </section>
     </main>
   </div>`;
@@ -154,7 +153,7 @@
   var example = {
     pendekatan:'Pembelajaran Mendalam (Deep Learning), Berdiferensiasi', pendekatan_lain:'', model:'Problem Based Learning (PBL)', model_lain:'', metode_lain:'', lampiran_lain:'',
     nama_penyusun:'Ahmad Fauzi, S.Pd.', guru_kelas:'Guru Bahasa Arab Kelas VII', institusi:'MTs Edumind Bekasi', tahun_ajaran:'2026/2027', alokasi:'2 JP (2 × 40 menit)', jenjang:'SMP/MTs', bab_ke:'BAB 1', semester:'I (Ganjil)', lingkup:'التَّعَارُفُ / Perkenalan', target:'Peserta Didik Reguler/Tipikal', jumlah:'30 peserta didik',
-    kompetensi_awal:'a. Peserta didik mengenali huruf dan harakat Arab.\nb. Peserta didik mampu melafalkan kosakata sederhana.\nc. Peserta didik pernah menggunakan ungkapan salam sederhana.',
+    kompetensi_awal:'Peserta didik mengenali huruf dan harakat Arab, mampu melafalkan kosakata sederhana, dan pernah menggunakan ungkapan salam sederhana.',
     media_sumber:'Buku teks Bahasa Arab yang digunakan sekolah; kartu kosakata; audio pelafalan; papan tulis dan spidol; proyektor; LKPD; kamus Arab–Indonesia.',
     tautan_bahan:'', tautan_video:'',
     metode:['Ceramah Interaktif','Tanya Jawab','Diskusi','Membaca & Menelaah','Demonstrasi & Praktik'],
@@ -169,9 +168,9 @@
     durasi_awal:'10 menit', durasi_inti:'60 menit', kegiatan_awal:'Orientasi: salam, doa, pemeriksaan kesiapan, dan kesepakatan belajar. Apersepsi: menghubungkan pengalaman berkenalan. Motivasi: menjelaskan manfaat mampu memperkenalkan diri dalam Bahasa Arab.',
     kegiatan_inti:'Gunakan tahapan Cooperative Learning: pemodelan ungkapan, latihan terbimbing, kerja pasangan, pertukaran peran, presentasi dialog, umpan balik pelafalan, dan perbaikan.', penutup:'Simpulan bersama, refleksi singkat, umpan balik, tindak lanjut latihan, doa, dan salam.',
     formatif:'Sikap: observasi kesantunan dan kerja sama. Pengetahuan: kuis makna kosakata. Keterampilan: unjuk kerja dialog dengan rubrik pelafalan, ketepatan ungkapan, kelancaran, dan kepercayaan diri.', sumatif:'Pengetahuan: tes pemahaman kosakata/ungkapan. Keterampilan: dialog perkenalan berpasangan menggunakan rubrik analitik.',
-    refleksi_guru:'1. Apakah pemodelan membantu peserta didik memahami ungkapan?\n2. Bagian pelafalan mana yang masih memerlukan penguatan?\n3. Tindak lanjut apa yang diperlukan pada pertemuan berikutnya?', refleksi_siswa:'1. Ungkapan apa yang sudah saya kuasai?\n2. Bagian mana yang masih sulit saya lafalkan?\n3. Bagaimana saya akan berlatih lagi?',
-    pengayaan:'1. Menambah informasi identitas dalam dialog.\n2. Membuat rekaman dialog kreatif.\n3. Menjadi mitra latihan bagi teman.', remidial:'1. Mengulang kosakata dengan kartu gambar.\n2. Menirukan audio secara bertahap.\n3. Melakukan dialog berpola dengan pendampingan guru.',
-    pustaka:'Buku teks Bahasa Arab yang digunakan satuan pendidikan; kamus Arab–Indonesia; materi/audio guru. Lengkapi identitas bibliografi sesuai sumber nyata yang dipakai.', kota_tanggal:'Bekasi, 29 Agustus 2026', kepala:'Kepala Sekolah, S.Pd.', nip_kepala:'', nip_penyusun:'', format_output:'docx', tambahan:'Gunakan Bahasa Indonesia baku untuk penjelasan. Teks Arab harus Unicode, benar arah kanan-ke-kiri (RTL), dan diberi harakat hanya saat diperlukan untuk tujuan pembelajaran.'
+    refleksi_guru:'Apakah pemodelan membantu peserta didik memahami ungkapan? Bagian mana yang masih memerlukan penguatan? Tindak lanjut apa yang paling relevan?', refleksi_siswa:'Ungkapan apa yang sudah saya kuasai? Bagian mana yang masih sulit saya lafalkan? Bagaimana saya akan berlatih lagi?',
+    pengayaan:'Menambah informasi identitas dalam dialog, membuat rekaman dialog kreatif, atau menjadi mitra latihan bagi teman sesuai kebutuhan.', remidial:'Mengulang kosakata dengan kartu gambar, menirukan audio secara bertahap, dan melakukan dialog berpola dengan pendampingan guru sesuai kebutuhan.',
+    pustaka:'Buku teks Bahasa Arab yang digunakan satuan pendidikan; kamus Arab–Indonesia; materi/audio guru. Lengkapi identitas bibliografi sesuai sumber nyata yang dipakai.', kepala:'Kepala Sekolah, S.Pd.', nip_kepala:'', nip_penyusun:'', format_output:'docx', tambahan:'Gunakan Bahasa Indonesia baku untuk penjelasan. Teks Arab harus Unicode, benar arah kanan-ke-kiri (RTL), dan diberi harakat hanya saat diperlukan untuk tujuan pembelajaran.'
   };
 
   function setOptions(preferred) {
@@ -185,21 +184,20 @@
     if (cls && (!$('guru_kelas').value || /^Guru Bahasa Arab Kelas/.test($('guru_kelas').value))) $('guru_kelas').value = 'Guru Bahasa Arab Kelas ' + cls;
     syncTeacherName();
   }
+  function getPhaseLabel() {
+    var match = value('fase_kelas').match(/Fase\s+([A-F])/i);
+    return match ? 'Fase ' + match[1].toUpperCase() : value('fase_kelas');
+  }
+  function ubahBab(delta) {
+    var input = $('bab_ke');
+    var match = (input.value || '').match(/\d+/);
+    var number = match ? parseInt(match[0], 10) : 1;
+    number = Math.max(1, number + delta);
+    input.value = 'BAB ' + number;
+    save();
+  }
   function syncTeacherName() {
     if ($('nama_guru')) $('nama_guru').value = value('nama_penyusun');
-  }
-  function normalizeBab() {
-    if (!$('bab_ke')) return;
-    var match = String($('bab_ke').value || '').match(/\d+/);
-    var n = match ? Math.max(1, parseInt(match[0], 10) || 1) : 1;
-    $('bab_ke').value = 'BAB ' + n;
-  }
-  function changeBab(delta) {
-    var match = String($('bab_ke').value || '').match(/\d+/);
-    var n = match ? parseInt(match[0], 10) || 1 : 1;
-    n = Math.max(1, n + delta);
-    $('bab_ke').value = 'BAB ' + n;
-    save();
   }
   function toggleOtherSelect(selectId, inputId) {
     var show = value(selectId) === 'Lainnya';
@@ -248,7 +246,6 @@
     ['profil','lampiran','metode','kemitraan'].forEach(function(name){ if (data[name]) setCheckedGroup(name, data[name]); });
     if (keepCPEmpty) { $('elemen_cp').value = ''; $('cp').value = ''; }
     updateDerived();
-    normalizeBab();
     configureAutomaticFields();
     refreshConditionalFields();
   }
@@ -262,7 +259,7 @@
     return data;
   }
   function save() { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(currentData())); } catch (e) {} }
-  function restore() { try { var raw = localStorage.getItem(STORAGE_KEY); if (!raw) return false; var data = JSON.parse(raw); if (!data.bab_ke) data.bab_ke = 'BAB 1'; if (!data.semester) { var m = String(data.lingkup || '').match(/\s*\/\s*Semester\s*(II|I)\b/i); if (m) { data.semester = m[1].toUpperCase() === 'II' ? 'II (Genap)' : 'I (Ganjil)'; data.lingkup = String(data.lingkup || '').replace(m[0], '').trim(); } else data.semester = 'I (Ganjil)'; } setValues(data, false); return true; } catch(e){ return false; } }
+  function restore() { try { var raw = localStorage.getItem(STORAGE_KEY); if (!raw) return false; var data = JSON.parse(raw); setValues(data, false); return true; } catch(e){ return false; } }
   function validateForm() {
     document.querySelectorAll('.invalid').forEach(function (el) { el.classList.remove('invalid'); });
     var missing = [];
@@ -274,9 +271,12 @@
   function generatePrompt() {
     if (!validateForm()) return;
     var profiles = selected('profil');
-    var attachments = selectedWithOther('lampiran','lampiran_lain');
     var methods = selectedWithOther('metode','metode_lain');
     var partnerships = selected('kemitraan');
+    var attachments = selectedWithOther('lampiran','lampiran_lain');
+    var approach = effectiveChoice('pendekatan','pendekatan_lain');
+    var model = effectiveChoice('model','model_lain');
+    var phase = getPhaseLabel();
     var outputInstruction = $('format_output').value === 'docx'
       ? 'KELUARAN UTAMA WAJIB: buat dan lampirkan file Microsoft Word (.docx) yang utuh, siap diunduh dan dapat diedit. Berikan tautan/tombol unduh file. Jangan mengganti keluaran utama dengan teks panjang di percakapan.'
       : 'KELUARAN: tampilkan isi modul lengkap langsung di percakapan dengan struktur template yang sama.';
@@ -286,97 +286,102 @@
       'Bertindaklah sebagai ahli desain instruksional, ahli Kurikulum Merdeka/Pembelajaran Mendalam, guru Bahasa Arab, dan editor dokumen Microsoft Word profesional.',
       '',
       'TUGAS UTAMA',
-      'Buat Modul Ajar Bahasa Arab berdasarkan data di bawah. Gunakan file “Template Modul Ajar - Acuan.docx” yang saya lampirkan sebagai OTORITAS TATA LETAK, tetapi ABAIKAN SELURUH BAGIAN SAMPUL/COVER pada halaman pertama template. Dokumen hasil harus langsung dimulai dari judul “MODUL AJAR” dan bagian “Identitas Penyusun” yang terdapat pada halaman 2 template. Buat salinan kerja—jangan mengubah file template asli—lalu isi seluruh slot tanpa mengubah urutan bagian, penomoran, bullet/checkmark, tabel, warna, margin, atau blok tanda tangan.',
+      'Buat Modul Ajar Bahasa Arab berdasarkan data di bawah. File “Template Modul Ajar - Acuan.docx” bersifat OPSIONAL: jika file tersebut terlampir, gunakan sebagai acuan utama struktur dan tata letak; jika tidak terlampir, tetap lanjutkan pekerjaan tanpa meminta pengguna mengunggahnya dan rekonstruksi dokumen berdasarkan BLUEPRINT TEMPLATE FINAL serta ATURAN FIDELITAS WORD yang tertanam di prompt ini. Dokumen harus dimulai langsung dari judul “MODUL AJAR”; jangan membuat atau menambahkan sampul/cover.',
+      'Jika template terlampir, gunakan template sebagai kerangka struktur, bukan sebagai batas jumlah isi. Jika template tidak terlampir, gunakan blueprint di prompt ini sebagai kerangka pengganti dengan struktur yang sama. Placeholder seperti [Isi kegiatan], [Isi TP], [Isi Refleksi], dan sejenisnya hanya menunjukkan lokasi isi. Jumlah langkah, butir, pertanyaan, atau kegiatan di dalam placeholder harus ditentukan secara proporsional berdasarkan kebutuhan pembelajaran, CP, TP, karakteristik peserta didik, materi, model, dan alokasi waktu.',
       outputInstruction,
       '',
       'DATA PENGGUNA — IKUTI APA ADANYA',
       'IDENTITAS PENYUSUN',
       '- Nama Penyusun: ' + value('nama_penyusun'),
-      '- Guru Kelas/Guru Mapel: ' + value('guru_kelas'),
+      '- Guru Kelas / Mata Pelajaran: ' + value('guru_kelas'),
       '- Institusi: ' + value('institusi'),
       '',
       'INFORMASI UMUM',
       '- Mata Pelajaran: Bahasa Arab',
       '- Tahun Ajaran: ' + value('tahun_ajaran'),
       '- Jenjang/Kelas: ' + value('jenjang') + ' / ' + value('fase_kelas'),
-      '- Fase/Elemen: ' + value('fase_kelas') + ' / ' + value('elemen_cp'),
-      '- BAB Ke-: ' + value('bab_ke'),
+      '- Fase: ' + phase,
+      '- Bab Ke-: ' + value('bab_ke'),
       '- Lingkup Materi: ' + value('lingkup'),
       '- Semester: ' + value('semester'),
       '- Alokasi Waktu: ' + value('alokasi'),
       '',
       'IDENTIFIKASI',
-      '- Target Peserta Didik: ' + value('target'),
-      '- Jumlah Peserta Didik: ' + value('jumlah'),
-      '- Kompetensi Awal (pertahankan a, b, c):\n' + value('kompetensi_awal'),
+      '- Karakteristik Peserta Didik — Target: ' + value('target'),
+      '- Karakteristik Peserta Didik — Jumlah: ' + value('jumlah'),
+      '- Kompetensi Awal:\n' + value('kompetensi_awal'),
       '- Dimensi Profil Lulusan yang dicentang: ' + (profiles.length ? profiles.join('; ') : '[Tidak ada yang dipilih]'),
-      '- Sarana dan Prasarana / Media & Sumber Belajar: ' + value('media_sumber'),
+      '- Sarana dan Prasarana / Media dan Sumber Belajar:\n' + value('media_sumber'),
       '',
       'KOMPONEN INTI — TEKS CP TIDAK BOLEH DIUBAH',
+      '- Fase: ' + phase,
       '- Elemen/Ruang Lingkup CP:\n' + value('elemen_cp'),
       '- Capaian Pembelajaran resmi yang diisi guru:\n' + value('cp'),
-      'Kutip CP secara verbatim. Jangan meringkas, memparafrasekan, menambah, mengurangi, atau mengarang CP Bahasa Arab.',
+      'Kutip CP secara verbatim. Jangan meringkas, memarafrasekan, menambah, mengurangi, atau mengarang CP Bahasa Arab.',
       '',
       'DESAIN PEMBELAJARAN',
+      'Pertahankan nomor struktur 1–9 persis seperti template. Nomor tersebut adalah nomor BAGIAN, bukan ketentuan jumlah butir isi.',
       '1. Capaian Pembelajaran: gunakan CP verbatim di atas.',
-      '2. Tujuan Pembelajaran: susun otomatis tepat 3 butir a, b, c yang spesifik, terukur, selaras dengan CP verbatim, dan realistis untuk alokasi waktu. Konteks: ' + contextSummary,
-      '3. Pemahaman Bermakna: susun otomatis 1 paragraf ringkas yang menjelaskan manfaat materi bagi komunikasi dan kehidupan peserta didik. Konteks: ' + contextSummary,
-      '4. Pertanyaan Pemantik: susun otomatis tepat 3 pertanyaan a, b, c yang sesuai usia, memancing rasa ingin tahu, dan mengarah pada TP. Konteks: ' + contextSummary,
-      '5. Lintas Disiplin Ilmu: tentukan otomatis keterkaitan yang benar-benar relevan; jangan memaksakan lebih dari 1–2 disiplin.',
-      '6. Topik Pembelajaran: rumuskan otomatis secara ringkas dari BAB, semester, lingkup materi, CP, dan TP.',
-      '7. Praktik Pedagogis — Pendekatan: ' + effectiveChoice('pendekatan','pendekatan_lain') + '; Metode: ' + (methods.length ? methods.join(', ') : '[Belum dipilih]') + '; Model: ' + effectiveChoice('model','model_lain'),
+      '2. Tujuan Pembelajaran: susun sejumlah TP yang benar-benar diperlukan; spesifik, terukur, selaras dengan CP, lingkup materi, fase/kelas, dan realistis untuk alokasi waktu. Jangan memaksakan jumlah tertentu hanya karena contoh/template.',
+      '3. Pemahaman Bermakna: susun ringkas, relevan, dan menjelaskan manfaat materi bagi komunikasi serta kehidupan peserta didik.',
+      '4. Pertanyaan Pemantik: susun sejumlah pertanyaan yang diperlukan untuk memancing rasa ingin tahu dan mengarah pada TP; jumlahnya fleksibel dan sesuai usia.',
+      '5. Lintas Disiplin Ilmu: tentukan hanya bila benar-benar relevan; tidak perlu memaksakan keterkaitan.',
+      '6. Topik Pembelajaran: rumuskan otomatis secara ringkas dari lingkup materi, CP, dan TP.',
+      '7. Praktik Pedagogis — Pendekatan: ' + approach + '; Metode: ' + (methods.length ? methods.join(', ') : '[Belum dipilih]') + '; Model: ' + model,
       '8. Kemitraan Pembelajaran: ' + (partnerships.length ? partnerships.join('; ') : 'Tidak ada kemitraan khusus yang dipilih.'),
       '9. Pemanfaatan Digital (TPACK):' + (value('tautan_bahan') || value('tautan_video') ? '' : ' gunakan media digital hanya bila relevan dan tersedia; jangan mengarang tautan.') +
         (value('tautan_bahan') ? '\n- Bahan ajar digital: ' + value('tautan_bahan') : '') +
         (value('tautan_video') ? '\n- Video pembelajaran: ' + value('tautan_video') : ''),
       '',
-      'PENGALAMAN BELAJAR',
-      '- Kegiatan Awal (' + value('durasi_awal') + '): susun otomatis Orientasi nomor 1–3, Apersepsi 4–6, dan Motivasi 7–9 yang operasional berdasarkan ' + contextSummary,
-      '- Kegiatan Inti ' + effectiveChoice('model','model_lain') + ' (' + value('durasi_inti') + '): susun otomatis langkah konkret sesuai sintaks resmi model, metode, CP, dan TP; urutan nomor harus berlanjut seperti template serta mencakup latihan reseptif/produktif Bahasa Arab yang relevan.',
-      '- Penutup: susun otomatis tepat 5 langkah bernomor yang mencakup simpulan, refleksi, umpan balik, tindak lanjut, doa/salam secara proporsional.',
+      'PENGALAMAN BELAJAR — JUMLAH LANGKAH FLEKSIBEL',
+      '- Kegiatan Awal (' + value('durasi_awal') + '): isi tiga subbagian template, yaitu Orientasi, Apersepsi, dan Motivasi. Untuk masing-masing subbagian, tentukan jumlah aktivitas secukupnya agar operasional dan tidak berulang. Tidak ada kewajiban 3 langkah per subbagian.',
+      '- Kegiatan Inti ' + model + ' (' + value('durasi_inti') + '): gunakan tahapan/sintaks yang tepat untuk model yang dipilih. Jumlah aktivitas di dalam setiap tahap fleksibel sesuai CP, TP, metode, materi, karakteristik peserta didik, dan waktu. Jangan memaksakan jumlah langkah tertentu dan jangan memakai sintaks model lain.',
+      '- Penutup: susun kegiatan penutup secara proporsional yang dapat mencakup simpulan, refleksi, umpan balik, tindak lanjut, doa/salam sesuai konteks. Jumlah langkah fleksibel.',
+      '- PENOMORAN: jangan menggandakan nomor. Jika template Word menggunakan automatic numbering, jangan mengetik nomor manual di awal kalimat. Untuk isi dinamis, utamakan bullet atau paragraf terstruktur bila penomoran tidak diperlukan.',
       '',
       'ASESMEN',
-      '- Asesmen Formatif: susun otomatis isi tabel untuk Sikap, Pengetahuan, dan Keterampilan dengan kolom Teknik, Instrumen, Rubrik, Keterangan; selaraskan dengan CP/TP dan kegiatan.',
-      '- Asesmen Sumatif: susun otomatis isi tabel untuk Pengetahuan dan Keterampilan dengan kolom Teknik, Instrumen, Rubrik, Keterangan; gunakan tugas yang autentik dan dapat dilaksanakan.',
+      '- Asesmen Formatif: isi tabel tetap untuk Sikap, Pengetahuan, dan Keterampilan dengan kolom Teknik, Instrumen, Rubrik, Keterangan; selaraskan dengan CP/TP dan kegiatan.',
+      '- Asesmen Sumatif: isi tabel tetap untuk Pengetahuan dan Keterampilan dengan kolom Teknik, Instrumen, Rubrik, Keterangan; gunakan tugas autentik dan dapat dilaksanakan.',
       '',
       'REFLEKSI',
-      '- Refleksi untuk Guru: susun otomatis tepat 3 pertanyaan bernomor yang menilai ketercapaian TP, efektivitas strategi, dan tindak lanjut.',
-      '- Refleksi Untuk Peserta Didik: susun otomatis tepat 3 pertanyaan bernomor, sederhana, sesuai usia, dan terkait pengalaman belajar.',
+      '- Refleksi untuk Guru: susun pertanyaan/refleksi secukupnya untuk menilai ketercapaian TP, efektivitas strategi, kendala, dan tindak lanjut. Jumlah butir fleksibel.',
+      '- Refleksi untuk Peserta Didik: susun pertanyaan/refleksi secukupnya, sederhana, sesuai usia, dan terkait pengalaman belajar. Jumlah butir fleksibel.',
       '',
       'PENGAYAAN DAN REMIDIAL',
-      '- Pengayaan: susun otomatis tepat 3 kegiatan bertingkat bagi peserta didik yang telah mencapai TP.',
-      '- Remidial: susun otomatis tepat 3 kegiatan bertahap bagi peserta didik yang belum mencapai TP; gunakan pemodelan ulang, latihan terbimbing, dan umpan balik.',
+      '- Pengayaan: susun kegiatan secukupnya bagi peserta didik yang telah mencapai TP; jumlah kegiatan fleksibel dan harus relevan.',
+      '- Remidial: susun kegiatan bertahap secukupnya bagi peserta didik yang belum mencapai TP; gunakan pemodelan ulang, latihan terbimbing, dan umpan balik bila relevan. Jumlah kegiatan fleksibel.',
       '',
-      'LAMPIRAN: ' + (attachments.length ? attachments.join('; ') : 'Bahan Ajar; Lembar Kerja Peserta Didik (LKPD); Rubrik Penilaian'),
+      'LAMPIRAN: ' + (attachments.length ? attachments.join('; ') : '[Tidak ada lampiran yang dipilih]'),
       'DAFTAR PUSTAKA:\n' + value('pustaka'),
-      'PENGESAHAN: ' + escLine(value('kota_tanggal')) + '; Kepala: ' + value('kepala') + (value('nip_kepala') ? ' — NIP. ' + value('nip_kepala') : ' — NIP. [kosong]') + '; Guru: ' + value('nama_guru') + (value('nip_penyusun') ? ' — NIP. ' + value('nip_penyusun') : ' — NIP. [kosong]'),
+      'PENGESAHAN: Kepala Sekolah: ' + value('kepala') + (value('nip_kepala') ? ' — NIP. ' + value('nip_kepala') : ' — NIP. [kosong]') + '; Guru: ' + value('nama_guru') + (value('nip_penyusun') ? ' — NIP. ' + value('nip_penyusun') : ' — NIP. [kosong]'),
       '',
-      'BLUEPRINT STRUKTUR TEMPLATE — WAJIB PERSIS, MULAI DARI HALAMAN 2 TEMPLATE',
-      'BAGIAN SAMPUL/COVER PADA HALAMAN 1 TEMPLATE BUKAN BAGIAN STRUKTUR OUTPUT. Jangan menyalin, membuat ulang, atau menyisipkan sampul. Jangan menampilkan Pendekatan Pembelajaran, Bab, Judul Bab, atau Topik sebagai halaman pembuka.',
-      'AWAL DOKUMEN (mengacu halaman 2 template) — judul “MODUL AJAR”; bar “Identitas Penyusun” berisi Nama Penyusun, Guru Kelas, Institusi; bar “Informasi Umum” berisi Mata Pelajaran, Tahun Ajaran, Jenjang/Kelas, Fase/Elemen, Lingkup Materi/Semester, Alokasi Waktu. Data input BAB Ke-, Lingkup Materi, dan Semester dipisahkan di PG agar jelas. Karena template Word saat ini hanya memiliki slot “Lingkup Materi/Semester” dan belum memiliki slot BAB khusus, JANGAN menambah baris baru: isi slot tersebut dengan format “' + value('bab_ke') + ' — ' + value('lingkup') + ' / Semester ' + value('semester') + '”. Bar “Identifikasi” berisi: 1. Karakteristik Peserta Didik (a. Target, b. Jumlah), 2. Kompetensi Awal (a–c), 3. Dimensi Profil Lulusan dengan delapan kotak centang resmi, 4. Sarana dan Prasarana (susun dari kolom Media & Sumber Belajar/Sarana Prasarana; gunakan butir a–d bila sesuai).',
-      'BAGIAN BERIKUTNYA (mengacu halaman 3 template) — bar “Komponen Inti”; kalimat Fase; kalimat Fase Berdasarkan Elemen; tabel dua kolom “Elemen | Capaian Pembelajaran”. Buat satu baris per elemen yang diberikan guru. Lanjut bar “Desain Pembelajaran” dengan sembilan nomor persis: 1 CP; 2 TP (a–c); 3 Pemahaman Bermakna; 4 Pertanyaan Pemantik (a–c); 5 Lintas Disiplin Ilmu; 6 Topik Pembelajaran; 7 Praktik Pedagogis (✓ Pendekatan, ✓ Metode, ✓ Model); 8 Kemitraan Pembelajaran (checkmark); 9 Pemanfaatan Digital/TPACK (checkmark). Pendekatan Pembelajaran hanya muncul di poin 7 Praktik Pedagogis, bukan pada awal dokumen.',
-      'BAGIAN PENGALAMAN BELAJAR (mengacu halaman 4 template) — bar “Pengalaman Belajar”. Kegiatan Awal diberi strip sorot kuning dan terdiri atas Orientasi nomor 1–3, Apersepsi 4–6, Motivasi 7–9. Kegiatan Inti diberi strip sorot kuning, tulis nama model dan durasi; gunakan subjudul sintaks model terpilih dan nomor langkah berlanjut secara urut. Untuk model berbeda dari contoh template, gunakan sintaks resmi model yang dipilih tanpa memaksakan judul tahap PBL.',
-      'BAGIAN ASESMEN DAN REFLEKSI (mengacu halaman 5 template) — Penutup diberi strip sorot kuning, nomor 1–5. Bar “Asesmen”: tabel Formatif berkepala “Penilaian | Teknik | Instrumen | Rubrik | Keterangan” dengan baris Sikap, Pengetahuan, Keterampilan; tabel Sumatif dengan kepala sama dan baris Pengetahuan, Keterampilan. Bar “Refleksi”: Refleksi untuk Guru nomor 1–3; Refleksi Untuk Peserta Didik nomor 1–3.',
-      'BAGIAN AKHIR (mengacu halaman 6 template) — bar “Pengayaan dan Remidial”: Pengayaan nomor 1–3 dan Remidial nomor 1–3; pertahankan ejaan “Remidial” sebagaimana template. Bar “Lampiran”: “Lampiran dalam Modul Ajar:” lalu cantumkan seluruh lampiran yang dipilih pengguna; bila pengguna memilih Lainnya, tambahkan nama lampiran yang diisikan pengguna. Bar “Daftar Pustaka”. Teks “Menyetujui,” dan blok tanda tangan dua kolom yang seimbang: kiri Nama Kepala Sekolah + NIP Kepala Sekolah; kanan Nama Guru + NIP Guru.',
+      'BLUEPRINT TEMPLATE FINAL — IKUTI URUTAN DAN STRUKTURNYA',
+      'HALAMAN/BAGIAN 1 — judul “MODUL AJAR”; “Identitas Penyusun” berisi Nama Penyusun, Guru Kelas/Mata Pelajaran, Institusi; “Informasi Umum” berisi Mata Pelajaran, Tahun Ajaran, Jenjang/Kelas, Fase, Bab Ke-, Lingkup Materi, Semester, Alokasi Waktu; “Identifikasi” berisi 1. Karakteristik Peserta Didik (a. Target, b. Jumlah), 2. Kompetensi Awal, 3. Dimensi Profil Lulusan dengan delapan kotak centang, 4. Sarana dan Prasarana.',
+      'HALAMAN/BAGIAN 2 — “Komponen Inti”; tampilkan Fase, Fase Berdasarkan Elemen, lalu tabel dua kolom “Elemen/Ruang Lingkup | Capaian Pembelajaran” dan buat baris sesuai data elemen yang benar-benar diberikan. Lanjut “Desain Pembelajaran” dengan nomor struktur persis: 1 CP; 2 TP; 3 Pemahaman Bermakna; 4 Pertanyaan Pemantik; 5 Lintas Disiplin Ilmu; 6 Topik Pembelajaran; 7 Praktik Pedagogis (✓ Pendekatan, ✓ Metode, ✓ Model); 8 Kemitraan Pembelajaran; 9 Pemanfaatan Digital (TPACK). Jangan memaksakan jumlah butir tertentu di dalam TP atau Pertanyaan Pemantik.',
+      'HALAMAN/BAGIAN 3 — “Pengalaman Belajar”: Kegiatan Awal (Orientasi, Apersepsi, Motivasi), Kegiatan Inti [Model Pembelajaran] dengan tahapan/sintaks model, lalu Penutup. Placeholder [Isi kegiatan] dan [Tahapan/sintaks model pembelajaran] bersifat fleksibel; AI menentukan jumlah isi sesuai kebutuhan. Lanjut “Asesmen” dengan tabel Formatif dan Sumatif sebagaimana template; lalu “Refleksi” untuk Guru dan Peserta Didik dengan jumlah butir fleksibel.',
+      'HALAMAN/BAGIAN 4 — “Pengayaan dan Remidial” dengan jumlah kegiatan fleksibel; “Lampiran” berisi seluruh lampiran yang dipilih pengguna; “Daftar Pustaka”; lalu “Menyetujui,” dan blok tanda tangan dua kolom: Kepala [Nama Sekolah] + [Nama Kepala Sekolah] + NIP, serta Guru [Mata Pelajaran/Kelas] + [Nama Guru] + NIP.',
       '',
       'ATURAN FIDELITAS WORD',
-      '1. A4 potret; margin kiri/kanan ±2,0 cm dan atas/bawah ±1,7 cm. Karena sampul diabaikan, target awal sekitar lima halaman isi (mengacu halaman 2–6 template). Jika isi riil memerlukan halaman tambahan, lanjutkan secara wajar—jangan mengecilkan teks hingga sulit dibaca.',
-      '2. Pertahankan bar judul abu-abu gelap dengan teks putih tebal, sel isi abu-abu muda, garis tabel tipis hitam, serta strip sorot kuning pada tahap kegiatan.',
-      '3. Jangan menambah, menghapus, menggabungkan, atau menukar urutan bagian. Pertahankan reset/kelanjutan nomor persis sesuai blueprint.',
-      '4. Bahasa Indonesia harus baku dan operasional. Teks Bahasa Arab wajib Unicode, benar secara tata bahasa/kosakata, dan memakai arah kanan-ke-kiri (RTL) hanya pada teks/sel Arab. Label Indonesia tetap kiri-ke-kanan. Gunakan font Arab yang tersedia dan terbaca (mis. Traditional Arabic/Amiri/Noto Naskh Arabic) tanpa merusak tata letak template.',
-      '5. Jangan mengarang ayat, hadis, sumber, data sekolah, NIP, tautan, atau CP. Tautan bahan ajar/video hanya boleh digunakan jika diberikan pengguna. Bila data tidak tersedia, gunakan penanda [Belum diisi] secara terbatas dan jangan membuat fakta baru.',
-      '6. Isi setiap lampiran terpilih secara nyata dan siap pakai, bukan hanya mencantumkan judulnya. Rubrik harus konsisten dengan asesmen.',
-      '7. Lakukan pemeriksaan akhir: semua bagian ada, CP verbatim, tabel tidak pecah secara buruk, tidak ada teks terpotong/bertumpuk, nomor dan bullet benar, serta dokumen dapat dibuka di Microsoft Word.',
+      '1. Jika file template final terlampir, gunakan ukuran, margin, tabel, bar judul, tipografi, warna, highlight, jarak, dan struktur dokumennya sebagai acuan utama. Jika template tidak terlampir, rekonstruksi tampilan berdasarkan blueprint ini: A4 potret, struktur empat bagian/halaman utama yang sama, bar judul biru navy gelap dengan teks putih, sorot kuning pada bagian yang ditandai, tabel CP dan asesmen sebagaimana dijelaskan, serta tata letak yang rapi dan profesional. Jangan menghentikan pekerjaan hanya karena template tidak tersedia.',
+      '2. Pertahankan bar judul biru navy gelap dengan teks putih serta sorot kuning pada bagian yang memang disorot dalam template. Pertahankan tabel asesmen dan tabel CP dengan struktur kolom yang sama.',
+      '3. Template menentukan STRUKTUR, bukan JUMLAH ISI. Dilarang menyimpulkan bahwa banyaknya placeholder, titik-titik, atau contoh baris berarti jumlah langkah/butir wajib.',
+      '4. Nomor struktur yang sudah tercetak pada template (misalnya Identifikasi 1–4 dan Desain Pembelajaran 1–9) harus dipertahankan. Untuk konten di dalam placeholder, gunakan jumlah butir fleksibel dan hindari penomoran ganda.',
+      '5. Jika isi riil memerlukan halaman tambahan, lanjutkan secara wajar. Jangan mengecilkan teks, merapatkan spasi secara ekstrem, atau menghapus isi penting hanya agar tetap empat halaman.',
+      '6. Bahasa Indonesia harus baku dan operasional. Teks Bahasa Arab wajib Unicode, benar secara tata bahasa/kosakata, dan memakai arah kanan-ke-kiri (RTL) hanya pada teks/sel Arab. Label Indonesia tetap kiri-ke-kanan.',
+      '7. Jangan mengarang ayat, hadis, sumber, data sekolah, NIP, tautan, atau CP. Tautan bahan ajar/video hanya boleh digunakan jika diberikan pengguna. Bila data tidak tersedia, gunakan penanda [Belum diisi] secara terbatas dan jangan membuat fakta baru.',
+      '8. Jika lampiran dipilih, isi lampiran tersebut secara nyata dan siap pakai bila format keluaran memungkinkan; jangan hanya menuliskan judul tanpa isi. Rubrik harus konsisten dengan asesmen.',
+      '9. Lakukan pemeriksaan akhir: semua bagian template ada dan urut, CP verbatim, jumlah isi tidak dipaksakan, tidak ada nomor ganda seperti “1. 1.”, tabel tidak pecah secara buruk, tidak ada teks terpotong/bertumpuk, dan dokumen dapat dibuka di Microsoft Word.',
       '',
-      value('tambahan') ? 'INSTRUKSI TAMBAHAN PENGGUNA (PRIORITAS TERTINGGI SELAMA TIDAK MENGUBAH STRUKTUR TEMPLATE):\n' + value('tambahan') : '',
+      value('tambahan') ? 'INSTRUKSI TAMBAHAN PENGGUNA (PRIORITAS TERTINGGI SELAMA TIDAK MENGUBAH STRUKTUR TEMPLATE FINAL):\n' + value('tambahan') : '',
       '',
-      'Mulai bekerja sekarang. Jangan meminta konfirmasi ulang kecuali file Template Modul Ajar - Acuan.docx belum terlampir dan tata letak tidak dapat direkonstruksi dari blueprint ini.'
+      'Mulai bekerja sekarang. Jangan meminta konfirmasi ulang. Ketiadaan file Template Modul Ajar - Acuan.docx bukan alasan untuk berhenti, menunda, atau meminta unggahan ulang; jika template tidak tersedia, langsung buat Modul Ajar berdasarkan BLUEPRINT TEMPLATE FINAL dan ATURAN FIDELITAS WORD di prompt ini.'
     ];
     $('output').textContent = lines.filter(function(x,i,a){ return !(x==='' && a[i-1]===''); }).join('\n');
     $('formStatus').textContent = 'Prompt berhasil dibuat. Salin atau unduh sebagai .txt.';
     save();
     if (window.innerWidth < 981) $('output').scrollIntoView({behavior:'smooth',block:'start'});
   }
+
   function copyOutput() {
     var text = $('output').textContent;
     if (!text || text.indexOf('PERAN') !== 0) { $('formStatus').textContent = 'Hasilkan prompt terlebih dahulu.'; return; }
@@ -387,7 +392,7 @@
   function downloadOutput() {
     var text = $('output').textContent;
     if (!text || text.indexOf('PERAN') !== 0) { $('formStatus').textContent = 'Hasilkan prompt terlebih dahulu.'; return; }
-    var blob = new Blob(['\ufeff'+text],{type:'text/plain;charset=utf-8'}); var a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='prompt-modul-ajar-bahasa-arab-290826.txt'; document.body.appendChild(a); a.click(); setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},0);
+    var blob = new Blob(['\ufeff'+text],{type:'text/plain;charset=utf-8'}); var a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='prompt-modul-ajar-bahasa-arab-290826-final.txt'; document.body.appendChild(a); a.click(); setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},0);
   }
   function showApp(){ $('loginScreen').classList.add('hidden'); $('appScreen').classList.remove('hidden'); }
   function showLogin(){ $('appScreen').classList.add('hidden'); $('loginScreen').classList.remove('hidden'); $('password').value=''; }
@@ -397,9 +402,8 @@
   $('logoutBtn').addEventListener('click', function(){ sessionStorage.removeItem(SESSION_KEY); showLogin(); });
   $('jenjang').addEventListener('change', function(){ setOptions(); save(); });
   $('fase_kelas').addEventListener('change', function(){ updateDerived(); save(); });
-  $('babDown').addEventListener('click', function(){ changeBab(-1); });
-  $('babUp').addEventListener('click', function(){ changeBab(1); });
-  $('bab_ke').addEventListener('blur', function(){ normalizeBab(); save(); });
+  $('babDown').addEventListener('click', function(){ ubahBab(-1); });
+  $('babUp').addEventListener('click', function(){ ubahBab(1); });
   $('pendekatan').addEventListener('change', function(){ toggleOtherSelect('pendekatan','pendekatan_lain'); save(); });
   $('model').addEventListener('change', function(){ toggleOtherSelect('model','model_lain'); save(); });
   $('metode_lain_cb').addEventListener('change', function(){ toggleOtherCheck('metode_lain_cb','metode_lain'); save(); });
