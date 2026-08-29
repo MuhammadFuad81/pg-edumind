@@ -6,6 +6,8 @@
   var STORAGE_KEY = 'akds_form_' + APP_CODE;
   var USERNAME = 'edumind';
   var PASSWORD = 'akds-290826';
+  var AUTO_PLACEHOLDER = 'Diisi otomatis oleh AI berdasarkan konteks utama yang Anda isi.';
+  var AUTO_FIELD_IDS = ['tp','pemahaman','pemantik','lintas','topik_pembelajaran','kegiatan_awal','kegiatan_inti','penutup','formatif','sumatif','refleksi_guru','refleksi_siswa','pengayaan','remidial'];
 
   var css = `
   *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#0f172a;color:#0f172a;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-user-select:none;user-select:none}
@@ -160,12 +162,23 @@
     var cls = ($('fase_kelas').value.match(/Kelas\s+(\d+)/) || [,''])[1];
     if (cls && (!$('guru_kelas').value || /^Guru Bahasa Arab Kelas/.test($('guru_kelas').value))) $('guru_kelas').value = 'Guru Bahasa Arab Kelas ' + cls;
   }
+  function configureAutomaticFields() {
+    AUTO_FIELD_IDS.forEach(function (id) {
+      var field = $(id);
+      if (!field) return;
+      field.value = AUTO_PLACEHOLDER;
+      field.readOnly = true;
+      field.setAttribute('aria-readonly', 'true');
+      field.setAttribute('title', 'Bagian ini akan disusun otomatis oleh AI dari CP dan konteks utama.');
+    });
+  }
   function setValues(data, keepCPEmpty) {
     Object.keys(data).forEach(function (id) { if ($(id)) $(id).value = data[id]; });
     setOptions(data.fase_kelas || (data.jenjang === 'SMP/MTs' ? 'Fase D Kelas 7' : null));
     if (data.fase_kelas) $('fase_kelas').value = data.fase_kelas;
     if (keepCPEmpty) { $('elemen_cp').value = ''; $('cp').value = ''; }
     updateDerived();
+    configureAutomaticFields();
   }
   function selected(name) { return Array.from(document.querySelectorAll('input[name="' + name + '"]:checked')).map(function (x) { return x.value; }); }
   function value(id) { return ($(id).value || '').trim(); }
@@ -191,6 +204,7 @@
     var outputInstruction = $('format_output').value === 'docx'
       ? 'KELUARAN UTAMA WAJIB: buat dan lampirkan file Microsoft Word (.docx) yang utuh, siap diunduh dan dapat diedit. Berikan tautan/tombol unduh file. Jangan mengganti keluaran utama dengan teks panjang di percakapan.'
       : 'KELUARAN: tampilkan isi modul lengkap langsung di percakapan dengan struktur template yang sama.';
+    var contextSummary = 'Bahasa Arab; ' + value('jenjang') + ' / ' + value('fase_kelas') + '; lingkup ' + value('lingkup') + '; CP dan elemen resmi sebagaimana dikutip di bagian Komponen Inti; target ' + value('target') + '; jumlah ' + value('jumlah') + '.';
     var lines = [
       'PERAN',
       'Bertindaklah sebagai ahli desain instruksional, ahli Kurikulum Merdeka/Pembelajaran Mendalam, guru Bahasa Arab, dan editor dokumen Microsoft Word profesional.',
@@ -227,31 +241,31 @@
       '',
       'DESAIN PEMBELAJARAN',
       '1. Capaian Pembelajaran: gunakan CP verbatim di atas.',
-      '2. Tujuan Pembelajaran (pertahankan a, b, c):\n' + value('tp'),
-      '3. Pemahaman Bermakna:\n' + value('pemahaman'),
-      '4. Pertanyaan Pemantik (pertahankan a, b, c):\n' + value('pemantik'),
-      '5. Lintas Disiplin Ilmu: ' + escLine(value('lintas')),
-      '6. Topik Pembelajaran: ' + value('topik_pembelajaran'),
+      '2. Tujuan Pembelajaran: susun otomatis tepat 3 butir a, b, c yang spesifik, terukur, selaras dengan CP verbatim, dan realistis untuk alokasi waktu. Konteks: ' + contextSummary,
+      '3. Pemahaman Bermakna: susun otomatis 1 paragraf ringkas yang menjelaskan manfaat materi bagi komunikasi dan kehidupan peserta didik. Konteks: ' + contextSummary,
+      '4. Pertanyaan Pemantik: susun otomatis tepat 3 pertanyaan a, b, c yang sesuai usia, memancing rasa ingin tahu, dan mengarah pada TP. Konteks: ' + contextSummary,
+      '5. Lintas Disiplin Ilmu: tentukan otomatis keterkaitan yang benar-benar relevan; jangan memaksakan lebih dari 1–2 disiplin.',
+      '6. Topik Pembelajaran: rumuskan otomatis secara ringkas dari lingkup materi, CP, dan TP.',
       '7. Praktik Pedagogis — Pendekatan: ' + value('pendekatan') + '; Metode: ' + value('metode') + '; Model: ' + value('model'),
       '8. Kemitraan Pembelajaran:\n' + value('kemitraan'),
       '9. Pemanfaatan Digital (TPACK):\n' + value('digital'),
       '',
       'PENGALAMAN BELAJAR',
-      '- Kegiatan Awal (' + value('durasi_awal') + '):\n' + value('kegiatan_awal'),
-      '- Kegiatan Inti ' + value('model') + ' (' + value('durasi_inti') + '):\n' + value('kegiatan_inti'),
-      '- Penutup:\n' + value('penutup'),
+      '- Kegiatan Awal (' + value('durasi_awal') + '): susun otomatis Orientasi nomor 1–3, Apersepsi 4–6, dan Motivasi 7–9 yang operasional berdasarkan ' + contextSummary,
+      '- Kegiatan Inti ' + value('model') + ' (' + value('durasi_inti') + '): susun otomatis langkah konkret sesuai sintaks resmi model, metode, CP, dan TP; urutan nomor harus berlanjut seperti template serta mencakup latihan reseptif/produktif Bahasa Arab yang relevan.',
+      '- Penutup: susun otomatis tepat 5 langkah bernomor yang mencakup simpulan, refleksi, umpan balik, tindak lanjut, doa/salam secara proporsional.',
       '',
       'ASESMEN',
-      '- Asesmen Formatif:\n' + value('formatif'),
-      '- Asesmen Sumatif:\n' + value('sumatif'),
+      '- Asesmen Formatif: susun otomatis isi tabel untuk Sikap, Pengetahuan, dan Keterampilan dengan kolom Teknik, Instrumen, Rubrik, Keterangan; selaraskan dengan CP/TP dan kegiatan.',
+      '- Asesmen Sumatif: susun otomatis isi tabel untuk Pengetahuan dan Keterampilan dengan kolom Teknik, Instrumen, Rubrik, Keterangan; gunakan tugas yang autentik dan dapat dilaksanakan.',
       '',
       'REFLEKSI',
-      '- Refleksi untuk Guru:\n' + value('refleksi_guru'),
-      '- Refleksi Untuk Peserta Didik:\n' + value('refleksi_siswa'),
+      '- Refleksi untuk Guru: susun otomatis tepat 3 pertanyaan bernomor yang menilai ketercapaian TP, efektivitas strategi, dan tindak lanjut.',
+      '- Refleksi Untuk Peserta Didik: susun otomatis tepat 3 pertanyaan bernomor, sederhana, sesuai usia, dan terkait pengalaman belajar.',
       '',
       'PENGAYAAN DAN REMIDIAL',
-      '- Pengayaan:\n' + value('pengayaan'),
-      '- Remidial:\n' + value('remidial'),
+      '- Pengayaan: susun otomatis tepat 3 kegiatan bertingkat bagi peserta didik yang telah mencapai TP.',
+      '- Remidial: susun otomatis tepat 3 kegiatan bertahap bagi peserta didik yang belum mencapai TP; gunakan pemodelan ulang, latihan terbimbing, dan umpan balik.',
       '',
       'LAMPIRAN: ' + (attachments.length ? attachments.join('; ') : 'Bahan Ajar; Lembar Kerja Peserta Didik (LKPD); Rubrik Penilaian'),
       'DAFTAR PUSTAKA:\n' + value('pustaka'),
