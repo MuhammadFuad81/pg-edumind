@@ -20,7 +20,7 @@
   .primary,.secondary,.danger,.smallbtn{border:0;border-radius:10px;font-weight:800;cursor:pointer;transition:.15s}.primary{background:#1e3a8a;color:#fff;padding:11px 15px}.primary:hover{background:#1e40af}.secondary{background:#e2e8f0;color:#334155;padding:10px 14px}.secondary:hover{background:#cbd5e1}.danger{background:#fff1f2;color:#be123c;padding:10px 14px}.smallbtn{background:#059669;color:white;padding:7px 11px;font-size:12px}.full{width:100%}
   .error{color:#b91c1c;background:#fef2f2;border:1px solid #fecaca;border-radius:9px;padding:9px 11px;font-size:12px;font-weight:700;margin-bottom:12px}.foot{border-top:1px solid #e2e8f0;margin-top:20px;padding-top:15px;text-align:center;color:#94a3b8;font-size:10px;line-height:1.6}
   .app{min-height:100vh;background:#f1f5f9}.topbar{height:72px;background:#fff;border-bottom:1px solid #e2e8f0;display:flex;align-items:center;justify-content:space-between;padding:0 24px;position:sticky;top:0;z-index:20;box-shadow:0 2px 12px #0f172a0a}.brand{display:flex;gap:12px;align-items:center}.brand-icon{width:42px;height:42px;border-radius:12px;background:#1e3a8a;color:#fff;display:grid;place-items:center}.brand h2{font-size:17px;margin:0}.brand p{font-size:11px;color:#64748b;margin:2px 0 0}
-  .layout{max-width:1480px;margin:auto;padding:22px;display:grid;grid-template-columns:minmax(430px,5fr) minmax(500px,7fr);gap:20px}.card{background:#fff;border:1px solid #e2e8f0;border-radius:14px;box-shadow:0 4px 16px #0f172a0a;overflow:hidden}.cardhead{background:#f8fafc;border-bottom:1px solid #e2e8f0;padding:13px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}.cardhead h3{font-size:13px;margin:0;display:flex;gap:8px;align-items:center}.form-scroll{padding:16px;max-height:calc(100vh - 120px);overflow:auto}.section-title{font-size:11px;color:#1e3a8a;font-weight:900;text-transform:uppercase;letter-spacing:.06em;border-top:1px solid #e2e8f0;padding-top:12px;margin:18px 0 12px}.section-title:first-child{border-top:0;margin-top:0;padding-top:0}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.checks{display:grid;grid-template-columns:1fr 1fr;gap:7px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:9px;padding:10px;font-size:12px}.checks label{display:flex;align-items:flex-start;gap:7px}.checks.single{grid-template-columns:1fr}.notice{background:#fffbeb;border:1px solid #fde68a;color:#92400e;border-radius:10px;padding:10px;font-size:11px;line-height:1.5;margin:8px 0 13px}
+  .layout{max-width:1480px;margin:auto;padding:22px;display:grid;grid-template-columns:minmax(430px,5fr) minmax(500px,7fr);gap:20px}.card{background:#fff;border:1px solid #e2e8f0;border-radius:14px;box-shadow:0 4px 16px #0f172a0a;overflow:hidden}.cardhead{background:#f8fafc;border-bottom:1px solid #e2e8f0;padding:13px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}.cardhead h3{font-size:13px;margin:0;display:flex;gap:8px;align-items:center}.form-scroll{padding:16px;max-height:calc(100vh - 120px);overflow:auto}.section-title{font-size:11px;color:#1e3a8a;font-weight:900;text-transform:uppercase;letter-spacing:.06em;border-top:1px solid #e2e8f0;padding-top:12px;margin:18px 0 12px}.section-title:first-child{border-top:0;margin-top:0;padding-top:0}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.checks{display:grid;grid-template-columns:1fr 1fr;gap:7px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:9px;padding:10px;font-size:12px}.checks label{display:flex;align-items:flex-start;gap:7px}.checks.single{grid-template-columns:1fr}.bab-stepper{display:grid;grid-template-columns:38px minmax(0,1fr) 38px;gap:7px;align-items:center}.bab-stepper button{height:40px;border:1px solid #cbd5e1;border-radius:9px;background:#f1f5f9;color:#1e3a8a;cursor:pointer;font-weight:800}.bab-stepper button:hover{background:#dbeafe}.bab-stepper input{text-align:center;font-weight:800}.notice{background:#fffbeb;border:1px solid #fde68a;color:#92400e;border-radius:10px;padding:10px;font-size:11px;line-height:1.5;margin:8px 0 13px}
   .actions{display:flex;gap:9px;flex-wrap:wrap;position:sticky;bottom:-16px;background:#fff;border-top:1px solid #e2e8f0;margin:18px -16px -16px;padding:13px 16px}.actions .primary{flex:2}.actions .secondary,.actions .danger{flex:1}
   .output-col{display:flex;flex-direction:column;gap:14px;min-width:0}.output-card{display:flex;flex-direction:column;height:calc(100vh - 120px)}.output-actions{display:flex;gap:8px}.output{margin:0;padding:18px;background:#020617;color:#cbd5e1;white-space:pre-wrap;overflow:auto;flex:1;font:12px/1.55 ui-monospace,SFMono-Regular,Consolas,monospace;-webkit-user-select:text;user-select:text}.usage{padding:13px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;color:#1e3a8a;font-size:12px;line-height:1.55}.status{font-size:11px;color:#047857;font-weight:800;min-height:16px;margin:7px 0 0}
   @media(max-width:980px){.layout{grid-template-columns:1fr}.form-scroll{max-height:none}.output-card{height:72vh}.topbar{position:relative}.grid3{grid-template-columns:1fr}.layout{padding:12px}.output-col{min-width:0}}
@@ -56,7 +56,11 @@
           <div class="field"><label>Mata Pelajaran</label><input class="control" value="Bahasa Arab" readonly></div>
           <div class="grid2"><div class="field"><label>Tahun Ajaran <span class="req">*</span></label><input id="tahun_ajaran" class="control" required></div><div class="field"><label>Alokasi Waktu <span class="req">*</span></label><input id="alokasi" class="control" required></div></div>
           <div class="grid2"><div class="field"><label>Jenjang Pendidikan <span class="req">*</span></label><select id="jenjang" class="control" required><option value="SD/MI">SD/MI</option><option value="SMP/MTs" selected>SMP/MTs</option><option value="SMA/MA/SMK">SMA/MA/SMK</option></select></div><div class="field"><label>Fase / Kelas <span class="req">*</span></label><select id="fase_kelas" class="control" required></select></div></div>
-          <div class="field"><label>Lingkup Materi / Semester <span class="req">*</span></label><input id="lingkup" class="control" required></div>
+          <div class="grid2">
+            <div class="field"><label>BAB Ke- <span class="req">*</span></label><div class="bab-stepper"><button id="babDown" type="button" title="Kurangi nomor BAB"><i class="fa-solid fa-chevron-down"></i></button><input id="bab_ke" class="control" value="BAB 1" required placeholder="Contoh: BAB 1"><button id="babUp" type="button" title="Tambah nomor BAB"><i class="fa-solid fa-chevron-up"></i></button></div></div>
+            <div class="field"><label>Semester <span class="req">*</span></label><select id="semester" class="control" required><option value="I (Ganjil)" selected>I (Ganjil)</option><option value="II (Genap)">II (Genap)</option></select></div>
+          </div>
+          <div class="field"><label>Lingkup Materi <span class="req">*</span></label><input id="lingkup" class="control" required placeholder="Contoh: التَّعَارُفُ / Perkenalan"></div>
 
           <div class="section-title">3. Identifikasi</div>
           <div class="grid2"><div class="field"><label>Target Peserta Didik <span class="req">*</span></label><select id="target" class="control"><option>Peserta Didik Reguler/Tipikal</option><option>Peserta Didik dengan Pencapaian Tinggi</option><option>Peserta Didik dengan Kesulitan Belajar</option><option>Peserta Didik CIBI</option></select><span class="hint"><b>CIBI</b> = Cerdas Istimewa dan/atau Berbakat Istimewa, yaitu peserta didik dengan kemampuan atau bakat menonjol yang memerlukan layanan belajar sesuai kebutuhannya.</span></div><div class="field"><label>Jumlah Peserta Didik <span class="req">*</span></label><input id="jumlah" class="control" required></div></div>
@@ -149,7 +153,7 @@
 
   var example = {
     pendekatan:'Pembelajaran Mendalam (Deep Learning), Berdiferensiasi', pendekatan_lain:'', model:'Problem Based Learning (PBL)', model_lain:'', metode_lain:'', lampiran_lain:'',
-    nama_penyusun:'Ahmad Fauzi, S.Pd.', guru_kelas:'Guru Bahasa Arab Kelas VII', institusi:'MTs Edumind Bekasi', tahun_ajaran:'2026/2027', alokasi:'2 JP (2 × 40 menit)', jenjang:'SMP/MTs', lingkup:'التَّعَارُفُ / Semester I', target:'Peserta Didik Reguler/Tipikal', jumlah:'30 peserta didik',
+    nama_penyusun:'Ahmad Fauzi, S.Pd.', guru_kelas:'Guru Bahasa Arab Kelas VII', institusi:'MTs Edumind Bekasi', tahun_ajaran:'2026/2027', alokasi:'2 JP (2 × 40 menit)', jenjang:'SMP/MTs', bab_ke:'BAB 1', semester:'I (Ganjil)', lingkup:'التَّعَارُفُ / Perkenalan', target:'Peserta Didik Reguler/Tipikal', jumlah:'30 peserta didik',
     kompetensi_awal:'a. Peserta didik mengenali huruf dan harakat Arab.\nb. Peserta didik mampu melafalkan kosakata sederhana.\nc. Peserta didik pernah menggunakan ungkapan salam sederhana.',
     media_sumber:'Buku teks Bahasa Arab yang digunakan sekolah; kartu kosakata; audio pelafalan; papan tulis dan spidol; proyektor; LKPD; kamus Arab–Indonesia.',
     tautan_bahan:'', tautan_video:'',
@@ -183,6 +187,19 @@
   }
   function syncTeacherName() {
     if ($('nama_guru')) $('nama_guru').value = value('nama_penyusun');
+  }
+  function normalizeBab() {
+    if (!$('bab_ke')) return;
+    var match = String($('bab_ke').value || '').match(/\d+/);
+    var n = match ? Math.max(1, parseInt(match[0], 10) || 1) : 1;
+    $('bab_ke').value = 'BAB ' + n;
+  }
+  function changeBab(delta) {
+    var match = String($('bab_ke').value || '').match(/\d+/);
+    var n = match ? parseInt(match[0], 10) || 1 : 1;
+    n = Math.max(1, n + delta);
+    $('bab_ke').value = 'BAB ' + n;
+    save();
   }
   function toggleOtherSelect(selectId, inputId) {
     var show = value(selectId) === 'Lainnya';
@@ -231,6 +248,7 @@
     ['profil','lampiran','metode','kemitraan'].forEach(function(name){ if (data[name]) setCheckedGroup(name, data[name]); });
     if (keepCPEmpty) { $('elemen_cp').value = ''; $('cp').value = ''; }
     updateDerived();
+    normalizeBab();
     configureAutomaticFields();
     refreshConditionalFields();
   }
@@ -244,7 +262,7 @@
     return data;
   }
   function save() { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(currentData())); } catch (e) {} }
-  function restore() { try { var raw = localStorage.getItem(STORAGE_KEY); if (!raw) return false; var data = JSON.parse(raw); setValues(data, false); return true; } catch(e){ return false; } }
+  function restore() { try { var raw = localStorage.getItem(STORAGE_KEY); if (!raw) return false; var data = JSON.parse(raw); if (!data.bab_ke) data.bab_ke = 'BAB 1'; if (!data.semester) { var m = String(data.lingkup || '').match(/\s*\/\s*Semester\s*(II|I)\b/i); if (m) { data.semester = m[1].toUpperCase() === 'II' ? 'II (Genap)' : 'I (Ganjil)'; data.lingkup = String(data.lingkup || '').replace(m[0], '').trim(); } else data.semester = 'I (Ganjil)'; } setValues(data, false); return true; } catch(e){ return false; } }
   function validateForm() {
     document.querySelectorAll('.invalid').forEach(function (el) { el.classList.remove('invalid'); });
     var missing = [];
@@ -262,7 +280,7 @@
     var outputInstruction = $('format_output').value === 'docx'
       ? 'KELUARAN UTAMA WAJIB: buat dan lampirkan file Microsoft Word (.docx) yang utuh, siap diunduh dan dapat diedit. Berikan tautan/tombol unduh file. Jangan mengganti keluaran utama dengan teks panjang di percakapan.'
       : 'KELUARAN: tampilkan isi modul lengkap langsung di percakapan dengan struktur template yang sama.';
-    var contextSummary = 'Bahasa Arab; ' + value('jenjang') + ' / ' + value('fase_kelas') + '; lingkup ' + value('lingkup') + '; CP dan elemen resmi sebagaimana dikutip di bagian Komponen Inti; target ' + value('target') + '; jumlah ' + value('jumlah') + '.';
+    var contextSummary = 'Bahasa Arab; ' + value('jenjang') + ' / ' + value('fase_kelas') + '; ' + value('bab_ke') + '; semester ' + value('semester') + '; lingkup materi ' + value('lingkup') + '; CP dan elemen resmi sebagaimana dikutip di bagian Komponen Inti; target ' + value('target') + '; jumlah ' + value('jumlah') + '.';
     var lines = [
       'PERAN',
       'Bertindaklah sebagai ahli desain instruksional, ahli Kurikulum Merdeka/Pembelajaran Mendalam, guru Bahasa Arab, dan editor dokumen Microsoft Word profesional.',
@@ -282,7 +300,9 @@
       '- Tahun Ajaran: ' + value('tahun_ajaran'),
       '- Jenjang/Kelas: ' + value('jenjang') + ' / ' + value('fase_kelas'),
       '- Fase/Elemen: ' + value('fase_kelas') + ' / ' + value('elemen_cp'),
-      '- Lingkup Materi/Semester: ' + value('lingkup'),
+      '- BAB Ke-: ' + value('bab_ke'),
+      '- Lingkup Materi: ' + value('lingkup'),
+      '- Semester: ' + value('semester'),
       '- Alokasi Waktu: ' + value('alokasi'),
       '',
       'IDENTIFIKASI',
@@ -303,7 +323,7 @@
       '3. Pemahaman Bermakna: susun otomatis 1 paragraf ringkas yang menjelaskan manfaat materi bagi komunikasi dan kehidupan peserta didik. Konteks: ' + contextSummary,
       '4. Pertanyaan Pemantik: susun otomatis tepat 3 pertanyaan a, b, c yang sesuai usia, memancing rasa ingin tahu, dan mengarah pada TP. Konteks: ' + contextSummary,
       '5. Lintas Disiplin Ilmu: tentukan otomatis keterkaitan yang benar-benar relevan; jangan memaksakan lebih dari 1–2 disiplin.',
-      '6. Topik Pembelajaran: rumuskan otomatis secara ringkas dari lingkup materi, CP, dan TP.',
+      '6. Topik Pembelajaran: rumuskan otomatis secara ringkas dari BAB, semester, lingkup materi, CP, dan TP.',
       '7. Praktik Pedagogis — Pendekatan: ' + effectiveChoice('pendekatan','pendekatan_lain') + '; Metode: ' + (methods.length ? methods.join(', ') : '[Belum dipilih]') + '; Model: ' + effectiveChoice('model','model_lain'),
       '8. Kemitraan Pembelajaran: ' + (partnerships.length ? partnerships.join('; ') : 'Tidak ada kemitraan khusus yang dipilih.'),
       '9. Pemanfaatan Digital (TPACK):' + (value('tautan_bahan') || value('tautan_video') ? '' : ' gunakan media digital hanya bila relevan dan tersedia; jangan mengarang tautan.') +
@@ -333,7 +353,7 @@
       '',
       'BLUEPRINT STRUKTUR TEMPLATE — WAJIB PERSIS, MULAI DARI HALAMAN 2 TEMPLATE',
       'BAGIAN SAMPUL/COVER PADA HALAMAN 1 TEMPLATE BUKAN BAGIAN STRUKTUR OUTPUT. Jangan menyalin, membuat ulang, atau menyisipkan sampul. Jangan menampilkan Pendekatan Pembelajaran, Bab, Judul Bab, atau Topik sebagai halaman pembuka.',
-      'AWAL DOKUMEN (mengacu halaman 2 template) — judul “MODUL AJAR”; bar “Identitas Penyusun” berisi Nama Penyusun, Guru Kelas, Institusi; bar “Informasi Umum” berisi Mata Pelajaran, Tahun Ajaran, Jenjang/Kelas, Fase/Elemen, Lingkup Materi/Semester, Alokasi Waktu; bar “Identifikasi” berisi: 1. Karakteristik Peserta Didik (a. Target, b. Jumlah), 2. Kompetensi Awal (a–c), 3. Dimensi Profil Lulusan dengan delapan kotak centang resmi, 4. Sarana dan Prasarana (susun dari kolom Media & Sumber Belajar/Sarana Prasarana; gunakan butir a–d bila sesuai).',
+      'AWAL DOKUMEN (mengacu halaman 2 template) — judul “MODUL AJAR”; bar “Identitas Penyusun” berisi Nama Penyusun, Guru Kelas, Institusi; bar “Informasi Umum” berisi Mata Pelajaran, Tahun Ajaran, Jenjang/Kelas, Fase/Elemen, Lingkup Materi/Semester, Alokasi Waktu. Data input BAB Ke-, Lingkup Materi, dan Semester dipisahkan di PG agar jelas. Karena template Word saat ini hanya memiliki slot “Lingkup Materi/Semester” dan belum memiliki slot BAB khusus, JANGAN menambah baris baru: isi slot tersebut dengan format “' + value('bab_ke') + ' — ' + value('lingkup') + ' / Semester ' + value('semester') + '”. Bar “Identifikasi” berisi: 1. Karakteristik Peserta Didik (a. Target, b. Jumlah), 2. Kompetensi Awal (a–c), 3. Dimensi Profil Lulusan dengan delapan kotak centang resmi, 4. Sarana dan Prasarana (susun dari kolom Media & Sumber Belajar/Sarana Prasarana; gunakan butir a–d bila sesuai).',
       'BAGIAN BERIKUTNYA (mengacu halaman 3 template) — bar “Komponen Inti”; kalimat Fase; kalimat Fase Berdasarkan Elemen; tabel dua kolom “Elemen | Capaian Pembelajaran”. Buat satu baris per elemen yang diberikan guru. Lanjut bar “Desain Pembelajaran” dengan sembilan nomor persis: 1 CP; 2 TP (a–c); 3 Pemahaman Bermakna; 4 Pertanyaan Pemantik (a–c); 5 Lintas Disiplin Ilmu; 6 Topik Pembelajaran; 7 Praktik Pedagogis (✓ Pendekatan, ✓ Metode, ✓ Model); 8 Kemitraan Pembelajaran (checkmark); 9 Pemanfaatan Digital/TPACK (checkmark). Pendekatan Pembelajaran hanya muncul di poin 7 Praktik Pedagogis, bukan pada awal dokumen.',
       'BAGIAN PENGALAMAN BELAJAR (mengacu halaman 4 template) — bar “Pengalaman Belajar”. Kegiatan Awal diberi strip sorot kuning dan terdiri atas Orientasi nomor 1–3, Apersepsi 4–6, Motivasi 7–9. Kegiatan Inti diberi strip sorot kuning, tulis nama model dan durasi; gunakan subjudul sintaks model terpilih dan nomor langkah berlanjut secara urut. Untuk model berbeda dari contoh template, gunakan sintaks resmi model yang dipilih tanpa memaksakan judul tahap PBL.',
       'BAGIAN ASESMEN DAN REFLEKSI (mengacu halaman 5 template) — Penutup diberi strip sorot kuning, nomor 1–5. Bar “Asesmen”: tabel Formatif berkepala “Penilaian | Teknik | Instrumen | Rubrik | Keterangan” dengan baris Sikap, Pengetahuan, Keterampilan; tabel Sumatif dengan kepala sama dan baris Pengetahuan, Keterampilan. Bar “Refleksi”: Refleksi untuk Guru nomor 1–3; Refleksi Untuk Peserta Didik nomor 1–3.',
@@ -377,6 +397,9 @@
   $('logoutBtn').addEventListener('click', function(){ sessionStorage.removeItem(SESSION_KEY); showLogin(); });
   $('jenjang').addEventListener('change', function(){ setOptions(); save(); });
   $('fase_kelas').addEventListener('change', function(){ updateDerived(); save(); });
+  $('babDown').addEventListener('click', function(){ changeBab(-1); });
+  $('babUp').addEventListener('click', function(){ changeBab(1); });
+  $('bab_ke').addEventListener('blur', function(){ normalizeBab(); save(); });
   $('pendekatan').addEventListener('change', function(){ toggleOtherSelect('pendekatan','pendekatan_lain'); save(); });
   $('model').addEventListener('change', function(){ toggleOtherSelect('model','model_lain'); save(); });
   $('metode_lain_cb').addEventListener('change', function(){ toggleOtherCheck('metode_lain_cb','metode_lain'); save(); });
