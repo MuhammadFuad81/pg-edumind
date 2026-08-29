@@ -45,24 +45,18 @@
     <main class="layout">
       <section class="card"><div class="cardhead"><h3><i class="fa-solid fa-list-check"></i> Form Parameter Modul Ajar</h3><button id="exampleBtn" class="smallbtn" type="button"><i class="fa-solid fa-flask"></i> Muat Contoh</button></div>
         <form id="generatorForm" class="form-scroll" novalidate>
-          <div class="section-title">1. Sampul</div>
-          <div class="field"><label>Mata Pelajaran</label><input id="mapel" class="control" value="Bahasa Arab" readonly></div>
-          <div class="field"><label>Pendekatan Pembelajaran <span class="req">*</span></label><select id="pendekatan" class="control" required><option>Pembelajaran Mendalam (Deep Learning)</option><option>Pembelajaran Mendalam dan Berdiferensiasi</option><option>Komunikatif (Communicative Language Teaching)</option><option>Kontekstual (CTL)</option><option>Saintifik</option><option>TaRL (Teaching at the Right Level)</option></select></div>
-          <div class="grid2"><div class="field"><label>Bab <span class="req">*</span></label><input id="bab" class="control" required></div><div class="field"><label>Judul Bab <span class="req">*</span></label><input id="judul_bab" class="control" required></div></div>
-          <div class="field"><label>Topik <span class="req">*</span></label><input id="topik" class="control" required></div>
-
-          <div class="section-title">2. Identitas Penyusun</div>
+          <div class="section-title">1. Identitas Penyusun</div>
           <div class="field"><label>Nama Penyusun <span class="req">*</span></label><input id="nama_penyusun" class="control" required></div>
           <div class="field"><label>Guru Kelas / Guru Mapel <span class="req">*</span></label><input id="guru_kelas" class="control" required></div>
           <div class="field"><label>Institusi <span class="req">*</span></label><input id="institusi" class="control" required></div>
 
-          <div class="section-title">3. Informasi Umum</div>
+          <div class="section-title">2. Informasi Umum</div>
           <div class="field"><label>Mata Pelajaran</label><input class="control" value="Bahasa Arab" readonly></div>
           <div class="grid2"><div class="field"><label>Tahun Ajaran <span class="req">*</span></label><input id="tahun_ajaran" class="control" required></div><div class="field"><label>Alokasi Waktu <span class="req">*</span></label><input id="alokasi" class="control" required></div></div>
           <div class="grid2"><div class="field"><label>Jenjang Pendidikan <span class="req">*</span></label><select id="jenjang" class="control" required><option value="SD/MI">SD/MI</option><option value="SMP/MTs" selected>SMP/MTs</option><option value="SMA/MA/SMK">SMA/MA/SMK</option></select></div><div class="field"><label>Fase / Kelas <span class="req">*</span></label><select id="fase_kelas" class="control" required></select></div></div>
           <div class="field"><label>Lingkup Materi / Semester <span class="req">*</span></label><input id="lingkup" class="control" required></div>
 
-          <div class="section-title">4. Identifikasi</div>
+          <div class="section-title">3. Identifikasi</div>
           <div class="grid2"><div class="field"><label>Target Peserta Didik <span class="req">*</span></label><select id="target" class="control"><option>Peserta Didik Reguler/Tipikal</option><option>Peserta Didik dengan Pencapaian Tinggi</option><option>Peserta Didik dengan Kesulitan Belajar</option><option>Peserta Didik CIBI</option></select></div><div class="field"><label>Jumlah Peserta Didik <span class="req">*</span></label><input id="jumlah" class="control" required></div></div>
           <div class="field"><label>Kompetensi Awal (poin a, b, c) <span class="req">*</span></label><textarea id="kompetensi_awal" class="control textarea" required></textarea></div>
           <div class="field"><span class="label">Dimensi Profil Lulusan</span><div class="checks">
@@ -70,51 +64,51 @@
           </div></div>
           <div class="field"><label>Sarana dan Prasarana (poin a, b, c, d) <span class="req">*</span></label><textarea id="sarpras" class="control textarea" required></textarea></div>
 
-          <div class="section-title">5. Komponen Inti</div>
+          <div class="section-title">4. Komponen Inti</div>
           <div class="notice"><strong>CP Bahasa Arab tidak diisi otomatis.</strong> Salin CP resmi yang digunakan sekolah beserta elemen/ruang lingkupnya. Teks CP akan dikutip apa adanya dan tidak boleh diubah oleh AI.</div>
           <div class="field"><label>Elemen / Ruang Lingkup CP <span class="req">*</span></label><textarea id="elemen_cp" class="control textarea cp" required placeholder="Contoh format: Elemen 1 — ...&#10;Elemen 2 — ... (isi sesuai dokumen CP yang digunakan sekolah)"></textarea></div>
           <div class="field"><label>Capaian Pembelajaran (diisi guru) <span class="req">*</span></label><textarea id="cp" class="control textarea cp" required placeholder="Tempel teks Capaian Pembelajaran Bahasa Arab di sini. Kolom sengaja dikosongkan."></textarea><span class="hint">Jangan mengisi dengan ringkasan. Gunakan redaksi CP resmi sekolah/madrasah.</span></div>
 
-          <div class="section-title">6. Desain Pembelajaran</div>
+          <div class="section-title">5. Desain Pembelajaran</div>
           <div class="field"><label>Tujuan Pembelajaran (poin a, b, c) <span class="req">*</span></label><textarea id="tp" class="control textarea" required></textarea></div>
           <div class="field"><label>Pemahaman Bermakna <span class="req">*</span></label><textarea id="pemahaman" class="control textarea" required></textarea></div>
           <div class="field"><label>Pertanyaan Pemantik (poin a, b, c) <span class="req">*</span></label><textarea id="pemantik" class="control textarea" required></textarea></div>
           <div class="grid2"><div class="field"><label>Lintas Disiplin Ilmu</label><input id="lintas" class="control"></div><div class="field"><label>Topik Pembelajaran <span class="req">*</span></label><input id="topik_pembelajaran" class="control" required></div></div>
-          <div class="grid3"><div class="field"><label>Pendekatan</label><input id="praktik_pendekatan" class="control" readonly></div><div class="field"><label>Metode <span class="req">*</span></label><input id="metode" class="control" required></div><div class="field"><label>Model <span class="req">*</span></label><select id="model" class="control"><option>Problem Based Learning (PBL)</option><option>Project Based Learning (PjBL)</option><option selected>Cooperative Learning</option><option>Discovery Learning</option><option>Inquiry Learning</option><option>Direct Instruction</option><option>Task-Based Language Teaching</option></select></div></div>
+          <div class="grid3"><div class="field"><label>Pendekatan <span class="req">*</span></label><select id="pendekatan" class="control" required><option>Pembelajaran Mendalam (Deep Learning)</option><option>Pembelajaran Mendalam dan Berdiferensiasi</option><option>Komunikatif (Communicative Language Teaching)</option><option>Kontekstual (CTL)</option><option>Saintifik</option><option>TaRL (Teaching at the Right Level)</option></select></div><div class="field"><label>Metode <span class="req">*</span></label><input id="metode" class="control" required></div><div class="field"><label>Model <span class="req">*</span></label><select id="model" class="control"><option>Problem Based Learning (PBL)</option><option>Project Based Learning (PjBL)</option><option selected>Cooperative Learning</option><option>Discovery Learning</option><option>Inquiry Learning</option><option>Direct Instruction</option><option>Task-Based Language Teaching</option></select></div></div>
           <div class="field"><label>Kemitraan Pembelajaran <span class="req">*</span></label><textarea id="kemitraan" class="control textarea" required></textarea></div>
           <div class="field"><label>Pemanfaatan Digital (TPACK) <span class="req">*</span></label><textarea id="digital" class="control textarea" required></textarea></div>
 
-          <div class="section-title">7. Pengalaman Belajar</div>
+          <div class="section-title">6. Pengalaman Belajar</div>
           <div class="grid2"><div class="field"><label>Durasi Kegiatan Awal</label><input id="durasi_awal" class="control"></div><div class="field"><label>Durasi Kegiatan Inti</label><input id="durasi_inti" class="control"></div></div>
           <div class="field"><label>Kegiatan Awal: Orientasi, Apersepsi, Motivasi <span class="req">*</span></label><textarea id="kegiatan_awal" class="control textarea" required></textarea></div>
           <div class="field"><label>Kegiatan Inti sesuai Sintaks Model <span class="req">*</span></label><textarea id="kegiatan_inti" class="control textarea" required></textarea></div>
           <div class="field"><label>Penutup <span class="req">*</span></label><textarea id="penutup" class="control textarea" required></textarea></div>
 
-          <div class="section-title">8. Asesmen</div>
+          <div class="section-title">7. Asesmen</div>
           <div class="field"><label>Asesmen Formatif <span class="req">*</span></label><textarea id="formatif" class="control textarea" required></textarea><span class="hint">Tabel wajib: Sikap, Pengetahuan, Keterampilan × Teknik, Instrumen, Rubrik, Keterangan.</span></div>
           <div class="field"><label>Asesmen Sumatif <span class="req">*</span></label><textarea id="sumatif" class="control textarea" required></textarea><span class="hint">Tabel wajib: Pengetahuan, Keterampilan × Teknik, Instrumen, Rubrik, Keterangan.</span></div>
 
-          <div class="section-title">9. Refleksi</div>
+          <div class="section-title">8. Refleksi</div>
           <div class="field"><label>Refleksi untuk Guru (3 butir) <span class="req">*</span></label><textarea id="refleksi_guru" class="control textarea" required></textarea></div>
           <div class="field"><label>Refleksi untuk Peserta Didik (3 butir) <span class="req">*</span></label><textarea id="refleksi_siswa" class="control textarea" required></textarea></div>
 
-          <div class="section-title">10. Pengayaan dan Remidial</div>
+          <div class="section-title">9. Pengayaan dan Remidial</div>
           <div class="field"><label>Pengayaan (3 butir) <span class="req">*</span></label><textarea id="pengayaan" class="control textarea" required></textarea></div>
           <div class="field"><label>Remidial (3 butir) <span class="req">*</span></label><textarea id="remidial" class="control textarea" required></textarea></div>
 
-          <div class="section-title">11. Lampiran</div>
+          <div class="section-title">10. Lampiran</div>
           <div class="checks"><label><input type="checkbox" name="lampiran" value="Bahan Ajar" checked>Bahan Ajar</label><label><input type="checkbox" name="lampiran" value="Lembar Kerja Peserta Didik (LKPD)" checked>LKPD</label><label><input type="checkbox" name="lampiran" value="Rubrik Penilaian" checked>Rubrik Penilaian</label></div>
 
-          <div class="section-title">12. Daftar Pustaka</div>
+          <div class="section-title">11. Daftar Pustaka</div>
           <div class="field"><label>Sumber Rujukan <span class="req">*</span></label><textarea id="pustaka" class="control textarea" required></textarea></div>
 
-          <div class="section-title">13. Pengesahan</div>
+          <div class="section-title">12. Pengesahan</div>
           <div class="field"><label>Kota, Tanggal</label><input id="kota_tanggal" class="control"></div>
           <div class="grid2"><div class="field"><label>Nama Kepala Sekolah <span class="req">*</span></label><input id="kepala" class="control" required></div><div class="field"><label>NIP Kepala Sekolah</label><input id="nip_kepala" class="control"></div></div>
           <div class="field"><label>NIP Penyusun</label><input id="nip_penyusun" class="control"></div>
 
-          <div class="section-title">14. Format Output dari AI</div>
-          <div class="field"><label>Format Output dari AI <span class="req">*</span></label><select id="format_output" class="control"><option value="docx" selected>File Word (.docx) siap diunduh</option><option value="chat">Teks langsung di percakapan AI</option></select><span class="hint">Untuk hasil paling presisi, lampirkan juga <b>Template Modul Ajar.docx</b> saat menempel prompt ke AI.</span></div>
+          <div class="section-title">13. Format Output dari AI</div>
+          <div class="field"><label>Format Output dari AI <span class="req">*</span></label><select id="format_output" class="control"><option value="docx" selected>File Word (.docx) siap diunduh</option><option value="chat">Teks langsung di percakapan AI</option></select><span class="hint">Untuk hasil paling presisi, lampirkan juga <b>Template Modul Ajar - Acuan.docx</b> saat menempel prompt ke AI. Bagian sampul/cover diabaikan.</span></div>
           <div class="field"><label>Instruksi Tambahan</label><textarea id="tambahan" class="control textarea"></textarea></div>
           <div id="formStatus" class="status"></div>
           <div class="actions"><button id="resetBtn" class="danger" type="button"><i class="fa-solid fa-rotate-left"></i> Reset</button><button id="generateBtn" class="primary" type="submit"><i class="fa-solid fa-wand-magic-sparkles"></i> Hasilkan Prompt</button></div>
@@ -122,7 +116,7 @@
       </section>
 
       <section class="output-col"><div class="card output-card"><div class="cardhead"><h3><i class="fa-solid fa-terminal" style="color:#059669"></i> AI Prompt Ready</h3><div class="output-actions"><button id="copyBtn" class="smallbtn" type="button"><i class="fa-solid fa-copy"></i> Salin</button><button id="downloadBtn" class="secondary" type="button"><i class="fa-solid fa-download"></i> Unduh .txt</button></div></div><pre id="output" class="output selectable">Isi formulir di sebelah kiri. Kolom CP sengaja kosong dan wajib diisi guru. Setelah itu klik “Hasilkan Prompt”.</pre></div>
-        <div class="usage"><b>Cara menggunakan:</b> salin prompt, lampirkan <i>Template Modul Ajar.docx</i> dan materi ajar pada ChatGPT/Gemini/Claude, lalu kirim. Pilihan default meminta AI mengembalikan file Word (.docx) siap diunduh—bukan hanya teks.</div>
+        <div class="usage"><b>Cara menggunakan:</b> salin prompt, lampirkan <i>Template Modul Ajar - Acuan.docx</i> dan materi ajar pada ChatGPT/Gemini/Claude, lalu kirim. Acuan dimulai dari Identitas Penyusun; sampul diabaikan. Pilihan default meminta AI mengembalikan file Word (.docx) siap diunduh—bukan hanya teks.</div>
       </section>
     </main>
   </div>`;
@@ -138,7 +132,7 @@
   };
 
   var example = {
-    mapel:'Bahasa Arab', pendekatan:'Pembelajaran Mendalam (Deep Learning)', bab:'BAB 1', judul_bab:'التَّعَارُفُ (Perkenalan)', topik:'Memperkenalkan diri dan orang lain',
+    pendekatan:'Pembelajaran Mendalam (Deep Learning)',
     nama_penyusun:'Ahmad Fauzi, S.Pd.', guru_kelas:'Guru Bahasa Arab Kelas VII', institusi:'MTs Edumind Bekasi', tahun_ajaran:'2026/2027', alokasi:'2 JP (2 × 40 menit)', jenjang:'SMP/MTs', lingkup:'التَّعَارُفُ / Semester I', target:'Peserta Didik Reguler/Tipikal', jumlah:'30 peserta didik',
     kompetensi_awal:'a. Peserta didik mengenali huruf dan harakat Arab.\nb. Peserta didik mampu melafalkan kosakata sederhana.\nc. Peserta didik pernah menggunakan ungkapan salam sederhana.',
     sarpras:'a. Buku teks Bahasa Arab yang digunakan sekolah.\nb. Papan tulis, spidol, dan kartu kosakata.\nc. Perangkat audio/proyektor.\nd. LKPD dan kamus Arab–Indonesia.',
@@ -163,7 +157,6 @@
     updateDerived();
   }
   function updateDerived() {
-    $('praktik_pendekatan').value = $('pendekatan').value;
     var cls = ($('fase_kelas').value.match(/Kelas\s+(\d+)/) || [,''])[1];
     if (cls && (!$('guru_kelas').value || /^Guru Bahasa Arab Kelas/.test($('guru_kelas').value))) $('guru_kelas').value = 'Guru Bahasa Arab Kelas ' + cls;
   }
@@ -203,17 +196,10 @@
       'Bertindaklah sebagai ahli desain instruksional, ahli Kurikulum Merdeka/Pembelajaran Mendalam, guru Bahasa Arab, dan editor dokumen Microsoft Word profesional.',
       '',
       'TUGAS UTAMA',
-      'Buat Modul Ajar Bahasa Arab berdasarkan data di bawah. Gunakan file “Template Modul Ajar.docx” yang saya lampirkan sebagai OTORITAS TATA LETAK. Buat salinan kerja—jangan mengubah file template asli—lalu isi seluruh slot tanpa mengubah urutan bagian, penomoran, bullet/checkmark, tabel, warna, margin, atau blok tanda tangan.',
+      'Buat Modul Ajar Bahasa Arab berdasarkan data di bawah. Gunakan file “Template Modul Ajar - Acuan.docx” yang saya lampirkan sebagai OTORITAS TATA LETAK, tetapi ABAIKAN SELURUH BAGIAN SAMPUL/COVER pada halaman pertama template. Dokumen hasil harus langsung dimulai dari judul “MODUL AJAR” dan bagian “Identitas Penyusun” yang terdapat pada halaman 2 template. Buat salinan kerja—jangan mengubah file template asli—lalu isi seluruh slot tanpa mengubah urutan bagian, penomoran, bullet/checkmark, tabel, warna, margin, atau blok tanda tangan.',
       outputInstruction,
       '',
       'DATA PENGGUNA — IKUTI APA ADANYA',
-      'SAMPUL',
-      '- Mata Pelajaran: Bahasa Arab',
-      '- Pendekatan Pembelajaran: ' + value('pendekatan'),
-      '- Bab: ' + value('bab'),
-      '- Judul Bab: ' + value('judul_bab'),
-      '- Topik: ' + value('topik'),
-      '',
       'IDENTITAS PENYUSUN',
       '- Nama Penyusun: ' + value('nama_penyusun'),
       '- Guru Kelas/Guru Mapel: ' + value('guru_kelas'),
@@ -271,16 +257,16 @@
       'DAFTAR PUSTAKA:\n' + value('pustaka'),
       'PENGESAHAN: ' + escLine(value('kota_tanggal')) + '; Kepala: ' + value('kepala') + (value('nip_kepala') ? ' — NIP. ' + value('nip_kepala') : ' — NIP. [kosong]') + '; Guru: ' + value('nama_penyusun') + (value('nip_penyusun') ? ' — NIP. ' + value('nip_penyusun') : ' — NIP. [kosong]'),
       '',
-      'BLUEPRINT STRUKTUR TEMPLATE — WAJIB PERSIS',
-      'HALAMAN 1 — SAMPUL: judul “Modul Ajar”; [MAPEL]; [Pendekatan Pembelajaran]; “BAB ....”; [Judul Bab]; “Topik .... : [Judul Topik]”. Semua mengikuti posisi dan hierarki visual template.',
-      'HALAMAN 2 — judul “MODUL AJAR”; bar “Identitas Penyusun” berisi Nama Penyusun, Guru Kelas, Institusi; bar “Informasi Umum” berisi Mata Pelajaran, Tahun Ajaran, Jenjang/Kelas, Fase/Elemen, Lingkup Materi/Semester, Alokasi Waktu; bar “Identifikasi” berisi: 1. Karakteristik Peserta Didik (a. Target, b. Jumlah), 2. Kompetensi Awal (a–c), 3. Dimensi Profil Lulusan dengan delapan kotak centang resmi, 4. Sarana dan Prasarana (a–d).',
-      'HALAMAN 3 — bar “Komponen Inti”; kalimat Fase; kalimat Fase Berdasarkan Elemen; tabel dua kolom “Elemen | Capaian Pembelajaran”. Buat satu baris per elemen yang diberikan guru. Lanjut bar “Desain Pembelajaran” dengan sembilan nomor persis: 1 CP; 2 TP (a–c); 3 Pemahaman Bermakna; 4 Pertanyaan Pemantik (a–c); 5 Lintas Disiplin Ilmu; 6 Topik Pembelajaran; 7 Praktik Pedagogis (✓ Pendekatan, ✓ Metode, ✓ Model); 8 Kemitraan Pembelajaran (checkmark); 9 Pemanfaatan Digital/TPACK (checkmark).',
-      'HALAMAN 4 — bar “Pengalaman Belajar”. Kegiatan Awal diberi strip sorot kuning dan terdiri atas Orientasi nomor 1–3, Apersepsi 4–6, Motivasi 7–9. Kegiatan Inti diberi strip sorot kuning, tulis nama model dan durasi; gunakan subjudul sintaks model terpilih dan nomor langkah berlanjut secara urut. Untuk model berbeda dari contoh template, gunakan sintaks resmi model yang dipilih tanpa memaksakan judul tahap PBL.',
-      'HALAMAN 5 — Penutup diberi strip sorot kuning, nomor 1–5. Bar “Asesmen”: tabel Formatif berkepala “Penilaian | Teknik | Instrumen | Rubrik | Keterangan” dengan baris Sikap, Pengetahuan, Keterampilan; tabel Sumatif dengan kepala sama dan baris Pengetahuan, Keterampilan. Bar “Refleksi”: Refleksi untuk Guru nomor 1–3; Refleksi Untuk Peserta Didik nomor 1–3.',
-      'HALAMAN 6 — bar “Pengayaan dan Remidial”: Pengayaan nomor 1–3 dan Remidial nomor 1–3; pertahankan ejaan “Remidial” sebagaimana template. Bar “Lampiran”: “Lampiran dalam Modul Ajar:” lalu 1 Bahan Ajar, 2 Lembar Kerja Peserta Didik (LKPD), 3 Rubrik Penilaian. Bar “Daftar Pustaka”. Teks “Menyetujui,” dan blok tanda tangan dua kolom: kiri Kepala [Nama Sekolah] + NIP; kanan Guru [Mata Pelajaran/Kelas] + NIP.',
+      'BLUEPRINT STRUKTUR TEMPLATE — WAJIB PERSIS, MULAI DARI HALAMAN 2 TEMPLATE',
+      'BAGIAN SAMPUL/COVER PADA HALAMAN 1 TEMPLATE BUKAN BAGIAN STRUKTUR OUTPUT. Jangan menyalin, membuat ulang, atau menyisipkan sampul. Jangan menampilkan Pendekatan Pembelajaran, Bab, Judul Bab, atau Topik sebagai halaman pembuka.',
+      'AWAL DOKUMEN (mengacu halaman 2 template) — judul “MODUL AJAR”; bar “Identitas Penyusun” berisi Nama Penyusun, Guru Kelas, Institusi; bar “Informasi Umum” berisi Mata Pelajaran, Tahun Ajaran, Jenjang/Kelas, Fase/Elemen, Lingkup Materi/Semester, Alokasi Waktu; bar “Identifikasi” berisi: 1. Karakteristik Peserta Didik (a. Target, b. Jumlah), 2. Kompetensi Awal (a–c), 3. Dimensi Profil Lulusan dengan delapan kotak centang resmi, 4. Sarana dan Prasarana (a–d).',
+      'BAGIAN BERIKUTNYA (mengacu halaman 3 template) — bar “Komponen Inti”; kalimat Fase; kalimat Fase Berdasarkan Elemen; tabel dua kolom “Elemen | Capaian Pembelajaran”. Buat satu baris per elemen yang diberikan guru. Lanjut bar “Desain Pembelajaran” dengan sembilan nomor persis: 1 CP; 2 TP (a–c); 3 Pemahaman Bermakna; 4 Pertanyaan Pemantik (a–c); 5 Lintas Disiplin Ilmu; 6 Topik Pembelajaran; 7 Praktik Pedagogis (✓ Pendekatan, ✓ Metode, ✓ Model); 8 Kemitraan Pembelajaran (checkmark); 9 Pemanfaatan Digital/TPACK (checkmark). Pendekatan Pembelajaran hanya muncul di poin 7 Praktik Pedagogis, bukan pada awal dokumen.',
+      'BAGIAN PENGALAMAN BELAJAR (mengacu halaman 4 template) — bar “Pengalaman Belajar”. Kegiatan Awal diberi strip sorot kuning dan terdiri atas Orientasi nomor 1–3, Apersepsi 4–6, Motivasi 7–9. Kegiatan Inti diberi strip sorot kuning, tulis nama model dan durasi; gunakan subjudul sintaks model terpilih dan nomor langkah berlanjut secara urut. Untuk model berbeda dari contoh template, gunakan sintaks resmi model yang dipilih tanpa memaksakan judul tahap PBL.',
+      'BAGIAN ASESMEN DAN REFLEKSI (mengacu halaman 5 template) — Penutup diberi strip sorot kuning, nomor 1–5. Bar “Asesmen”: tabel Formatif berkepala “Penilaian | Teknik | Instrumen | Rubrik | Keterangan” dengan baris Sikap, Pengetahuan, Keterampilan; tabel Sumatif dengan kepala sama dan baris Pengetahuan, Keterampilan. Bar “Refleksi”: Refleksi untuk Guru nomor 1–3; Refleksi Untuk Peserta Didik nomor 1–3.',
+      'BAGIAN AKHIR (mengacu halaman 6 template) — bar “Pengayaan dan Remidial”: Pengayaan nomor 1–3 dan Remidial nomor 1–3; pertahankan ejaan “Remidial” sebagaimana template. Bar “Lampiran”: “Lampiran dalam Modul Ajar:” lalu 1 Bahan Ajar, 2 Lembar Kerja Peserta Didik (LKPD), 3 Rubrik Penilaian. Bar “Daftar Pustaka”. Teks “Menyetujui,” dan blok tanda tangan dua kolom: kiri Kepala [Nama Sekolah] + NIP; kanan Guru [Mata Pelajaran/Kelas] + NIP.',
       '',
       'ATURAN FIDELITAS WORD',
-      '1. A4 potret; margin kiri/kanan ±2,0 cm dan atas/bawah ±1,7 cm; target enam halaman seperti template. Jika isi riil memerlukan halaman tambahan, lanjutkan secara wajar—jangan mengecilkan teks hingga sulit dibaca.',
+      '1. A4 potret; margin kiri/kanan ±2,0 cm dan atas/bawah ±1,7 cm. Karena sampul diabaikan, target awal sekitar lima halaman isi (mengacu halaman 2–6 template). Jika isi riil memerlukan halaman tambahan, lanjutkan secara wajar—jangan mengecilkan teks hingga sulit dibaca.',
       '2. Pertahankan bar judul abu-abu gelap dengan teks putih tebal, sel isi abu-abu muda, garis tabel tipis hitam, serta strip sorot kuning pada tahap kegiatan.',
       '3. Jangan menambah, menghapus, menggabungkan, atau menukar urutan bagian. Pertahankan reset/kelanjutan nomor persis sesuai blueprint.',
       '4. Bahasa Indonesia harus baku dan operasional. Teks Bahasa Arab wajib Unicode, benar secara tata bahasa/kosakata, dan memakai arah kanan-ke-kiri (RTL) hanya pada teks/sel Arab. Label Indonesia tetap kiri-ke-kanan. Gunakan font Arab yang tersedia dan terbaca (mis. Traditional Arabic/Amiri/Noto Naskh Arabic) tanpa merusak tata letak template.',
@@ -290,7 +276,7 @@
       '',
       value('tambahan') ? 'INSTRUKSI TAMBAHAN PENGGUNA (PRIORITAS TERTINGGI SELAMA TIDAK MENGUBAH STRUKTUR TEMPLATE):\n' + value('tambahan') : '',
       '',
-      'Mulai bekerja sekarang. Jangan meminta konfirmasi ulang kecuali file Template Modul Ajar.docx belum terlampir dan tata letak tidak dapat direkonstruksi dari blueprint ini.'
+      'Mulai bekerja sekarang. Jangan meminta konfirmasi ulang kecuali file Template Modul Ajar - Acuan.docx belum terlampir dan tata letak tidak dapat direkonstruksi dari blueprint ini.'
     ];
     $('output').textContent = lines.filter(function(x,i,a){ return !(x==='' && a[i-1]===''); }).join('\n');
     $('formStatus').textContent = 'Prompt berhasil dibuat. Salin atau unduh sebagai .txt.';
@@ -317,7 +303,7 @@
   $('logoutBtn').addEventListener('click', function(){ sessionStorage.removeItem(SESSION_KEY); showLogin(); });
   $('jenjang').addEventListener('change', function(){ setOptions(); save(); });
   $('fase_kelas').addEventListener('change', function(){ updateDerived(); save(); });
-  $('pendekatan').addEventListener('change', function(){ updateDerived(); save(); });
+  $('pendekatan').addEventListener('change', function(){ save(); });
   $('generatorForm').addEventListener('input', function(e){ if(e.target.classList.contains('invalid') && e.target.value.trim()) e.target.classList.remove('invalid'); clearTimeout(window.__akdsSaveTimer); window.__akdsSaveTimer=setTimeout(save,450); });
   $('generatorForm').addEventListener('change', function(){ save(); });
   $('generatorForm').addEventListener('submit', function(e){ e.preventDefault(); generatePrompt(); });
