@@ -5,13 +5,13 @@
   // aplikasi di /panelMS/ agar dashboard/editor tidak tertimpa layar login.
   if (/\/panelMS\//i.test(window.location.pathname)) return;
 
-  var APP_CODE = 'modul_ajar_bahasa_arab_290826';
+  var APP_CODE = 'modul_ajar_bahasa_inggris_310826';
   var SESSION_KEY = 'akds_session_' + APP_CODE;
   var STORAGE_KEY = 'akds_form_' + APP_CODE;
   var USERNAME = 'edumind';
-  var PASSWORD = 'akds-290826';
+  var PASSWORD = 'akds-310826';
   var AUTO_PLACEHOLDER = 'Diisi otomatis oleh AI berdasarkan konteks utama yang Anda isi.';
-  var AUTO_FIELD_IDS = ['tp','pemahaman','pemantik','lintas','topik_pembelajaran','kegiatan_awal','kegiatan_inti','penutup','formatif','sumatif','refleksi_guru','refleksi_siswa','pengayaan','remidial'];
+  var AUTO_FIELD_IDS = ['tp','pemahaman','pemantik','lintas','topik_pembelajaran','kegiatan_awal','kegiatan_inti','penutup','formatif','sumatif','refleksi_guru','refleksi_siswa'];
 
   var css = `
   *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#0f172a;color:#0f172a;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-user-select:none;user-select:none}
@@ -35,7 +35,7 @@
   <div id="loginScreen" class="login">
     <div class="login-card">
       <img class="logo" src="https://growva.biz.id/gambarbebas/20260621-082723_Logo%20Edumind%20Academy%20-%20Terbaru2026%20[putih].png" alt="Logo Edumind Academy">
-      <div class="eyebrow">Prompt Generator</div><h1>Modul Ajar Bahasa Arab</h1><p class="sub">Asisten Kerja Digital Sekolah V1</p>
+      <div class="eyebrow">Prompt Generator</div><h1>Modul Ajar Bahasa Inggris</h1><p class="sub">Asisten Kerja Digital Sekolah V1</p>
       <form id="loginForm">
         <div class="field"><label>UserID / Username</label><div class="input-icon"><i class="fa-solid fa-user"></i><input id="username" class="control" autocomplete="username" required value="edumind"></div></div>
         <div class="field"><label>Password</label><div class="input-icon"><i class="fa-solid fa-lock"></i><input id="password" type="password" class="control" autocomplete="current-password" required><button id="togglePassword" class="eye" type="button" aria-label="Tampilkan password" aria-pressed="false"><i class="fa-solid fa-eye"></i></button></div></div>
@@ -47,7 +47,7 @@
   </div>
 
   <div id="appScreen" class="app hidden">
-    <header class="topbar"><div class="brand"><div class="brand-icon"><i class="fa-solid fa-language"></i></div><div><h2>Modul Ajar Bahasa Arab</h2><p>Mengikuti Template Modul Ajar Final</p></div></div><button id="logoutBtn" class="danger" type="button"><i class="fa-solid fa-right-from-bracket"></i> Keluar</button></header>
+    <header class="topbar"><div class="brand"><div class="brand-icon"><i class="fa-solid fa-language"></i></div><div><h2>Modul Ajar Bahasa Inggris</h2><p>Mengikuti Template Modul Ajar - Acuan</p></div></div><button id="logoutBtn" class="danger" type="button"><i class="fa-solid fa-right-from-bracket"></i> Keluar</button></header>
     <main class="layout">
       <section class="card"><div class="cardhead"><h3><i class="fa-solid fa-list-check"></i> Form Parameter Modul Ajar</h3><button id="exampleBtn" class="smallbtn" type="button"><i class="fa-solid fa-flask"></i> Muat Contoh</button></div>
         <form id="generatorForm" class="form-scroll" novalidate>
@@ -57,14 +57,12 @@
           <div class="field"><label>Institusi <span class="req">*</span></label><input id="institusi" class="control" required></div>
 
           <div class="section-title">2. Informasi Umum</div>
-          <div class="field"><label>Mata Pelajaran</label><input class="control" value="Bahasa Arab" readonly></div>
-          <div class="grid2"><div class="field"><label>Tahun Ajaran <span class="req">*</span></label><input id="tahun_ajaran" class="control" required></div><div class="field"><label>Alokasi Waktu <span class="req">*</span></label><input id="alokasi" class="control" required></div></div>
+          <div class="field"><label>Mata Pelajaran <span class="req">*</span></label><select id="mapel" class="control" required></select><span class="hint">Bahasa Inggris Tingkat Lanjut tersedia khusus Fase F Kelas XI dan XII.</span></div>
+          <div class="field"><label>Tahun Ajaran <span class="req">*</span></label><input id="tahun_ajaran" class="control" required></div>
           <div class="grid2"><div class="field"><label>Jenjang Pendidikan <span class="req">*</span></label><select id="jenjang" class="control" required><option value="SD/MI">SD/MI</option><option value="SMP/MTs" selected>SMP/MTs</option><option value="SMA/MA/SMK">SMA/MA/SMK</option></select></div><div class="field"><label>Fase / Kelas <span class="req">*</span></label><select id="fase_kelas" class="control" required></select></div></div>
-          <div class="grid2">
-            <div class="field"><label>BAB Ke- <span class="req">*</span></label><div class="bab-stepper"><button id="babDown" type="button" title="Kurangi nomor BAB"><i class="fa-solid fa-chevron-down"></i></button><input id="bab_ke" class="control" value="BAB 1" required placeholder="Contoh: BAB 1"><button id="babUp" type="button" title="Tambah nomor BAB"><i class="fa-solid fa-chevron-up"></i></button></div></div>
-            <div class="field"><label>Semester <span class="req">*</span></label><select id="semester" class="control" required><option value="I (Ganjil)" selected>I (Ganjil)</option><option value="II (Genap)">II (Genap)</option></select></div>
-          </div>
-          <div class="field"><label>Lingkup Materi <span class="req">*</span></label><input id="lingkup" class="control" required placeholder="Contoh: التَّعَارُفُ / Perkenalan"></div>
+          <div class="field"><label>BAB Ke- <span class="req">*</span></label><div class="bab-stepper"><button id="babDown" type="button" title="Kurangi nomor BAB"><i class="fa-solid fa-chevron-down"></i></button><input id="bab_ke" class="control" value="BAB 1" required placeholder="Contoh: BAB 1"><button id="babUp" type="button" title="Tambah nomor BAB"><i class="fa-solid fa-chevron-up"></i></button></div></div>
+          <div class="field"><label>Lingkup Materi <span class="req">*</span></label><input id="lingkup" class="control" required placeholder="Contoh: Describing people and daily activities"></div>
+          <div class="grid2"><div class="field"><label>Semester <span class="req">*</span></label><select id="semester" class="control" required><option value="I (Ganjil)" selected>I (Ganjil)</option><option value="II (Genap)">II (Genap)</option></select></div><div class="field"><label>Alokasi Waktu <span class="req">*</span></label><input id="alokasi" class="control" required></div></div>
 
           <div class="section-title">3. Identifikasi</div>
           <div class="grid2"><div class="field"><label>Target Peserta Didik <span class="req">*</span></label><select id="target" class="control"><option>Peserta Didik Reguler/Tipikal</option><option>Peserta Didik dengan Pencapaian Tinggi</option><option>Peserta Didik dengan Kesulitan Belajar</option><option>Peserta Didik CIBI</option></select><span class="hint"><b>CIBI</b> = Cerdas Istimewa dan/atau Berbakat Istimewa, yaitu peserta didik dengan kemampuan atau bakat menonjol yang memerlukan layanan belajar sesuai kebutuhannya.</span></div><div class="field"><label>Jumlah Peserta Didik <span class="req">*</span></label><input id="jumlah" class="control" required></div></div>
@@ -74,9 +72,9 @@
           </div></div>
 
           <div class="section-title">4. Komponen Inti</div>
-          <div class="notice"><strong>CP Bahasa Arab tidak diisi otomatis.</strong> Salin CP resmi yang digunakan sekolah beserta elemen/ruang lingkupnya. Teks CP akan dikutip apa adanya dan tidak boleh diubah oleh AI.</div>
-          <div class="field"><label>Elemen / Ruang Lingkup CP <span class="req">*</span></label><textarea id="elemen_cp" class="control textarea cp" required placeholder="Contoh format: Elemen 1 — ...&#10;Elemen 2 — ... (isi sesuai dokumen CP yang digunakan sekolah)"></textarea></div>
-          <div class="field"><label>Capaian Pembelajaran (diisi guru) <span class="req">*</span></label><textarea id="cp" class="control textarea cp" required placeholder="Tempel teks Capaian Pembelajaran Bahasa Arab di sini. Kolom sengaja dikosongkan."></textarea><span class="hint">Jangan mengisi dengan ringkasan. Gunakan redaksi CP resmi sekolah/madrasah.</span></div>
+          <div id="cpNotice" class="notice"><strong>CP diisi otomatis dan dikunci.</strong> Isinya menyesuaikan mata pelajaran serta fase/kelas yang dipilih.</div>
+          <div class="field"><label>Elemen / Ruang Lingkup CP</label><textarea id="elemen_cp" class="control textarea cp" readonly aria-readonly="true"></textarea></div>
+          <div class="field"><label>Capaian Pembelajaran</label><textarea id="cp" class="control textarea cp" readonly aria-readonly="true"></textarea><span class="hint">Bersumber dari dokumen CP Bahasa Inggris yang dilampirkan. Redaksi tidak dapat diedit.</span></div>
 
           <div class="section-title">5. Desain Pembelajaran</div>
           <div class="field"><label>Tujuan Pembelajaran <span class="req">*</span></label><textarea id="tp" class="control textarea" required></textarea></div>
@@ -84,12 +82,12 @@
           <div class="field"><label>Pertanyaan Pemantik <span class="req">*</span></label><textarea id="pemantik" class="control textarea" required></textarea></div>
           <div class="grid2"><div class="field"><label>Lintas Disiplin Ilmu</label><input id="lintas" class="control"></div><div class="field"><label>Topik Pembelajaran <span class="req">*</span></label><input id="topik_pembelajaran" class="control" required></div></div>
           <div class="field"><label>Pendekatan Pembelajaran <span class="req">*</span></label><select id="pendekatan" class="control" required><option selected>Pembelajaran Mendalam (Deep Learning), Berdiferensiasi</option><option>Pembelajaran Mendalam (Deep Learning)</option><option>Pembelajaran Berdiferensiasi</option><option>Komunikatif (Communicative Language Teaching)</option><option>Kontekstual (Contextual Teaching and Learning/CTL)</option><option>TaRL (Teaching at the Right Level)</option><option value="Lainnya">Lainnya</option></select><input id="pendekatan_lain" class="control other-field hidden" placeholder="Tuliskan pendekatan pembelajaran lainnya"></div>
-          <div class="field"><label>Model Pembelajaran <span class="req">*</span></label><select id="model" class="control" required><option selected>Problem Based Learning (PBL)</option><option>Project Based Learning (PjBL)</option><option>Cooperative Learning</option><option>Discovery Learning</option><option>Inquiry Learning</option><option>Direct Instruction</option><option>Task-Based Language Teaching</option><option value="Lainnya">Lainnya</option></select><input id="model_lain" class="control other-field hidden" placeholder="Tuliskan model pembelajaran lainnya"></div>
+          <div class="field"><label>Model Pembelajaran <span class="req">*</span></label><select id="model" class="control" required><option selected>Genre-Based Pedagogy (BKoF–MoT–JCoT–ICoT)</option><option>Task-Based Language Teaching</option><option>Problem Based Learning (PBL)</option><option>Project Based Learning (PjBL)</option><option>Cooperative Learning</option><option>Discovery Learning</option><option>Inquiry Learning</option><option>Direct Instruction</option><option value="Lainnya">Lainnya</option></select><input id="model_lain" class="control other-field hidden" placeholder="Tuliskan model pembelajaran lainnya"></div>
           <div class="field"><span class="label">Metode Pembelajaran <span class="req">*</span></span><div class="checks">
             <label><input type="checkbox" name="metode" value="Ceramah Interaktif" checked>Ceramah Interaktif</label><label><input type="checkbox" name="metode" value="Tanya Jawab" checked>Tanya Jawab</label>
             <label><input type="checkbox" name="metode" value="Diskusi" checked>Diskusi</label><label><input type="checkbox" name="metode" value="Membaca &amp; Menelaah" checked>Membaca &amp; Menelaah</label>
-            <label><input type="checkbox" name="metode" value="Demonstrasi &amp; Praktik" checked>Demonstrasi &amp; Praktik</label><label><input type="checkbox" name="metode" value="Hafalan Bermakna">Hafalan Bermakna</label>
-            <label><input type="checkbox" name="metode" value="Kisah &amp; Keteladanan">Kisah &amp; Keteladanan</label><label><input type="checkbox" name="metode" value="Bermain Peran">Bermain Peran</label>
+            <label><input type="checkbox" name="metode" value="Demonstrasi &amp; Praktik" checked>Demonstrasi &amp; Praktik</label><label><input type="checkbox" name="metode" value="Drilling Pelafalan">Drilling Pelafalan</label>
+            <label><input type="checkbox" name="metode" value="Shared/Guided Reading">Shared/Guided Reading</label><label><input type="checkbox" name="metode" value="Bermain Peran">Bermain Peran</label>
             <label><input type="checkbox" name="metode" value="Penugasan">Penugasan</label><label><input type="checkbox" name="metode" value="Proyek">Proyek</label>
             <label><input id="metode_lain_cb" type="checkbox" name="metode" value="Lainnya">Lainnya</label>
           </div><input id="metode_lain" class="control other-field hidden" placeholder="Tuliskan metode pembelajaran lainnya"><span class="hint">Pilih satu atau beberapa metode yang akan digunakan. Pilih “Lainnya” bila metode yang dibutuhkan belum tersedia.</span></div>
@@ -98,7 +96,7 @@
             <label><input type="checkbox" name="kemitraan" value="Lingkungan luar sekolah (Orang Tua)" checked>Lingkungan luar sekolah (Orang Tua)</label>
             <label><input type="checkbox" name="kemitraan" value="Komunitas/masyarakat sekitar">Komunitas/masyarakat sekitar</label>
           </div></div>
-          <div class="field"><label>Media &amp; Sumber Belajar (Sarana Prasarana) <span class="req">*</span></label><textarea id="media_sumber" class="control textarea" required placeholder="Contoh: Buku teks Bahasa Arab, kartu kosakata, audio pelafalan, papan tulis, proyektor, LKPD, dan kamus Arab–Indonesia."></textarea></div>
+          <div class="field"><label>Media &amp; Sumber Belajar (Sarana Prasarana) <span class="req">*</span></label><textarea id="media_sumber" class="control textarea" required placeholder="Contoh: Buku teks Bahasa Inggris, kartu kosakata, audio/video autentik, papan tulis, proyektor, LKPD, dan kamus Inggris–Indonesia."></textarea></div>
           <div class="field"><label>Tautan Bahan Ajar Digital (TPACK, Opsional)</label><input id="tautan_bahan" class="control" type="url" placeholder="Contoh: link PPT/Canva bahan ajar"></div>
           <div class="field"><label>Tautan Video Pembelajaran (TPACK, Opsional)</label><input id="tautan_video" class="control" type="url" placeholder="Contoh: link video YouTube"><span class="hint"><b>TPACK</b> = <i>Technological Pedagogical Content Knowledge</i>, yaitu kerangka untuk memadukan teknologi, strategi pembelajaran, dan materi secara tepat dalam proses belajar.</span></div>
 
@@ -116,21 +114,17 @@
           <div class="field"><label>Refleksi untuk Guru <span class="req">*</span></label><textarea id="refleksi_guru" class="control textarea" required></textarea></div>
           <div class="field"><label>Refleksi untuk Peserta Didik <span class="req">*</span></label><textarea id="refleksi_siswa" class="control textarea" required></textarea></div>
 
-          <div class="section-title">9. Pengayaan dan Remidial</div>
-          <div class="field"><label>Pengayaan <span class="req">*</span></label><textarea id="pengayaan" class="control textarea" required></textarea></div>
-          <div class="field"><label>Remidial <span class="req">*</span></label><textarea id="remidial" class="control textarea" required></textarea></div>
-
-          <div class="section-title">10. Lampiran Pendukung</div>
+          <div class="section-title">9. Lampiran Pendukung</div>
           <div class="field"><div class="checks"><label><input type="checkbox" name="lampiran" value="Bahan Ajar" checked>Bahan Ajar</label><label><input type="checkbox" name="lampiran" value="Lembar Kerja Peserta Didik (LKPD)" checked>LKPD</label><label><input type="checkbox" name="lampiran" value="Rubrik Penilaian" checked>Rubrik Penilaian</label><label><input id="lampiran_lain_cb" type="checkbox" name="lampiran" value="Lainnya">Lainnya</label></div><input id="lampiran_lain" class="control other-field hidden" placeholder="Tuliskan lampiran pendukung lainnya"></div>
 
-          <div class="section-title">11. Daftar Pustaka</div>
+          <div class="section-title">10. Daftar Pustaka</div>
           <div class="field"><label>Sumber Rujukan <span class="req">*</span></label><textarea id="pustaka" class="control textarea" required></textarea></div>
 
-          <div class="section-title">12. Pengesahan</div>
+          <div class="section-title">11. Pengesahan</div>
           <div class="grid2"><div class="field"><label>Nama Kepala Sekolah <span class="req">*</span></label><input id="kepala" class="control" required></div><div class="field"><label>NIP Kepala Sekolah</label><input id="nip_kepala" class="control"></div></div>
           <div class="grid2"><div class="field"><label>Nama Guru</label><input id="nama_guru" class="control" readonly aria-readonly="true" title="Terisi otomatis dari Nama Penyusun"><span class="hint">Terisi otomatis mengikuti “Nama Penyusun” pada bagian Identitas Penyusun.</span></div><div class="field"><label>NIP Guru</label><input id="nip_penyusun" class="control"></div></div>
 
-          <div class="section-title">13. Format Output dari AI</div>
+          <div class="section-title">12. Format Output dari AI</div>
           <div class="field"><label>Format Output dari AI <span class="req">*</span></label><select id="format_output" class="control"><option value="docx" selected>File Word (.docx) siap diunduh</option><option value="chat">Teks langsung di percakapan AI</option></select><span class="hint"><b>Template Modul Ajar - Acuan.docx bersifat opsional.</b> Jika tersedia, lampirkan agar tata letak lebih presisi. Jika tidak memiliki atau lupa melampirkannya, AI tetap harus membuat Modul Ajar lengkap berdasarkan blueprint struktur yang sudah tertanam di dalam prompt.</span></div>
           <div class="field"><label>Instruksi Tambahan</label><textarea id="tambahan" class="control textarea"></textarea></div>
           <div id="formStatus" class="status"></div>
@@ -138,7 +132,7 @@
         </form>
       </section>
 
-      <section class="output-col"><div class="card output-card"><div class="cardhead"><h3><i class="fa-solid fa-terminal" style="color:#059669"></i> AI Prompt Ready</h3><div class="output-actions"><button id="copyBtn" class="smallbtn" type="button"><i class="fa-solid fa-copy"></i> Salin</button><button id="downloadBtn" class="secondary" type="button"><i class="fa-solid fa-download"></i> Unduh .txt</button></div></div><pre id="output" class="output selectable">Isi formulir di sebelah kiri. Kolom CP sengaja kosong dan wajib diisi guru. Setelah itu klik “Hasilkan Prompt”.</pre></div>
+      <section class="output-col"><div class="card output-card"><div class="cardhead"><h3><i class="fa-solid fa-terminal" style="color:#059669"></i> AI Prompt Ready</h3><div class="output-actions"><button id="copyBtn" class="smallbtn" type="button"><i class="fa-solid fa-copy"></i> Salin</button><button id="downloadBtn" class="secondary" type="button"><i class="fa-solid fa-download"></i> Unduh .txt</button></div></div><pre id="output" class="output selectable">Pilih jenjang, fase/kelas, dan mata pelajaran. CP akan terisi otomatis. Lalu klik “Hasilkan Prompt”.</pre></div>
         <div class="usage"><b>Cara menggunakan:</b> salin prompt lalu kirim ke ChatGPT/Gemini/Claude. Jika tersedia, Anda dapat melampirkan <i>Template Modul Ajar - Acuan.docx</i> dan materi ajar untuk hasil yang lebih presisi. <b>Template tidak wajib</b>; tanpa template pun AI tetap diperintahkan membuat Modul Ajar lengkap berdasarkan blueprint yang tertanam di prompt. Pilihan default meminta AI mengembalikan file Word (.docx) siap diunduh—bukan hanya teks.</div>
       </section>
     </main>
@@ -154,27 +148,81 @@
     'SMA/MA/SMK': ['Fase E Kelas 10', 'Fase F Kelas 11', 'Fase F Kelas 12']
   };
 
+  var ELEMENTS = ['Menyimak-Berbicara (Listening-Speaking)', 'Membaca-Memirsa (Reading-Viewing)', 'Menulis-Mempresentasikan (Writing-Presenting)'];
+  var CP_DATA = {
+    regular: {
+      A: {
+        label: 'Fase A (Kelas I dan II)',
+        note: 'CP Bahasa Inggris Fase A tidak tersedia dalam dokumen CP yang dilampirkan. Pada dokumen tersebut, Bahasa Inggris wajib dimulai dari Fase B. AI tidak boleh mengarang CP Fase A.',
+        texts: []
+      },
+      B: {
+        label: 'Fase B (Umumnya untuk Kelas III dan IV SD/MI/Program Paket A)',
+        texts: [
+          'Memahami dan merespon teks lisan atau teks multimodal sederhana tentang kehidupan sehari-hari baik secara verbal atau non-verbal sesuai konteks.',
+          'Memahami teks tulis pendek sederhana atau teks multimodal tentang kehidupan sehari-hari dan meresponsnya secara verbal atau non-verbal sesuai konteks.',
+          'Mengomunikasikan gagasan tentang topik sehari-hari dalam teks tulis pendek atau teks multimodal sesuai konteks.'
+        ]
+      },
+      C: {
+        label: 'Fase C (Umumnya untuk Kelas V dan VI SD/MI/Program Paket A)',
+        texts: [
+          'Memahami alur informasi teks secara keseluruhan dan merespon teks lisan atau teks multimodal sederhana tentang topik sehari-hari secara lisan dengan kalimat pendek dan sederhana sesuai konteks.',
+          'Memahami alur informasi secara keseluruhan, gagasan utama dan informasi rinci dari beragam teks pendek atau teks multimodal tentang topik sehari-hari dan meresponnya sesuai konteks.',
+          'Mengomunikasikan ide dan pengalamannya melalui berbagai jenis teks tulis sederhana atau teks multimodal tentang topik sehari-hari sesuai konteks.'
+        ]
+      },
+      D: {
+        label: 'Fase D (Umumnya untuk Kelas VII, VIII, dan IX SMP/MTs/Program Paket B)',
+        texts: [
+          'Memahami alur informasi secara keseluruhan, gagasan utama dan informasi rinci dari teks lisan tentang topik sehari-hari atau yang sesuai dengan minat; menggunakan bahasa Inggris untuk mengungkapkan gagasan dan pengalaman dalam berbagai jenis teks secara lisan tentang topik yang dibahas dengan menggunakan kalimat sederhana dan majemuk baik formal maupun informal sesuai konteks.',
+          'Memahami alur informasi, informasi tersurat dan tersirat dari berbagai jenis teks tertulis atau teks multimodal tentang topik sehari-hari atau yang sesuai dengan minat dan meresponnya sesuai konteks.',
+          'Mengomunikasikan gagasan dan pengalaman mereka dalam berbagai jenis teks secara tertulis atau teks multimodal tentang topik sehari-hari atau yang sesuai dengan minat dengan mulai menggunakan kalimat sederhana dan majemuk dengan struktur teks dan unsur kebahasaan yang tepat; mengungkapkan pendapat dan mempertahankan argumen tentang suatu isu terkait topik sehari-hari atau yang sesuai dengan minat.'
+        ]
+      },
+      E: {
+        label: 'Fase E (Umumnya untuk Kelas X SMA/MA/SMK/Program Paket C)',
+        texts: [
+          'Memahami alur informasi secara keseluruhan, gagasan utama dan detail dalam teks lisan fiksi dan non fiksi mengenai berbagai macam topik yang relevan dengan topik sehari-hari atau isu terkini; menggunakan bahasa Inggris untuk mengungkapkan pendapat dan mempertahankan argumen tentang topik yang dibahas.',
+          'Memahami alur informasi secara keseluruhan, menganalisis dan menyimpulkan informasi tersurat dan tersirat dari berbagai jenis teks fiksi dan non fiksi tertulis atau teks multimodal tentang topik sehari-hari atau isu terkini.',
+          'Mengomunikasikan gagasan dan pengalaman mereka secara tertulis atau multimodal dalam berbagai jenis teks fiksi dan nonfiksi dengan menggunakan berbagai media presentasi (cetak atau digital) untuk mencapai tujuan tertentu dengan struktur teks dan unsur kebahasaan yang tepat; mengungkapkan pendapat dan mempertahankan argumen tentang topik sehari-hari atau isu terkini.'
+        ]
+      },
+      F: {
+        label: 'Fase F (Umumnya untuk Kelas XI dan XII SMA/MA/SMK/Program Paket C)',
+        texts: [
+          'Memahami alur informasi secara keseluruhan dari teks lisan fiksi dan non fiksi tentang isu terkini atau topik terkait mata pelajaran lain; menggunakan bahasa Inggris untuk mengungkapkan pendapat dan mempertahankan argumen tentang topik yang dibahas.',
+          'Mengevaluasi informasi tersurat dan tersirat dari berbagai jenis teks fiksi dan non fiksi tertulis atau teks multimodal tentang isu terkini atau topik yang terkait mata pelajaran lain.',
+          'Mengomunikasikan gagasan atau pengalaman secara tertulis atau multimodal dalam berbagai jenis teks fiksi dan nonfiksi dengan struktur teks dan unsur kebahasaan yang tepat dan kompleks dengan menggunakan berbagai media presentasi (cetak dan digital) untuk mencapai tujuan yang berbeda-beda; menunjukkan strategi koreksi dalam kaidah menulis baik dengan bantuan pendidik maupun mandiri; mengungkapkan pendapat dan mempertahankan argumen tentang isu terkini atau topik yang terkait mata pelajaran lain.'
+        ]
+      }
+    },
+    advanced: {
+      F: {
+        label: 'Fase F Bahasa Inggris Tingkat Lanjut (Umumnya untuk Kelas XI dan XII SMA/MA/Program Paket C)',
+        texts: [
+          'Memahami alur cerita atau informasi dari teks narasi, eksposisi, dan diskusi tentang isu terkini atau topik terkait mata pelajaran lain secara lisan atau multimodal; menggunakan bahasa Inggris untuk mengungkapkan pendapat dan mempertahankan argumen tentang topik yang dibahas.',
+          'Mengevaluasi dan merefleksi informasi tersurat dan tersirat dari teks narasi, eksposisi dan diskusi tentang isu terkini baik nasional maupun global, atau topik yang terkait mata pelajaran lain secara tertulis atau multimodal.',
+          'Mengomunikasikan gagasan atau pengalaman secara tertulis atau multimodal dalam teks narasi, eksposisi, dan diskusi tentang berbagai topik dengan struktur teks dan unsur kebahasaan yang tepat, jelas, dan detail dengan menggunakan berbagai media presentasi (cetak atau digital); menulis cerita pendek, pendapat atau pandangan tentang suatu topik atau isu dengan mengungkapkan argumen yang didukung dengan data dan fakta, atau membahas suatu isu dengan menjelaskan manfaat dan kelemahan atau argumen yang mendukung dan menentang tentang suatu isu terkini yang kontroversial.'
+        ]
+      }
+    }
+  };
+
   var example = {
-    pendekatan:'Pembelajaran Mendalam (Deep Learning), Berdiferensiasi', pendekatan_lain:'', model:'Problem Based Learning (PBL)', model_lain:'', metode_lain:'', lampiran_lain:'',
-    nama_penyusun:'Ahmad Fauzi, S.Pd.', guru_kelas:'Guru Bahasa Arab Kelas VII', institusi:'MTs Edumind Bekasi', tahun_ajaran:'2026/2027', alokasi:'2 JP (2 × 40 menit)', jenjang:'SMP/MTs', bab_ke:'BAB 1', semester:'I (Ganjil)', lingkup:'التَّعَارُفُ / Perkenalan', target:'Peserta Didik Reguler/Tipikal', jumlah:'30 peserta didik',
-    kompetensi_awal:'Peserta didik mengenali huruf dan harakat Arab, mampu melafalkan kosakata sederhana, dan pernah menggunakan ungkapan salam sederhana.',
-    media_sumber:'Buku teks Bahasa Arab yang digunakan sekolah; kartu kosakata; audio pelafalan; papan tulis dan spidol; proyektor; LKPD; kamus Arab–Indonesia.',
+    pendekatan:'Pembelajaran Mendalam (Deep Learning), Berdiferensiasi', pendekatan_lain:'', model:'Genre-Based Pedagogy (BKoF–MoT–JCoT–ICoT)', model_lain:'', metode_lain:'', lampiran_lain:'',
+    nama_penyusun:'Anies Baswedan, S.Pd.Gr.', guru_kelas:'Guru Bahasa Inggris Kelas V', institusi:'SD Edumind Bekasi', tahun_ajaran:'2026/2027', alokasi:'2 JP (2 × 35 menit)', jenjang:'SD/MI', mapel:'Bahasa Inggris', bab_ke:'BAB 1', semester:'I (Ganjil)', lingkup:'Describing people and daily activities', target:'Peserta Didik Reguler/Tipikal', jumlah:'28 peserta didik',
+    kompetensi_awal:'Peserta didik mengenali kosakata sederhana tentang identitas, ciri fisik, dan kegiatan sehari-hari serta mampu memahami instruksi kelas pendek.',
+    media_sumber:'Buku teks Bahasa Inggris yang digunakan sekolah; kartu gambar dan kosakata; audio/video pendek; papan tulis; proyektor; LKPD; kamus Inggris–Indonesia.',
     tautan_bahan:'', tautan_video:'',
     metode:['Ceramah Interaktif','Tanya Jawab','Diskusi','Membaca & Menelaah','Demonstrasi & Praktik'],
     kemitraan:['Lingkungan sekolah (guru & warga sekolah)','Lingkungan luar sekolah (Orang Tua)'],
-    profil:['Keimanan dan Ketakwaan terhadap Tuhan YME','Penalaran Kritis','Kolaborasi','Kemandirian','Komunikasi'],
+    profil:['Penalaran Kritis','Kreativitas','Kolaborasi','Kemandirian','Komunikasi'],
     lampiran:['Bahan Ajar','Lembar Kerja Peserta Didik (LKPD)','Rubrik Penilaian'],
-    elemen_cp:'', cp:'',
-    tp:'a. Peserta didik mampu mengidentifikasi makna kosakata tentang identitas diri secara tepat.\nb. Peserta didik mampu melafalkan ungkapan perkenalan dengan makhraj dan intonasi yang dapat dipahami.\nc. Peserta didik mampu melakukan dialog perkenalan sederhana secara santun.',
-    pemahaman:'Bahasa Arab dapat digunakan untuk berkomunikasi, memperkenalkan identitas diri, serta membangun sikap percaya diri dan saling menghargai.',
-    pemantik:'a. Bagaimana cara mengucapkan salam dan memperkenalkan nama dalam Bahasa Arab?\nb. Informasi apa saja yang biasanya disampaikan saat berkenalan?\nc. Mengapa pelafalan yang jelas penting dalam percakapan?',
-    lintas:'Pendidikan Pancasila dan Informatika', topik_pembelajaran:'Dialog perkenalan (الحوار في التعارف)',
-    durasi_awal:'10 menit', durasi_inti:'60 menit', kegiatan_awal:'Orientasi: salam, doa, pemeriksaan kesiapan, dan kesepakatan belajar. Apersepsi: menghubungkan pengalaman berkenalan. Motivasi: menjelaskan manfaat mampu memperkenalkan diri dalam Bahasa Arab.',
-    kegiatan_inti:'Gunakan tahapan Cooperative Learning: pemodelan ungkapan, latihan terbimbing, kerja pasangan, pertukaran peran, presentasi dialog, umpan balik pelafalan, dan perbaikan.', penutup:'Simpulan bersama, refleksi singkat, umpan balik, tindak lanjut latihan, doa, dan salam.',
-    formatif:'Sikap: observasi kesantunan dan kerja sama. Pengetahuan: kuis makna kosakata. Keterampilan: unjuk kerja dialog dengan rubrik pelafalan, ketepatan ungkapan, kelancaran, dan kepercayaan diri.', sumatif:'Pengetahuan: tes pemahaman kosakata/ungkapan. Keterampilan: dialog perkenalan berpasangan menggunakan rubrik analitik.',
-    refleksi_guru:'Apakah pemodelan membantu peserta didik memahami ungkapan? Bagian mana yang masih memerlukan penguatan? Tindak lanjut apa yang paling relevan?', refleksi_siswa:'Ungkapan apa yang sudah saya kuasai? Bagian mana yang masih sulit saya lafalkan? Bagaimana saya akan berlatih lagi?',
-    pengayaan:'Menambah informasi identitas dalam dialog, membuat rekaman dialog kreatif, atau menjadi mitra latihan bagi teman sesuai kebutuhan.', remidial:'Mengulang kosakata dengan kartu gambar, menirukan audio secara bertahap, dan melakukan dialog berpola dengan pendampingan guru sesuai kebutuhan.',
-    pustaka:'Buku teks Bahasa Arab yang digunakan satuan pendidikan; kamus Arab–Indonesia; materi/audio guru. Lengkapi identitas bibliografi sesuai sumber nyata yang dipakai.', kepala:'Kepala Sekolah, S.Pd.', nip_kepala:'', nip_penyusun:'', format_output:'docx', tambahan:'Gunakan Bahasa Indonesia baku untuk penjelasan. Teks Arab harus Unicode, benar arah kanan-ke-kiri (RTL), dan diberi harakat hanya saat diperlukan untuk tujuan pembelajaran.'
+    tp:AUTO_PLACEHOLDER, pemahaman:AUTO_PLACEHOLDER, pemantik:AUTO_PLACEHOLDER, lintas:AUTO_PLACEHOLDER, topik_pembelajaran:AUTO_PLACEHOLDER,
+    durasi_awal:'10 menit', durasi_inti:'50 menit', kegiatan_awal:AUTO_PLACEHOLDER, kegiatan_inti:AUTO_PLACEHOLDER, penutup:AUTO_PLACEHOLDER,
+    formatif:AUTO_PLACEHOLDER, sumatif:AUTO_PLACEHOLDER, refleksi_guru:AUTO_PLACEHOLDER, refleksi_siswa:AUTO_PLACEHOLDER,
+    pustaka:'Dokumen Capaian Pembelajaran Bahasa Inggris; buku teks Bahasa Inggris yang digunakan satuan pendidikan; materi audio/video guru. Lengkapi identitas bibliografi sesuai sumber nyata yang dipakai.', kepala:'Prabowo Subianto, S.Pd.Gr.', nip_kepala:'', nip_penyusun:'', format_output:'docx', tambahan:'Gunakan Bahasa Indonesia baku untuk penjelasan dan Bahasa Inggris yang akurat sesuai fase. Sajikan contoh kebahasaan secara kontekstual dan ramah peserta didik.'
   };
 
   function setOptions(preferred) {
@@ -183,9 +231,33 @@
     if (preferred && list.indexOf(preferred) >= 0) $('fase_kelas').value = preferred;
     updateDerived();
   }
+  function updateMapelOptions(preferred) {
+    var cls = parseInt((value('fase_kelas').match(/Kelas\s+(\d+)/) || [,'0'])[1], 10);
+    var list = ['Bahasa Inggris'];
+    if (cls === 11 || cls === 12) list.push('Bahasa Inggris Tingkat Lanjut');
+    var wanted = preferred || value('mapel');
+    $('mapel').innerHTML = list.map(function (x) { return '<option value="' + x + '">' + x + '</option>'; }).join('');
+    $('mapel').value = list.indexOf(wanted) >= 0 ? wanted : 'Bahasa Inggris';
+  }
+  function updateCP() {
+    var phase = (value('fase_kelas').match(/Fase\s+([A-F])/i) || [,'A'])[1].toUpperCase();
+    var advanced = value('mapel') === 'Bahasa Inggris Tingkat Lanjut';
+    var item = advanced ? CP_DATA.advanced[phase] : CP_DATA.regular[phase];
+    if (!item || !item.texts.length) {
+      $('elemen_cp').value = 'Belum tersedia pada dokumen CP yang dilampirkan.';
+      $('cp').value = item ? item.note : 'CP tidak tersedia untuk kombinasi pilihan ini. AI dilarang mengarang CP.';
+      $('cpNotice').innerHTML = '<strong>CP belum tersedia.</strong> ' + $('cp').value;
+      return;
+    }
+    $('elemen_cp').value = item.label + (advanced ? '\nTarget kompetensi setara CEFR B2; fokus teks narasi, eksposisi, dan diskusi.' : '') + '\n\n' + ELEMENTS.map(function (x, i) { return (i + 1) + '. ' + x; }).join('\n');
+    $('cp').value = item.texts.map(function (text, i) { return ELEMENTS[i] + '\n' + text; }).join('\n\n');
+    $('cpNotice').innerHTML = '<strong>CP diisi otomatis dan dikunci.</strong> ' + item.label + '. Sumber: dokumen CP ' + (advanced ? 'Bahasa Inggris Tingkat Lanjut' : 'Bahasa Inggris') + ' yang dilampirkan.';
+  }
   function updateDerived() {
     var cls = ($('fase_kelas').value.match(/Kelas\s+(\d+)/) || [,''])[1];
-    if (cls && (!$('guru_kelas').value || /^Guru Bahasa Arab Kelas/.test($('guru_kelas').value))) $('guru_kelas').value = 'Guru Bahasa Arab Kelas ' + cls;
+    if (cls && (!$('guru_kelas').value || /^Guru Bahasa Inggris Kelas/.test($('guru_kelas').value))) $('guru_kelas').value = 'Guru Bahasa Inggris Kelas ' + cls;
+    updateMapelOptions();
+    updateCP();
     syncTeacherName();
   }
   function getPhaseLabel() {
@@ -243,12 +315,13 @@
     if (!Array.isArray(values)) return;
     document.querySelectorAll('input[name="' + name + '"]').forEach(function (cb) { cb.checked = values.indexOf(cb.value) >= 0; });
   }
-  function setValues(data, keepCPEmpty) {
+  function setValues(data) {
     Object.keys(data).forEach(function (id) { if ($(id) && !Array.isArray(data[id])) $(id).value = data[id]; });
-    setOptions(data.fase_kelas || (data.jenjang === 'SMP/MTs' ? 'Fase D Kelas 7' : null));
+    setOptions(data.fase_kelas || (data.jenjang === 'SD/MI' ? 'Fase C Kelas 5' : null));
     if (data.fase_kelas) $('fase_kelas').value = data.fase_kelas;
+    updateMapelOptions(data.mapel);
+    updateCP();
     ['profil','lampiran','metode','kemitraan'].forEach(function(name){ if (data[name]) setCheckedGroup(name, data[name]); });
-    if (keepCPEmpty) { $('elemen_cp').value = ''; $('cp').value = ''; }
     updateDerived();
     configureAutomaticFields();
     refreshConditionalFields();
@@ -263,12 +336,12 @@
     return data;
   }
   function save() { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(currentData())); } catch (e) {} }
-  function restore() { try { var raw = localStorage.getItem(STORAGE_KEY); if (!raw) return false; var data = JSON.parse(raw); setValues(data, false); return true; } catch(e){ return false; } }
+  function restore() { try { var raw = localStorage.getItem(STORAGE_KEY); if (!raw) return false; var data = JSON.parse(raw); setValues(data); return true; } catch(e){ return false; } }
   function validateForm() {
     document.querySelectorAll('.invalid').forEach(function (el) { el.classList.remove('invalid'); });
     var missing = [];
     document.querySelectorAll('#generatorForm [required]').forEach(function (el) { if (!String(el.value || '').trim()) { el.classList.add('invalid'); missing.push(el); } });
-    if (missing.length) { missing[0].scrollIntoView({behavior:'smooth',block:'center'}); missing[0].focus(); $('formStatus').textContent = 'Lengkapi semua kolom wajib, terutama Elemen CP dan Capaian Pembelajaran.'; return false; }
+    if (missing.length) { missing[0].scrollIntoView({behavior:'smooth',block:'center'}); missing[0].focus(); $('formStatus').textContent = 'Lengkapi semua kolom wajib yang masih kosong.'; return false; }
     if (!selected('metode').length) { $('formStatus').textContent = 'Pilih minimal satu Metode Pembelajaran.'; var firstMethod=document.querySelector('input[name="metode"]'); if(firstMethod) firstMethod.scrollIntoView({behavior:'smooth',block:'center'}); return false; }
     return true;
   }
@@ -284,15 +357,16 @@
     var outputInstruction = $('format_output').value === 'docx'
       ? 'KELUARAN UTAMA WAJIB: buat dan lampirkan file Microsoft Word (.docx) yang utuh, siap diunduh dan dapat diedit. Berikan tautan/tombol unduh file. Jangan mengganti keluaran utama dengan teks panjang di percakapan.'
       : 'KELUARAN: tampilkan isi modul lengkap langsung di percakapan dengan struktur template yang sama.';
-    var contextSummary = 'Bahasa Arab; ' + value('jenjang') + ' / ' + value('fase_kelas') + '; ' + value('bab_ke') + '; semester ' + value('semester') + '; lingkup materi ' + value('lingkup') + '; CP dan elemen resmi sebagaimana dikutip di bagian Komponen Inti; target ' + value('target') + '; jumlah ' + value('jumlah') + '.';
+    var contextSummary = value('mapel') + '; ' + value('jenjang') + ' / ' + value('fase_kelas') + '; ' + value('bab_ke') + '; semester ' + value('semester') + '; lingkup materi ' + value('lingkup') + '; CP dan elemen resmi sebagaimana dikutip di bagian Komponen Inti; target ' + value('target') + '; jumlah ' + value('jumlah') + '.';
     var lines = [
       'PERAN',
-      'Bertindaklah sebagai ahli desain instruksional, ahli Kurikulum Merdeka/Pembelajaran Mendalam, guru Bahasa Arab, dan editor dokumen Microsoft Word profesional.',
+      'Bertindaklah sebagai ahli desain instruksional, ahli Kurikulum Merdeka/Pembelajaran Mendalam, guru Bahasa Inggris, dan editor dokumen Microsoft Word profesional.',
       '',
       'TUGAS UTAMA',
-      'Buat Modul Ajar Bahasa Arab berdasarkan data di bawah. File “Template Modul Ajar - Acuan.docx” bersifat OPSIONAL: jika file tersebut terlampir, gunakan sebagai acuan utama struktur dan tata letak; jika tidak terlampir, tetap lanjutkan pekerjaan tanpa meminta pengguna mengunggahnya dan rekonstruksi dokumen berdasarkan BLUEPRINT TEMPLATE FINAL serta ATURAN FIDELITAS WORD yang tertanam di prompt ini. Dokumen harus dimulai langsung dari judul “MODUL AJAR”; jangan membuat atau menambahkan sampul/cover.',
+      'Buat Modul Ajar ' + value('mapel') + ' berdasarkan data di bawah. File “Template Modul Ajar - Acuan.docx” bersifat OPSIONAL: jika file tersebut terlampir, gunakan sebagai acuan utama struktur dan tata letak; jika tidak terlampir, tetap lanjutkan pekerjaan tanpa meminta pengguna mengunggahnya dan rekonstruksi dokumen berdasarkan BLUEPRINT TEMPLATE FINAL serta ATURAN FIDELITAS WORD yang tertanam di prompt ini. Dokumen harus dimulai langsung dari judul “MODUL AJAR”; jangan membuat atau menambahkan sampul/cover.',
       'Jika template terlampir, gunakan template sebagai kerangka struktur, bukan sebagai batas jumlah isi. Jika template tidak terlampir, gunakan blueprint di prompt ini sebagai kerangka pengganti dengan struktur yang sama. Placeholder seperti [Isi kegiatan], [Isi TP], [Isi Refleksi], dan sejenisnya hanya menunjukkan lokasi isi. Jumlah langkah, butir, pertanyaan, atau kegiatan di dalam placeholder harus ditentukan secara proporsional berdasarkan kebutuhan pembelajaran, CP, TP, karakteristik peserta didik, materi, model, dan alokasi waktu.',
       outputInstruction,
+      'Ringkasan konteks: ' + contextSummary,
       '',
       'DATA PENGGUNA — IKUTI APA ADANYA',
       'IDENTITAS PENYUSUN',
@@ -301,7 +375,7 @@
       '- Institusi: ' + value('institusi'),
       '',
       'INFORMASI UMUM',
-      '- Mata Pelajaran: Bahasa Arab',
+      '- Mata Pelajaran: ' + value('mapel'),
       '- Tahun Ajaran: ' + value('tahun_ajaran'),
       '- Jenjang/Kelas: ' + value('jenjang') + ' / ' + value('fase_kelas'),
       '- Fase: ' + phase,
@@ -320,8 +394,8 @@
       'KOMPONEN INTI — TEKS CP TIDAK BOLEH DIUBAH',
       '- Fase: ' + phase,
       '- Elemen/Ruang Lingkup CP:\n' + value('elemen_cp'),
-      '- Capaian Pembelajaran resmi yang diisi guru:\n' + value('cp'),
-      'Kutip CP secara verbatim. Jangan meringkas, memarafrasekan, menambah, mengurangi, atau mengarang CP Bahasa Arab.',
+      '- Capaian Pembelajaran resmi yang terisi otomatis:\n' + value('cp'),
+      'Kutip CP secara verbatim. Jangan meringkas, memarafrasekan, menambah, mengurangi, atau mengarang CP Bahasa Inggris. Jika CP berisi keterangan tidak tersedia, tampilkan keterangan itu apa adanya dan jangan membuat CP pengganti.',
       '',
       'DESAIN PEMBELAJARAN',
       'Pertahankan nomor struktur 1–9 persis seperti template. Nomor tersebut adalah nomor BAGIAN, bukan ketentuan jumlah butir isi.',
@@ -351,10 +425,6 @@
       '- Refleksi untuk Guru: susun pertanyaan/refleksi secukupnya untuk menilai ketercapaian TP, efektivitas strategi, kendala, dan tindak lanjut. Jumlah butir fleksibel.',
       '- Refleksi untuk Peserta Didik: susun pertanyaan/refleksi secukupnya, sederhana, sesuai usia, dan terkait pengalaman belajar. Jumlah butir fleksibel.',
       '',
-      'PENGAYAAN DAN REMIDIAL',
-      '- Pengayaan: susun kegiatan secukupnya bagi peserta didik yang telah mencapai TP; jumlah kegiatan fleksibel dan harus relevan.',
-      '- Remidial: susun kegiatan bertahap secukupnya bagi peserta didik yang belum mencapai TP; gunakan pemodelan ulang, latihan terbimbing, dan umpan balik bila relevan. Jumlah kegiatan fleksibel.',
-      '',
       'LAMPIRAN: ' + (attachments.length ? attachments.join('; ') : '[Tidak ada lampiran yang dipilih]'),
       'DAFTAR PUSTAKA:\n' + value('pustaka'),
       'PENGESAHAN: Kepala Sekolah: ' + value('kepala') + (value('nip_kepala') ? ' — NIP. ' + value('nip_kepala') : ' — NIP. [kosong]') + '; Guru: ' + value('nama_guru') + (value('nip_penyusun') ? ' — NIP. ' + value('nip_penyusun') : ' — NIP. [kosong]'),
@@ -363,7 +433,7 @@
       'HALAMAN/BAGIAN 1 — judul “MODUL AJAR”; “Identitas Penyusun” berisi Nama Penyusun, Guru Kelas/Mata Pelajaran, Institusi; “Informasi Umum” berisi Mata Pelajaran, Tahun Ajaran, Jenjang/Kelas, Fase, Bab Ke-, Lingkup Materi, Semester, Alokasi Waktu; “Identifikasi” berisi 1. Karakteristik Peserta Didik (a. Target, b. Jumlah), 2. Kompetensi Awal, 3. Dimensi Profil Lulusan dengan delapan kotak centang, 4. Sarana dan Prasarana.',
       'HALAMAN/BAGIAN 2 — “Komponen Inti”; tampilkan Fase, Fase Berdasarkan Elemen, lalu tabel dua kolom “Elemen/Ruang Lingkup | Capaian Pembelajaran” dan buat baris sesuai data elemen yang benar-benar diberikan. Lanjut “Desain Pembelajaran” dengan nomor struktur persis: 1 CP; 2 TP; 3 Pemahaman Bermakna; 4 Pertanyaan Pemantik; 5 Lintas Disiplin Ilmu; 6 Topik Pembelajaran; 7 Praktik Pedagogis (✓ Pendekatan, ✓ Metode, ✓ Model); 8 Kemitraan Pembelajaran; 9 Pemanfaatan Digital (TPACK). Jangan memaksakan jumlah butir tertentu di dalam TP atau Pertanyaan Pemantik.',
       'HALAMAN/BAGIAN 3 — “Pengalaman Belajar”: Kegiatan Awal (Orientasi, Apersepsi, Motivasi), Kegiatan Inti [Model Pembelajaran] dengan tahapan/sintaks model, lalu Penutup. Placeholder [Isi kegiatan] dan [Tahapan/sintaks model pembelajaran] bersifat fleksibel; AI menentukan jumlah isi sesuai kebutuhan. Lanjut “Asesmen” dengan tabel Formatif dan Sumatif sebagaimana template; lalu “Refleksi” untuk Guru dan Peserta Didik dengan jumlah butir fleksibel.',
-      'HALAMAN/BAGIAN 4 — “Pengayaan dan Remidial” dengan jumlah kegiatan fleksibel; “Lampiran” berisi seluruh lampiran yang dipilih pengguna; “Daftar Pustaka”; lalu “Menyetujui,” dan blok tanda tangan dua kolom: Kepala [Nama Sekolah] + [Nama Kepala Sekolah] + NIP, serta Guru [Mata Pelajaran/Kelas] + [Nama Guru] + NIP.',
+      'HALAMAN/BAGIAN 4 — “Lampiran” berisi seluruh lampiran yang dipilih pengguna; “Daftar Pustaka”; lalu “Menyetujui,” dan blok tanda tangan dua kolom: Kepala [Nama Sekolah] + [Nama Kepala Sekolah] + NIP, serta Guru [Mata Pelajaran/Kelas] + [Nama Guru] + NIP. Jangan menambahkan bagian Pengayaan/Remidial karena tidak terdapat pada template acuan.',
       '',
       'ATURAN FIDELITAS WORD',
       '1. Jika file template final terlampir, gunakan ukuran, margin, tabel, bar judul, tipografi, warna, highlight, jarak, dan struktur dokumennya sebagai acuan utama. Jika template tidak terlampir, rekonstruksi tampilan berdasarkan blueprint ini: A4 potret, struktur empat bagian/halaman utama yang sama, bar judul biru navy gelap dengan teks putih, sorot kuning pada bagian yang ditandai, tabel CP dan asesmen sebagaimana dijelaskan, serta tata letak yang rapi dan profesional. Jangan menghentikan pekerjaan hanya karena template tidak tersedia.',
@@ -371,8 +441,8 @@
       '3. Template menentukan STRUKTUR, bukan JUMLAH ISI. Dilarang menyimpulkan bahwa banyaknya placeholder, titik-titik, atau contoh baris berarti jumlah langkah/butir wajib.',
       '4. Nomor struktur yang sudah tercetak pada template (misalnya Identifikasi 1–4 dan Desain Pembelajaran 1–9) harus dipertahankan. Untuk konten di dalam placeholder, gunakan jumlah butir fleksibel dan hindari penomoran ganda.',
       '5. Jika isi riil memerlukan halaman tambahan, lanjutkan secara wajar. Jangan mengecilkan teks, merapatkan spasi secara ekstrem, atau menghapus isi penting hanya agar tetap empat halaman.',
-      '6. Bahasa Indonesia harus baku dan operasional. Teks Bahasa Arab wajib Unicode, benar secara tata bahasa/kosakata, dan memakai arah kanan-ke-kiri (RTL) hanya pada teks/sel Arab. Label Indonesia tetap kiri-ke-kanan.',
-      '7. Jangan mengarang ayat, hadis, sumber, data sekolah, NIP, tautan, atau CP. Tautan bahan ajar/video hanya boleh digunakan jika diberikan pengguna. Bila data tidak tersedia, gunakan penanda [Belum diisi] secara terbatas dan jangan membuat fakta baru.',
+      '6. Bahasa Indonesia harus baku dan operasional. Contoh serta materi Bahasa Inggris harus akurat, alami, sesuai tingkat CEFR/fase, dan konsisten dengan ragam British atau American English yang dipilih secara wajar.',
+      '7. Jangan mengarang sumber, data sekolah, NIP, tautan, atau CP. Tautan bahan ajar/video hanya boleh digunakan jika diberikan pengguna. Bila data tidak tersedia, gunakan penanda [Belum diisi] secara terbatas dan jangan membuat fakta baru.',
       '8. Jika lampiran dipilih, isi lampiran tersebut secara nyata dan siap pakai bila format keluaran memungkinkan; jangan hanya menuliskan judul tanpa isi. Rubrik harus konsisten dengan asesmen.',
       '9. Lakukan pemeriksaan akhir: semua bagian template ada dan urut, CP verbatim, jumlah isi tidak dipaksakan, tidak ada nomor ganda seperti “1. 1.”, tabel tidak pecah secara buruk, tidak ada teks terpotong/bertumpuk, dan dokumen dapat dibuka di Microsoft Word.',
       '',
@@ -396,7 +466,7 @@
   function downloadOutput() {
     var text = $('output').textContent;
     if (!text || text.indexOf('PERAN') !== 0) { $('formStatus').textContent = 'Hasilkan prompt terlebih dahulu.'; return; }
-    var blob = new Blob(['\ufeff'+text],{type:'text/plain;charset=utf-8'}); var a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='prompt-modul-ajar-bahasa-arab-290826-final.txt'; document.body.appendChild(a); a.click(); setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},0);
+    var blob = new Blob(['\ufeff'+text],{type:'text/plain;charset=utf-8'}); var a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='prompt-modul-ajar-bahasa-inggris-310826.txt'; document.body.appendChild(a); a.click(); setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},0);
   }
   function showApp(){ $('loginScreen').classList.add('hidden'); $('appScreen').classList.remove('hidden'); }
   function showLogin(){ $('appScreen').classList.add('hidden'); $('loginScreen').classList.remove('hidden'); $('password').value=''; }
@@ -406,6 +476,7 @@
   $('logoutBtn').addEventListener('click', function(){ sessionStorage.removeItem(SESSION_KEY); showLogin(); });
   $('jenjang').addEventListener('change', function(){ setOptions(); save(); });
   $('fase_kelas').addEventListener('change', function(){ updateDerived(); save(); });
+  $('mapel').addEventListener('change', function(){ updateCP(); save(); });
   $('babDown').addEventListener('click', function(){ ubahBab(-1); });
   $('babUp').addEventListener('click', function(){ ubahBab(1); });
   $('pendekatan').addEventListener('change', function(){ toggleOtherSelect('pendekatan','pendekatan_lain'); save(); });
@@ -417,11 +488,11 @@
   $('generatorForm').addEventListener('change', function(){ save(); });
   $('generatorForm').addEventListener('submit', function(e){ e.preventDefault(); generatePrompt(); });
   $('copyBtn').addEventListener('click', copyOutput); $('downloadBtn').addEventListener('click', downloadOutput);
-  $('exampleBtn').addEventListener('click', function(){ setValues(Object.assign({fase_kelas:'Fase D Kelas 7'},example),true); save(); $('cp').scrollIntoView({behavior:'smooth',block:'center'}); $('cp').focus(); $('formStatus').textContent='Contoh dimuat. Elemen CP dan CP tetap kosong—silakan isi dari dokumen resmi.'; });
-  $('resetBtn').addEventListener('click', function(){ if(!confirm('Kosongkan konfigurasi tersimpan dan muat ulang contoh?'))return; localStorage.removeItem(STORAGE_KEY); setValues(Object.assign({fase_kelas:'Fase D Kelas 7'},example),true); $('output').textContent='Formulir direset. Lengkapi Elemen CP dan Capaian Pembelajaran, lalu klik “Hasilkan Prompt”.'; $('formStatus').textContent='Formulir direset; CP tetap kosong.'; });
+  $('exampleBtn').addEventListener('click', function(){ setValues(Object.assign({fase_kelas:'Fase C Kelas 5'},example)); save(); $('output').textContent='Contoh Bahasa Inggris Fase C Kelas V dimuat. CP terisi otomatis. Klik “Hasilkan Prompt” untuk membuat instruksi terbaru.'; $('cp').scrollIntoView({behavior:'smooth',block:'center'}); $('formStatus').textContent='Contoh Bahasa Inggris Fase C Kelas V dimuat. CP terisi otomatis dan terkunci.'; });
+  $('resetBtn').addEventListener('click', function(){ if(!confirm('Kosongkan konfigurasi tersimpan dan muat ulang contoh?'))return; localStorage.removeItem(STORAGE_KEY); setValues(Object.assign({fase_kelas:'Fase C Kelas 5'},example)); $('output').textContent='Formulir direset. CP terisi otomatis sesuai fase/kelas. Klik “Hasilkan Prompt” setelah data utama sesuai.'; $('formStatus').textContent='Formulir direset ke contoh Bahasa Inggris Kelas V.'; });
 
-  setOptions('Fase D Kelas 7');
-  if (!restore()) setValues(Object.assign({fase_kelas:'Fase D Kelas 7'},example),true);
+  setOptions('Fase C Kelas 5');
+  if (!restore()) setValues(Object.assign({fase_kelas:'Fase C Kelas 5'},example));
   refreshConditionalFields();
   if (sessionStorage.getItem(SESSION_KEY)==='active') showApp(); else showLogin();
 })();
