@@ -1,0 +1,198 @@
+{
+  "id": "menulis",
+  "nama": "Aktivitas Menulis",
+  "modes": [
+    {
+      "value": "cepat",
+      "label": "⚡ Cepat",
+      "description": "Isi kebutuhan utama dan buat prompt lebih cepat."
+    },
+    {
+      "value": "lengkap",
+      "label": "⚙️ Lengkap",
+      "description": "Tampilkan pilihan tambahan untuk hasil lebih spesifik."
+    }
+  ],
+  "fields": [
+    {
+      "id": "mode_menulis",
+      "label": "Kebutuhan",
+      "type": "select",
+      "options": [
+        {
+          "value": "Buat aktivitas menulis",
+          "label": "Buat aktivitas menulis"
+        },
+        {
+          "value": "Bantu beri umpan balik tulisan siswa",
+          "label": "Bantu beri umpan balik tulisan siswa"
+        }
+      ],
+      "default": "Buat aktivitas menulis",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "jenis_tulisan",
+      "label": "Jenis tulisan",
+      "type": "select",
+      "options": [
+        {
+          "value": "Cerita pengalaman",
+          "label": "Cerita pengalaman"
+        },
+        {
+          "value": "Cerita imajinatif",
+          "label": "Cerita imajinatif"
+        },
+        {
+          "value": "Menulis dari gambar",
+          "label": "Menulis dari gambar"
+        },
+        {
+          "value": "Deskripsi",
+          "label": "Deskripsi"
+        },
+        {
+          "value": "Teks informasi",
+          "label": "Teks informasi"
+        },
+        {
+          "value": "Laporan pengamatan",
+          "label": "Laporan pengamatan"
+        },
+        {
+          "value": "Surat/Pesan",
+          "label": "Surat/Pesan"
+        },
+        {
+          "value": "Puisi/Pantun",
+          "label": "Puisi/Pantun"
+        },
+        {
+          "value": "Pendapat/Tanggapan",
+          "label": "Pendapat/Tanggapan"
+        },
+        {
+          "value": "Atur sendiri",
+          "label": "Atur sendiri"
+        }
+      ],
+      "default": "Cerita pengalaman",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "topik",
+      "label": "Tema/topik",
+      "type": "text",
+      "placeholder": "Contoh: Pengalaman menolong orang lain",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "tingkat_bantuan",
+      "label": "Tingkat bantuan",
+      "type": "select",
+      "options": [
+        {
+          "value": "Banyak bantuan",
+          "label": "Banyak bantuan"
+        },
+        {
+          "value": "Bantuan sedang",
+          "label": "Bantuan sedang"
+        },
+        {
+          "value": "Bantuan minimal",
+          "label": "Bantuan minimal"
+        },
+        {
+          "value": "Mandiri",
+          "label": "Mandiri"
+        }
+      ],
+      "default": "Bantuan sedang",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "durasi_menulis",
+      "label": "Durasi",
+      "type": "select",
+      "options": [
+        {
+          "value": "15 menit",
+          "label": "15 menit"
+        },
+        {
+          "value": "20 menit",
+          "label": "20 menit"
+        },
+        {
+          "value": "35 menit",
+          "label": "35 menit"
+        },
+        {
+          "value": "60 menit",
+          "label": "60 menit"
+        },
+        {
+          "value": "70 menit",
+          "label": "70 menit"
+        },
+        {
+          "value": "2–3 pertemuan",
+          "label": "2–3 pertemuan"
+        },
+        {
+          "value": "Atur sendiri",
+          "label": "Atur sendiri"
+        }
+      ],
+      "default": "35 menit",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "tulisan_siswa",
+      "label": "Tulisan siswa (khusus mode umpan balik)",
+      "type": "textarea",
+      "placeholder": "Tempel tulisan siswa tanpa data pribadi. Tidak disimpan otomatis.",
+      "required": false,
+      "advanced": true,
+      "help": null,
+      "rows": 4
+    },
+    {
+      "id": "tahap_proses",
+      "label": "Tahap proses",
+      "type": "select",
+      "options": [
+        {
+          "value": "Ide → Kerangka → Draf",
+          "label": "Ide → Kerangka → Draf"
+        },
+        {
+          "value": "Ide → Kerangka → Draf → Revisi",
+          "label": "Ide → Kerangka → Draf → Revisi"
+        },
+        {
+          "value": "Proses lengkap sampai publikasi",
+          "label": "Proses lengkap sampai publikasi"
+        }
+      ],
+      "default": "Ide → Kerangka → Draf → Revisi",
+      "required": true,
+      "advanced": false,
+      "help": null
+    }
+  ],
+  "status": "pondasi-v1",
+  "catatan": "Struktur formulir dasar sudah aktif. Mesin prompt mendalam akan disempurnakan bertahap per generator."
+}

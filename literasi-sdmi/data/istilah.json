@@ -1,0 +1,15 @@
+{
+  "generate": "Buat Prompt",
+  "output": "Hasil",
+  "preview": "Pratinjau",
+  "reset": "Atur Ulang",
+  "custom": "Atur Sendiri",
+  "feedback": "Umpan Balik",
+  "peer_review": "Tanggapan Teman",
+  "checkpoint": "Cek Progres",
+  "scaffolding": "Tingkat Bantuan",
+  "reading_level": "Kemampuan Membaca",
+  "difficulty": "Tingkat Kesulitan",
+  "worksheet": "LKPD",
+  "project": "Proyek"
+}

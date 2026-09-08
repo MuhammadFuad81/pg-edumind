@@ -1,0 +1,118 @@
+{
+  "nama_aplikasi": "Prompt Generator Literasi SD/MI",
+  "subjudul": "Spesialis Bahasa Indonesia",
+  "versi": "1.0.0-pondasi",
+  "versi_konten": "20260908-1",
+  "generator": [
+    {
+      "id": "cerita",
+      "nomor": "01",
+      "nama": "Cerita Anak Bergambar",
+      "ikon": "📖",
+      "warna": "#FB7185",
+      "warna_lunak": "#FFF1F2",
+      "deskripsi": "Rancang cerita anak, ilustrasi, dan aktivitas literasi.",
+      "path": "generators/01-cerita/config.json",
+      "template": "generators/01-cerita/prompt-template.txt"
+    },
+    {
+      "id": "bacaan",
+      "nomor": "02",
+      "nama": "Teks/Bacaan Literasi",
+      "ikon": "📚",
+      "warna": "#3B82F6",
+      "warna_lunak": "#EFF6FF",
+      "deskripsi": "Buat bacaan sesuai kelas, kemampuan, tujuan, dan konteks siswa.",
+      "path": "generators/02-bacaan/config.json",
+      "template": "generators/02-bacaan/prompt-template.txt"
+    },
+    {
+      "id": "pemahaman",
+      "nomor": "03",
+      "nama": "Pemahaman Bacaan",
+      "ikon": "❓",
+      "warna": "#F59E0B",
+      "warna_lunak": "#FFFBEB",
+      "deskripsi": "Susun pertanyaan pemahaman yang berkualitas dan terarah.",
+      "path": "generators/03-pemahaman/config.json",
+      "template": "generators/03-pemahaman/prompt-template.txt"
+    },
+    {
+      "id": "menulis",
+      "nomor": "04",
+      "nama": "Aktivitas Menulis",
+      "ikon": "✍️",
+      "warna": "#8B5CF6",
+      "warna_lunak": "#F5F3FF",
+      "deskripsi": "Bimbing proses ide, kerangka, draf, revisi, hingga publikasi.",
+      "path": "generators/04-menulis/config.json",
+      "template": "generators/04-menulis/prompt-template.txt"
+    },
+    {
+      "id": "kebahasaan",
+      "nomor": "05",
+      "nama": "Kebahasaan Kontekstual",
+      "ikon": "🔤",
+      "warna": "#22C55E",
+      "warna_lunak": "#F0FDF4",
+      "deskripsi": "Latih kosakata, ejaan, kalimat, dan paragraf dalam konteks nyata.",
+      "path": "generators/05-kebahasaan/config.json",
+      "template": "generators/05-kebahasaan/prompt-template.txt"
+    },
+    {
+      "id": "visual",
+      "nomor": "06",
+      "nama": "Literasi Visual",
+      "ikon": "👁️",
+      "warna": "#06B6D4",
+      "warna_lunak": "#ECFEFF",
+      "deskripsi": "Ubah visual menjadi kegiatan mengamati, berpikir, berbicara, dan menulis.",
+      "path": "generators/06-visual/config.json",
+      "template": "generators/06-visual/prompt-template.txt"
+    },
+    {
+      "id": "bahasa-lisan",
+      "nomor": "07",
+      "nama": "Menyimak, Berbicara & Presentasi",
+      "ikon": "🗣️",
+      "warna": "#F97316",
+      "warna_lunak": "#FFF7ED",
+      "deskripsi": "Rancang kegiatan menyimak, diskusi, berbicara, dan presentasi.",
+      "path": "generators/07-bahasa-lisan/config.json",
+      "template": "generators/07-bahasa-lisan/prompt-template.txt"
+    },
+    {
+      "id": "lkpd",
+      "nomor": "08",
+      "nama": "LKPD Literasi",
+      "ikon": "📋",
+      "warna": "#EC4899",
+      "warna_lunak": "#FDF2F8",
+      "deskripsi": "Susun alur aktivitas siswa yang aktif, runtut, dan siap dijadikan LKPD.",
+      "path": "generators/08-lkpd/config.json",
+      "template": "generators/08-lkpd/prompt-template.txt"
+    },
+    {
+      "id": "proyek",
+      "nomor": "09",
+      "nama": "Proyek Literasi",
+      "ikon": "🚀",
+      "warna": "#14B8A6",
+      "warna_lunak": "#F0FDFA",
+      "deskripsi": "Ubah keterampilan bahasa menjadi proyek dan karya nyata siswa.",
+      "path": "generators/09-proyek/config.json",
+      "template": "generators/09-proyek/prompt-template.txt"
+    },
+    {
+      "id": "paket",
+      "nomor": "10",
+      "nama": "Paket Literasi Lengkap",
+      "ikon": "✨",
+      "warna": "#6366F1",
+      "warna_lunak": "#EEF2FF",
+      "deskripsi": "Gabungkan engine yang relevan menjadi paket pembelajaran literasi utuh.",
+      "path": "generators/10-paket/config.json",
+      "template": "generators/10-paket/prompt-template.txt"
+    }
+  ]
+}

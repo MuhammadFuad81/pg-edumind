@@ -1,0 +1,198 @@
+{
+  "id": "lkpd",
+  "nama": "LKPD Literasi",
+  "modes": [
+    {
+      "value": "cepat",
+      "label": "⚡ Cepat",
+      "description": "Isi kebutuhan utama dan buat prompt lebih cepat."
+    },
+    {
+      "value": "lengkap",
+      "label": "⚙️ Lengkap",
+      "description": "Tampilkan pilihan tambahan untuk hasil lebih spesifik."
+    }
+  ],
+  "fields": [
+    {
+      "id": "mode_lkpd",
+      "label": "Kebutuhan LKPD",
+      "type": "select",
+      "options": [
+        {
+          "value": "Buat dari awal",
+          "label": "Buat dari awal"
+        },
+        {
+          "value": "Buat dari bacaan",
+          "label": "Buat dari bacaan"
+        },
+        {
+          "value": "Buat dari visual",
+          "label": "Buat dari visual"
+        },
+        {
+          "value": "LKPD menulis",
+          "label": "LKPD menulis"
+        },
+        {
+          "value": "Perbaiki LKPD saya",
+          "label": "Perbaiki LKPD saya"
+        }
+      ],
+      "default": "Buat dari awal",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "topik_lkpd",
+      "label": "Tema/topik",
+      "type": "text",
+      "placeholder": "Contoh: Menjaga sungai",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "fokus_lkpd",
+      "label": "Fokus literasi",
+      "type": "select",
+      "options": [
+        {
+          "value": "Membaca",
+          "label": "Membaca"
+        },
+        {
+          "value": "Menulis",
+          "label": "Menulis"
+        },
+        {
+          "value": "Menyimak",
+          "label": "Menyimak"
+        },
+        {
+          "value": "Berbicara",
+          "label": "Berbicara"
+        },
+        {
+          "value": "Kebahasaan",
+          "label": "Kebahasaan"
+        },
+        {
+          "value": "Literasi visual",
+          "label": "Literasi visual"
+        },
+        {
+          "value": "Literasi terpadu",
+          "label": "Literasi terpadu"
+        }
+      ],
+      "default": "Literasi terpadu",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "durasi_lkpd",
+      "label": "Durasi",
+      "type": "select",
+      "options": [
+        {
+          "value": "20 menit",
+          "label": "20 menit"
+        },
+        {
+          "value": "35 menit",
+          "label": "35 menit"
+        },
+        {
+          "value": "60 menit",
+          "label": "60 menit"
+        },
+        {
+          "value": "70 menit",
+          "label": "70 menit"
+        },
+        {
+          "value": "2 × 35 menit",
+          "label": "2 × 35 menit"
+        },
+        {
+          "value": "Atur sendiri",
+          "label": "Atur sendiri"
+        }
+      ],
+      "default": "35 menit",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "mode_kerja",
+      "label": "Cara kerja siswa",
+      "type": "select",
+      "options": [
+        {
+          "value": "Individu",
+          "label": "Individu"
+        },
+        {
+          "value": "Berpasangan",
+          "label": "Berpasangan"
+        },
+        {
+          "value": "Kelompok",
+          "label": "Kelompok"
+        },
+        {
+          "value": "Campuran",
+          "label": "Campuran"
+        }
+      ],
+      "default": "Individu",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "panjang_lkpd",
+      "label": "Panjang LKPD",
+      "type": "select",
+      "options": [
+        {
+          "value": "LKPD 1 halaman",
+          "label": "LKPD 1 halaman"
+        },
+        {
+          "value": "Mini 2–3 aktivitas",
+          "label": "Mini 2–3 aktivitas"
+        },
+        {
+          "value": "Standar 4–6 aktivitas",
+          "label": "Standar 4–6 aktivitas"
+        },
+        {
+          "value": "Lengkap 6–8 aktivitas",
+          "label": "Lengkap 6–8 aktivitas"
+        }
+      ],
+      "default": "Standar 4–6 aktivitas",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "bahan_lkpd",
+      "label": "Bahan yang sudah dimiliki (opsional)",
+      "type": "textarea",
+      "placeholder": "Tempel bacaan/materi/LKPD lama jika ada. Tidak disimpan otomatis.",
+      "required": false,
+      "advanced": true,
+      "help": null,
+      "rows": 4
+    }
+  ],
+  "status": "pondasi-v1",
+  "catatan": "Struktur formulir dasar sudah aktif. Mesin prompt mendalam akan disempurnakan bertahap per generator."
+}

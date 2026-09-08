@@ -1,0 +1,235 @@
+{
+  "id": "pemahaman",
+  "nama": "Pemahaman Bacaan",
+  "modes": [
+    {
+      "value": "cepat",
+      "label": "⚡ Cepat",
+      "description": "Isi kebutuhan utama dan buat prompt lebih cepat."
+    },
+    {
+      "value": "lengkap",
+      "label": "⚙️ Lengkap",
+      "description": "Tampilkan pilihan tambahan untuk hasil lebih spesifik."
+    }
+  ],
+  "fields": [
+    {
+      "id": "sumber_bacaan",
+      "label": "Sumber bacaan",
+      "type": "select",
+      "options": [
+        {
+          "value": "Saya sudah punya bacaan",
+          "label": "Saya sudah punya bacaan"
+        },
+        {
+          "value": "Buatkan bacaan baru",
+          "label": "Buatkan bacaan baru"
+        }
+      ],
+      "default": "Saya sudah punya bacaan",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "teks_bacaan",
+      "label": "Bacaan (jika sudah ada)",
+      "type": "textarea",
+      "placeholder": "Tempel bacaan di sini. Data ini tidak disimpan otomatis.",
+      "required": false,
+      "advanced": false,
+      "help": null,
+      "rows": 4
+    },
+    {
+      "id": "tujuan_soal",
+      "label": "Tujuan",
+      "type": "select",
+      "options": [
+        {
+          "value": "Latihan",
+          "label": "Latihan"
+        },
+        {
+          "value": "Diagnostik",
+          "label": "Diagnostik"
+        },
+        {
+          "value": "Asesmen",
+          "label": "Asesmen"
+        },
+        {
+          "value": "Diskusi",
+          "label": "Diskusi"
+        },
+        {
+          "value": "Pengayaan",
+          "label": "Pengayaan"
+        },
+        {
+          "value": "Remedial",
+          "label": "Remedial"
+        }
+      ],
+      "default": "Latihan",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "jumlah_soal",
+      "label": "Jumlah pertanyaan",
+      "type": "number",
+      "min": 1,
+      "max": 20,
+      "default": 5,
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "bentuk_soal",
+      "label": "Bentuk pertanyaan",
+      "type": "select",
+      "options": [
+        {
+          "value": "Campuran",
+          "label": "Campuran"
+        },
+        {
+          "value": "Pilihan ganda",
+          "label": "Pilihan ganda"
+        },
+        {
+          "value": "Benar/Salah",
+          "label": "Benar/Salah"
+        },
+        {
+          "value": "Menjodohkan",
+          "label": "Menjodohkan"
+        },
+        {
+          "value": "Isian singkat",
+          "label": "Isian singkat"
+        },
+        {
+          "value": "Jawaban singkat",
+          "label": "Jawaban singkat"
+        },
+        {
+          "value": "Uraian",
+          "label": "Uraian"
+        },
+        {
+          "value": "Diskusi",
+          "label": "Diskusi"
+        }
+      ],
+      "default": "Campuran",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "fokus_kemampuan",
+      "label": "Fokus kemampuan",
+      "type": "select",
+      "options": [
+        {
+          "value": "Distribusi cerdas",
+          "label": "Distribusi cerdas"
+        },
+        {
+          "value": "Informasi tersurat",
+          "label": "Informasi tersurat"
+        },
+        {
+          "value": "Ide pokok",
+          "label": "Ide pokok"
+        },
+        {
+          "value": "Sebab-akibat",
+          "label": "Sebab-akibat"
+        },
+        {
+          "value": "Inferensi",
+          "label": "Inferensi"
+        },
+        {
+          "value": "Evaluasi",
+          "label": "Evaluasi"
+        },
+        {
+          "value": "Refleksi",
+          "label": "Refleksi"
+        },
+        {
+          "value": "Campuran",
+          "label": "Campuran"
+        }
+      ],
+      "default": "Distribusi cerdas",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "tingkat_kesulitan",
+      "label": "Tingkat kesulitan",
+      "type": "select",
+      "options": [
+        {
+          "value": "Adaptif",
+          "label": "Adaptif"
+        },
+        {
+          "value": "Mudah",
+          "label": "Mudah"
+        },
+        {
+          "value": "Sedang",
+          "label": "Sedang"
+        },
+        {
+          "value": "Menantang",
+          "label": "Menantang"
+        },
+        {
+          "value": "Campuran",
+          "label": "Campuran"
+        }
+      ],
+      "default": "Adaptif",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "paket_jawaban",
+      "label": "Sertakan",
+      "type": "select",
+      "options": [
+        {
+          "value": "Kunci jawaban",
+          "label": "Kunci jawaban"
+        },
+        {
+          "value": "Kunci + pembahasan",
+          "label": "Kunci + pembahasan"
+        },
+        {
+          "value": "Paket guru lengkap",
+          "label": "Paket guru lengkap"
+        }
+      ],
+      "default": "Kunci + pembahasan",
+      "required": true,
+      "advanced": false,
+      "help": null
+    }
+  ],
+  "status": "pondasi-v1",
+  "catatan": "Struktur formulir dasar sudah aktif. Mesin prompt mendalam akan disempurnakan bertahap per generator."
+}

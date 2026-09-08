@@ -1,0 +1,299 @@
+{
+  "id": "cerita",
+  "nama": "Cerita Anak Bergambar",
+  "modes": [
+    {
+      "value": "cepat",
+      "label": "⚡ Cepat",
+      "description": "Isi kebutuhan utama dan buat prompt lebih cepat."
+    },
+    {
+      "value": "lengkap",
+      "label": "⚙️ Lengkap",
+      "description": "Tampilkan pilihan tambahan untuk hasil lebih spesifik."
+    }
+  ],
+  "fields": [
+    {
+      "id": "tema",
+      "label": "Tema cerita",
+      "type": "text",
+      "placeholder": "Contoh: Persahabatan",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "jenis_cerita",
+      "label": "Jenis cerita",
+      "type": "select",
+      "options": [
+        {
+          "value": "Kehidupan sehari-hari",
+          "label": "Kehidupan sehari-hari"
+        },
+        {
+          "value": "Cerita sekolah",
+          "label": "Cerita sekolah"
+        },
+        {
+          "value": "Cerita keluarga",
+          "label": "Cerita keluarga"
+        },
+        {
+          "value": "Fabel",
+          "label": "Fabel"
+        },
+        {
+          "value": "Petualangan",
+          "label": "Petualangan"
+        },
+        {
+          "value": "Fantasi ringan",
+          "label": "Fantasi ringan"
+        },
+        {
+          "value": "Humor",
+          "label": "Humor"
+        },
+        {
+          "value": "Budaya Nusantara",
+          "label": "Budaya Nusantara"
+        },
+        {
+          "value": "Islami",
+          "label": "Islami"
+        },
+        {
+          "value": "Sains sederhana",
+          "label": "Sains sederhana"
+        },
+        {
+          "value": "Atur sendiri",
+          "label": "Atur sendiri"
+        }
+      ],
+      "default": "Kehidupan sehari-hari",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "jumlah_halaman",
+      "label": "Jumlah halaman",
+      "type": "select",
+      "options": [
+        {
+          "value": "4 halaman",
+          "label": "4 halaman"
+        },
+        {
+          "value": "6 halaman",
+          "label": "6 halaman"
+        },
+        {
+          "value": "8 halaman",
+          "label": "8 halaman"
+        },
+        {
+          "value": "10 halaman",
+          "label": "10 halaman"
+        },
+        {
+          "value": "12 halaman",
+          "label": "12 halaman"
+        },
+        {
+          "value": "16 halaman",
+          "label": "16 halaman"
+        },
+        {
+          "value": "Atur sendiri",
+          "label": "Atur sendiri"
+        }
+      ],
+      "default": "8 halaman",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "nilai_cerita",
+      "label": "Nilai/pesan",
+      "type": "select",
+      "options": [
+        {
+          "value": "Tidak khusus",
+          "label": "Tidak khusus"
+        },
+        {
+          "value": "Jujur",
+          "label": "Jujur"
+        },
+        {
+          "value": "Tanggung jawab",
+          "label": "Tanggung jawab"
+        },
+        {
+          "value": "Kerja sama",
+          "label": "Kerja sama"
+        },
+        {
+          "value": "Empati",
+          "label": "Empati"
+        },
+        {
+          "value": "Amanah",
+          "label": "Amanah"
+        },
+        {
+          "value": "Sabar",
+          "label": "Sabar"
+        },
+        {
+          "value": "Syukur",
+          "label": "Syukur"
+        },
+        {
+          "value": "Adab",
+          "label": "Adab"
+        },
+        {
+          "value": "Atur sendiri",
+          "label": "Atur sendiri"
+        }
+      ],
+      "default": "Tidak khusus",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "gaya_ilustrasi",
+      "label": "Gaya ilustrasi",
+      "type": "select",
+      "options": [
+        {
+          "value": "Ilustrasi buku anak modern",
+          "label": "Ilustrasi buku anak modern"
+        },
+        {
+          "value": "Kartun anak Indonesia",
+          "label": "Kartun anak Indonesia"
+        },
+        {
+          "value": "Cat air",
+          "label": "Cat air"
+        },
+        {
+          "value": "Pensil warna",
+          "label": "Pensil warna"
+        },
+        {
+          "value": "Paper cut",
+          "label": "Paper cut"
+        },
+        {
+          "value": "Clay",
+          "label": "Clay"
+        },
+        {
+          "value": "Kartun 3D",
+          "label": "Kartun 3D"
+        },
+        {
+          "value": "Flat illustration",
+          "label": "Flat illustration"
+        },
+        {
+          "value": "Atur sendiri",
+          "label": "Atur sendiri"
+        }
+      ],
+      "default": "Ilustrasi buku anak modern",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "tokoh",
+      "label": "Tokoh utama (opsional)",
+      "type": "textarea",
+      "placeholder": "Contoh: Nisa, 9 tahun, ceria dan ingin tahu",
+      "required": false,
+      "advanced": true,
+      "help": null,
+      "rows": 4
+    },
+    {
+      "id": "latar",
+      "label": "Latar cerita (opsional)",
+      "type": "textarea",
+      "placeholder": "Contoh: sekolah dasar di Bekasi",
+      "required": false,
+      "advanced": true,
+      "help": null,
+      "rows": 4
+    },
+    {
+      "id": "panjang_teks",
+      "label": "Panjang teks per halaman",
+      "type": "select",
+      "options": [
+        {
+          "value": "Sangat ringkas",
+          "label": "Sangat ringkas"
+        },
+        {
+          "value": "Ringkas",
+          "label": "Ringkas"
+        },
+        {
+          "value": "Sedang",
+          "label": "Sedang"
+        },
+        {
+          "value": "Lebih detail",
+          "label": "Lebih detail"
+        }
+      ],
+      "default": "Ringkas",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "aktivitas_tambahan",
+      "label": "Tambahan literasi",
+      "type": "select",
+      "options": [
+        {
+          "value": "Tidak ada",
+          "label": "Tidak ada"
+        },
+        {
+          "value": "Kosakata",
+          "label": "Kosakata"
+        },
+        {
+          "value": "Pertanyaan pemahaman",
+          "label": "Pertanyaan pemahaman"
+        },
+        {
+          "value": "Aktivitas menulis",
+          "label": "Aktivitas menulis"
+        },
+        {
+          "value": "Paket aktivitas lengkap",
+          "label": "Paket aktivitas lengkap"
+        }
+      ],
+      "default": "Paket aktivitas lengkap",
+      "required": true,
+      "advanced": false,
+      "help": null
+    }
+  ],
+  "status": "pondasi-v1",
+  "catatan": "Struktur formulir dasar sudah aktif. Mesin prompt mendalam akan disempurnakan bertahap per generator."
+}

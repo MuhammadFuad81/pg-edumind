@@ -1,0 +1,175 @@
+{
+  "id": "kebahasaan",
+  "nama": "Kebahasaan Kontekstual",
+  "modes": [
+    {
+      "value": "cepat",
+      "label": "⚡ Cepat",
+      "description": "Isi kebutuhan utama dan buat prompt lebih cepat."
+    },
+    {
+      "value": "lengkap",
+      "label": "⚙️ Lengkap",
+      "description": "Tampilkan pilihan tambahan untuk hasil lebih spesifik."
+    }
+  ],
+  "fields": [
+    {
+      "id": "materi_bahasa",
+      "label": "Materi kebahasaan",
+      "type": "select",
+      "options": [
+        {
+          "value": "Kosakata & makna",
+          "label": "Kosakata & makna"
+        },
+        {
+          "value": "Imbuhan/pembentukan kata",
+          "label": "Imbuhan/pembentukan kata"
+        },
+        {
+          "value": "Kata hubung",
+          "label": "Kata hubung"
+        },
+        {
+          "value": "Struktur kalimat",
+          "label": "Struktur kalimat"
+        },
+        {
+          "value": "Kalimat efektif",
+          "label": "Kalimat efektif"
+        },
+        {
+          "value": "Ejaan",
+          "label": "Ejaan"
+        },
+        {
+          "value": "Tanda baca",
+          "label": "Tanda baca"
+        },
+        {
+          "value": "Kata depan di/ke",
+          "label": "Kata depan di/ke"
+        },
+        {
+          "value": "Paragraf",
+          "label": "Paragraf"
+        },
+        {
+          "value": "Kohesi/keterkaitan",
+          "label": "Kohesi/keterkaitan"
+        },
+        {
+          "value": "Atur sendiri",
+          "label": "Atur sendiri"
+        }
+      ],
+      "default": "Kosakata & makna",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "topik",
+      "label": "Topik/konteks",
+      "type": "text",
+      "placeholder": "Contoh: Lingkungan sekolah",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "jenis_aktivitas",
+      "label": "Jenis aktivitas",
+      "type": "select",
+      "options": [
+        {
+          "value": "Campuran",
+          "label": "Campuran"
+        },
+        {
+          "value": "Temukan aturan",
+          "label": "Temukan aturan"
+        },
+        {
+          "value": "Editor cilik",
+          "label": "Editor cilik"
+        },
+        {
+          "value": "Menemukan",
+          "label": "Menemukan"
+        },
+        {
+          "value": "Mengelompokkan",
+          "label": "Mengelompokkan"
+        },
+        {
+          "value": "Melengkapi",
+          "label": "Melengkapi"
+        },
+        {
+          "value": "Memperbaiki",
+          "label": "Memperbaiki"
+        },
+        {
+          "value": "Menyusun",
+          "label": "Menyusun"
+        },
+        {
+          "value": "Menggunakan",
+          "label": "Menggunakan"
+        }
+      ],
+      "default": "Campuran",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "jumlah_latihan",
+      "label": "Jumlah latihan",
+      "type": "number",
+      "min": 1,
+      "max": 20,
+      "default": 10,
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "pendekatan",
+      "label": "Pendekatan",
+      "type": "select",
+      "options": [
+        {
+          "value": "Temukan pola lalu jelaskan",
+          "label": "Temukan pola lalu jelaskan"
+        },
+        {
+          "value": "Jelaskan lalu latihan",
+          "label": "Jelaskan lalu latihan"
+        },
+        {
+          "value": "Campuran",
+          "label": "Campuran"
+        }
+      ],
+      "default": "Temukan pola lalu jelaskan",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "teks_sumber",
+      "label": "Teks sumber (opsional)",
+      "type": "textarea",
+      "placeholder": "Tempel bacaan/tulisan siswa jika ingin dianalisis. Data ini tidak disimpan otomatis.",
+      "required": false,
+      "advanced": true,
+      "help": null,
+      "rows": 4
+    }
+  ],
+  "status": "pondasi-v1",
+  "catatan": "Struktur formulir dasar sudah aktif. Mesin prompt mendalam akan disempurnakan bertahap per generator."
+}

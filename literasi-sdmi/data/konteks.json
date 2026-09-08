@@ -1,0 +1,18 @@
+[
+  {
+    "value": "indonesia",
+    "label": "Konteks Indonesia"
+  },
+  {
+    "value": "lokal",
+    "label": "Konteks lokal/daerah"
+  },
+  {
+    "value": "bebas",
+    "label": "Bebas"
+  },
+  {
+    "value": "sendiri",
+    "label": "Atur sendiri"
+  }
+]

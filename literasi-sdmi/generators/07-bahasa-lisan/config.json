@@ -1,0 +1,192 @@
+{
+  "id": "bahasa-lisan",
+  "nama": "Menyimak, Berbicara & Presentasi",
+  "modes": [
+    {
+      "value": "cepat",
+      "label": "⚡ Cepat",
+      "description": "Isi kebutuhan utama dan buat prompt lebih cepat."
+    },
+    {
+      "value": "lengkap",
+      "label": "⚙️ Lengkap",
+      "description": "Tampilkan pilihan tambahan untuk hasil lebih spesifik."
+    }
+  ],
+  "fields": [
+    {
+      "id": "mode_lisan",
+      "label": "Keterampilan",
+      "type": "select",
+      "options": [
+        {
+          "value": "Menyimak",
+          "label": "Menyimak"
+        },
+        {
+          "value": "Berbicara",
+          "label": "Berbicara"
+        },
+        {
+          "value": "Diskusi",
+          "label": "Diskusi"
+        },
+        {
+          "value": "Presentasi",
+          "label": "Presentasi"
+        },
+        {
+          "value": "Terpadu",
+          "label": "Terpadu"
+        }
+      ],
+      "default": "Menyimak",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "topik_lisan",
+      "label": "Tema/topik",
+      "type": "text",
+      "placeholder": "Contoh: Menjaga kebersihan kelas",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "durasi_lisan",
+      "label": "Durasi",
+      "type": "select",
+      "options": [
+        {
+          "value": "5 menit",
+          "label": "5 menit"
+        },
+        {
+          "value": "15 menit",
+          "label": "15 menit"
+        },
+        {
+          "value": "30 menit",
+          "label": "30 menit"
+        },
+        {
+          "value": "35 menit",
+          "label": "35 menit"
+        },
+        {
+          "value": "60 menit",
+          "label": "60 menit"
+        },
+        {
+          "value": "70 menit",
+          "label": "70 menit"
+        },
+        {
+          "value": "Atur sendiri",
+          "label": "Atur sendiri"
+        }
+      ],
+      "default": "35 menit",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "tingkat_bantuan_lisan",
+      "label": "Tingkat bantuan",
+      "type": "select",
+      "options": [
+        {
+          "value": "Banyak bantuan",
+          "label": "Banyak bantuan"
+        },
+        {
+          "value": "Bantuan sedang",
+          "label": "Bantuan sedang"
+        },
+        {
+          "value": "Bantuan minimal",
+          "label": "Bantuan minimal"
+        },
+        {
+          "value": "Mandiri",
+          "label": "Mandiri"
+        }
+      ],
+      "default": "Bantuan sedang",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "jenis_kegiatan_lisan",
+      "label": "Jenis kegiatan",
+      "type": "select",
+      "options": [
+        {
+          "value": "Dengar & tanggapi",
+          "label": "Dengar & tanggapi"
+        },
+        {
+          "value": "Ceritakan kembali",
+          "label": "Ceritakan kembali"
+        },
+        {
+          "value": "Picture Talk",
+          "label": "Picture Talk"
+        },
+        {
+          "value": "Wawancara",
+          "label": "Wawancara"
+        },
+        {
+          "value": "Role play",
+          "label": "Role play"
+        },
+        {
+          "value": "Think–Pair–Share",
+          "label": "Think–Pair–Share"
+        },
+        {
+          "value": "Diskusi kelompok",
+          "label": "Diskusi kelompok"
+        },
+        {
+          "value": "Presentasi 1 menit",
+          "label": "Presentasi 1 menit"
+        },
+        {
+          "value": "Atur sendiri",
+          "label": "Atur sendiri"
+        }
+      ],
+      "default": "Dengar & tanggapi",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "rubrik_lisan",
+      "label": "Tambahkan rubrik?",
+      "type": "select",
+      "options": [
+        {
+          "value": "Tidak",
+          "label": "Tidak"
+        },
+        {
+          "value": "Ya, rubrik sederhana",
+          "label": "Ya, rubrik sederhana"
+        }
+      ],
+      "default": "Tidak",
+      "required": true,
+      "advanced": false,
+      "help": null
+    }
+  ],
+  "status": "pondasi-v1",
+  "catatan": "Struktur formulir dasar sudah aktif. Mesin prompt mendalam akan disempurnakan bertahap per generator."
+}

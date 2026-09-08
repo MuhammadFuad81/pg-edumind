@@ -1,0 +1,200 @@
+{
+  "id": "paket",
+  "nama": "Paket Literasi Lengkap",
+  "modes": [
+    {
+      "value": "otomatis",
+      "label": "✨ Otomatis",
+      "description": "PG menyusun komponen yang paling relevan."
+    },
+    {
+      "value": "lengkap",
+      "label": "⚙️ Atur Sendiri",
+      "description": "Anda menentukan kebutuhan dengan lebih rinci."
+    }
+  ],
+  "fields": [
+    {
+      "id": "tema_paket",
+      "label": "Tema/topik",
+      "type": "text",
+      "placeholder": "Contoh: Pengurangan sampah plastik",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "tujuan_utama",
+      "label": "Tujuan utama",
+      "type": "select",
+      "options": [
+        {
+          "value": "Memahami bacaan",
+          "label": "Memahami bacaan"
+        },
+        {
+          "value": "Menulis",
+          "label": "Menulis"
+        },
+        {
+          "value": "Mengembangkan kosakata",
+          "label": "Mengembangkan kosakata"
+        },
+        {
+          "value": "Kebahasaan",
+          "label": "Kebahasaan"
+        },
+        {
+          "value": "Menyimak",
+          "label": "Menyimak"
+        },
+        {
+          "value": "Berbicara/diskusi",
+          "label": "Berbicara/diskusi"
+        },
+        {
+          "value": "Literasi visual",
+          "label": "Literasi visual"
+        },
+        {
+          "value": "Integrasi keterampilan",
+          "label": "Integrasi keterampilan"
+        }
+      ],
+      "default": "Memahami bacaan",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "durasi_paket",
+      "label": "Durasi",
+      "type": "select",
+      "options": [
+        {
+          "value": "15 menit",
+          "label": "15 menit"
+        },
+        {
+          "value": "35 menit",
+          "label": "35 menit"
+        },
+        {
+          "value": "60 menit",
+          "label": "60 menit"
+        },
+        {
+          "value": "70 menit",
+          "label": "70 menit"
+        },
+        {
+          "value": "2 × 35 menit",
+          "label": "2 × 35 menit"
+        },
+        {
+          "value": "2–3 pertemuan",
+          "label": "2–3 pertemuan"
+        },
+        {
+          "value": "1 minggu",
+          "label": "1 minggu"
+        },
+        {
+          "value": "Atur sendiri",
+          "label": "Atur sendiri"
+        }
+      ],
+      "default": "70 menit",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "stimulus_paket",
+      "label": "Jenis stimulus",
+      "type": "select",
+      "options": [
+        {
+          "value": "AI tentukan",
+          "label": "AI tentukan"
+        },
+        {
+          "value": "Cerita",
+          "label": "Cerita"
+        },
+        {
+          "value": "Teks informasi",
+          "label": "Teks informasi"
+        },
+        {
+          "value": "Dialog",
+          "label": "Dialog"
+        },
+        {
+          "value": "Visual",
+          "label": "Visual"
+        },
+        {
+          "value": "Simakan",
+          "label": "Simakan"
+        },
+        {
+          "value": "Kombinasi",
+          "label": "Kombinasi"
+        }
+      ],
+      "default": "AI tentukan",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "tindak_lanjut",
+      "label": "Tindak lanjut",
+      "type": "select",
+      "options": [
+        {
+          "value": "Tidak ada",
+          "label": "Tidak ada"
+        },
+        {
+          "value": "Remedial",
+          "label": "Remedial"
+        },
+        {
+          "value": "Pengayaan",
+          "label": "Pengayaan"
+        },
+        {
+          "value": "Remedial + pengayaan",
+          "label": "Remedial + pengayaan"
+        }
+      ],
+      "default": "Remedial + pengayaan",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "diferensiasi_paket",
+      "label": "Diferensiasi",
+      "type": "select",
+      "options": [
+        {
+          "value": "Satu paket",
+          "label": "Satu paket"
+        },
+        {
+          "value": "3 tingkat dukungan",
+          "label": "3 tingkat dukungan"
+        }
+      ],
+      "default": "Satu paket",
+      "required": true,
+      "advanced": false,
+      "help": null
+    }
+  ],
+  "status": "pondasi-v1",
+  "catatan": "Struktur formulir dasar sudah aktif. Mesin prompt mendalam akan disempurnakan bertahap per generator."
+}

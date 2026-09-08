@@ -1,0 +1,232 @@
+{
+  "id": "proyek",
+  "nama": "Proyek Literasi",
+  "modes": [
+    {
+      "value": "cepat",
+      "label": "⚡ Cepat",
+      "description": "Isi kebutuhan utama dan buat prompt lebih cepat."
+    },
+    {
+      "value": "lengkap",
+      "label": "⚙️ Lengkap",
+      "description": "Tampilkan pilihan tambahan untuk hasil lebih spesifik."
+    }
+  ],
+  "fields": [
+    {
+      "id": "jenis_proyek",
+      "label": "Jenis proyek",
+      "type": "select",
+      "options": [
+        {
+          "value": "Buku mini",
+          "label": "Buku mini"
+        },
+        {
+          "value": "Buku kelas",
+          "label": "Buku kelas"
+        },
+        {
+          "value": "Majalah kelas",
+          "label": "Majalah kelas"
+        },
+        {
+          "value": "Antologi cerita",
+          "label": "Antologi cerita"
+        },
+        {
+          "value": "Komik literasi",
+          "label": "Komik literasi"
+        },
+        {
+          "value": "Podcast mini",
+          "label": "Podcast mini"
+        },
+        {
+          "value": "Wawancara",
+          "label": "Wawancara"
+        },
+        {
+          "value": "Jurnal membaca",
+          "label": "Jurnal membaca"
+        },
+        {
+          "value": "Budaya lokal",
+          "label": "Budaya lokal"
+        },
+        {
+          "value": "Poster kampanye",
+          "label": "Poster kampanye"
+        },
+        {
+          "value": "Masalah nyata sekolah",
+          "label": "Masalah nyata sekolah"
+        },
+        {
+          "value": "Atur sendiri",
+          "label": "Atur sendiri"
+        }
+      ],
+      "default": "Buku mini",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "tema_proyek",
+      "label": "Tema proyek",
+      "type": "text",
+      "placeholder": "Contoh: Budaya lokal",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "durasi_proyek",
+      "label": "Durasi",
+      "type": "select",
+      "options": [
+        {
+          "value": "1 pertemuan",
+          "label": "1 pertemuan"
+        },
+        {
+          "value": "2–3 pertemuan",
+          "label": "2–3 pertemuan"
+        },
+        {
+          "value": "1 minggu",
+          "label": "1 minggu"
+        },
+        {
+          "value": "2 minggu",
+          "label": "2 minggu"
+        },
+        {
+          "value": "3–4 minggu",
+          "label": "3–4 minggu"
+        },
+        {
+          "value": "Atur sendiri",
+          "label": "Atur sendiri"
+        }
+      ],
+      "default": "2–3 pertemuan",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "cara_kerja_proyek",
+      "label": "Cara kerja",
+      "type": "select",
+      "options": [
+        {
+          "value": "Individu",
+          "label": "Individu"
+        },
+        {
+          "value": "Pasangan",
+          "label": "Pasangan"
+        },
+        {
+          "value": "Kelompok kecil",
+          "label": "Kelompok kecil"
+        },
+        {
+          "value": "Seluruh kelas",
+          "label": "Seluruh kelas"
+        },
+        {
+          "value": "Campuran",
+          "label": "Campuran"
+        }
+      ],
+      "default": "Kelompok kecil",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "produk_akhir",
+      "label": "Produk akhir",
+      "type": "select",
+      "options": [
+        {
+          "value": "Buku",
+          "label": "Buku"
+        },
+        {
+          "value": "Poster",
+          "label": "Poster"
+        },
+        {
+          "value": "Majalah",
+          "label": "Majalah"
+        },
+        {
+          "value": "Presentasi",
+          "label": "Presentasi"
+        },
+        {
+          "value": "Pameran",
+          "label": "Pameran"
+        },
+        {
+          "value": "Podcast",
+          "label": "Podcast"
+        },
+        {
+          "value": "Komik",
+          "label": "Komik"
+        },
+        {
+          "value": "Infografik",
+          "label": "Infografik"
+        },
+        {
+          "value": "Portofolio",
+          "label": "Portofolio"
+        },
+        {
+          "value": "Atur sendiri",
+          "label": "Atur sendiri"
+        }
+      ],
+      "default": "Buku",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "teknologi",
+      "label": "Penggunaan teknologi",
+      "type": "select",
+      "options": [
+        {
+          "value": "Tanpa teknologi",
+          "label": "Tanpa teknologi"
+        },
+        {
+          "value": "Teknologi sederhana",
+          "label": "Teknologi sederhana"
+        },
+        {
+          "value": "Digital",
+          "label": "Digital"
+        },
+        {
+          "value": "Fleksibel",
+          "label": "Fleksibel"
+        }
+      ],
+      "default": "Fleksibel",
+      "required": true,
+      "advanced": false,
+      "help": null
+    }
+  ],
+  "status": "pondasi-v1",
+  "catatan": "Struktur formulir dasar sudah aktif. Mesin prompt mendalam akan disempurnakan bertahap per generator."
+}

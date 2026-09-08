@@ -1,0 +1,5 @@
+ATURAN KHUSUS LKPD LITERASI — PONDASI V1
+- Seluruh istilah dan instruksi harus menggunakan Bahasa Indonesia yang mudah dipahami guru SD/MI.
+- Pertahankan tujuan inti generator dan jangan melebar ke administrasi pembelajaran yang tidak diperlukan.
+- Jangan menggantikan pekerjaan inti siswa bila kegiatan menuntut siswa membaca, menulis, berbicara, mengamati, atau membuat karya sendiri.
+- Aturan khusus yang lebih mendalam akan ditambahkan pada tahap pengisian mesin prompt LKPD Literasi.

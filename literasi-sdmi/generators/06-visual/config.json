@@ -1,0 +1,230 @@
+{
+  "id": "visual",
+  "nama": "Literasi Visual",
+  "modes": [
+    {
+      "value": "cepat",
+      "label": "⚡ Cepat",
+      "description": "Isi kebutuhan utama dan buat prompt lebih cepat."
+    },
+    {
+      "value": "lengkap",
+      "label": "⚙️ Lengkap",
+      "description": "Tampilkan pilihan tambahan untuk hasil lebih spesifik."
+    }
+  ],
+  "fields": [
+    {
+      "id": "jenis_visual",
+      "label": "Jenis visual",
+      "type": "select",
+      "options": [
+        {
+          "value": "Gambar tunggal",
+          "label": "Gambar tunggal"
+        },
+        {
+          "value": "Seri gambar",
+          "label": "Seri gambar"
+        },
+        {
+          "value": "Komik",
+          "label": "Komik"
+        },
+        {
+          "value": "Poster",
+          "label": "Poster"
+        },
+        {
+          "value": "Infografik",
+          "label": "Infografik"
+        },
+        {
+          "value": "Tabel sederhana",
+          "label": "Tabel sederhana"
+        },
+        {
+          "value": "Grafik sederhana",
+          "label": "Grafik sederhana"
+        },
+        {
+          "value": "Diagram",
+          "label": "Diagram"
+        },
+        {
+          "value": "Peta/denah sederhana",
+          "label": "Peta/denah sederhana"
+        },
+        {
+          "value": "Atur sendiri",
+          "label": "Atur sendiri"
+        }
+      ],
+      "default": "Gambar tunggal",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "tema_visual",
+      "label": "Tema/topik visual",
+      "type": "text",
+      "placeholder": "Contoh: Pasar tradisional",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "tujuan_visual",
+      "label": "Tujuan aktivitas",
+      "type": "select",
+      "options": [
+        {
+          "value": "Mengamati detail",
+          "label": "Mengamati detail"
+        },
+        {
+          "value": "Menemukan informasi",
+          "label": "Menemukan informasi"
+        },
+        {
+          "value": "Mendeskripsikan",
+          "label": "Mendeskripsikan"
+        },
+        {
+          "value": "Mengurutkan",
+          "label": "Mengurutkan"
+        },
+        {
+          "value": "Membandingkan",
+          "label": "Membandingkan"
+        },
+        {
+          "value": "Memprediksi",
+          "label": "Memprediksi"
+        },
+        {
+          "value": "Menyimpulkan",
+          "label": "Menyimpulkan"
+        },
+        {
+          "value": "Berbicara",
+          "label": "Berbicara"
+        },
+        {
+          "value": "Menulis",
+          "label": "Menulis"
+        },
+        {
+          "value": "Campuran",
+          "label": "Campuran"
+        }
+      ],
+      "default": "Campuran",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "sumber_visual",
+      "label": "Sumber visual",
+      "type": "select",
+      "options": [
+        {
+          "value": "Buat konsep visual baru",
+          "label": "Buat konsep visual baru"
+        },
+        {
+          "value": "Saya sudah punya visual",
+          "label": "Saya sudah punya visual"
+        }
+      ],
+      "default": "Buat konsep visual baru",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "deskripsi_visual",
+      "label": "Deskripsi visual yang sudah ada (opsional)",
+      "type": "textarea",
+      "placeholder": "Jelaskan isi gambar/poster/komik yang Anda miliki.",
+      "required": false,
+      "advanced": true,
+      "help": null,
+      "rows": 4
+    },
+    {
+      "id": "gaya_visual",
+      "label": "Gaya visual",
+      "type": "select",
+      "options": [
+        {
+          "value": "Ilustrasi edukatif",
+          "label": "Ilustrasi edukatif"
+        },
+        {
+          "value": "Cat air",
+          "label": "Cat air"
+        },
+        {
+          "value": "Pensil warna",
+          "label": "Pensil warna"
+        },
+        {
+          "value": "Flat illustration",
+          "label": "Flat illustration"
+        },
+        {
+          "value": "Kartun 3D",
+          "label": "Kartun 3D"
+        },
+        {
+          "value": "Line art",
+          "label": "Line art"
+        },
+        {
+          "value": "Gambar mewarnai",
+          "label": "Gambar mewarnai"
+        },
+        {
+          "value": "Atur sendiri",
+          "label": "Atur sendiri"
+        }
+      ],
+      "default": "Ilustrasi edukatif",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "aktivitas_visual",
+      "label": "Paket aktivitas",
+      "type": "select",
+      "options": [
+        {
+          "value": "Pertanyaan observasi",
+          "label": "Pertanyaan observasi"
+        },
+        {
+          "value": "Observasi + berbicara",
+          "label": "Observasi + berbicara"
+        },
+        {
+          "value": "Observasi + menulis",
+          "label": "Observasi + menulis"
+        },
+        {
+          "value": "Satu gambar, banyak aktivitas",
+          "label": "Satu gambar, banyak aktivitas"
+        }
+      ],
+      "default": "Satu gambar, banyak aktivitas",
+      "required": true,
+      "advanced": false,
+      "help": null
+    }
+  ],
+  "status": "pondasi-v1",
+  "catatan": "Struktur formulir dasar sudah aktif. Mesin prompt mendalam akan disempurnakan bertahap per generator."
+}

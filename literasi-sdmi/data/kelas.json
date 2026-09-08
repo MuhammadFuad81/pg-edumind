@@ -1,0 +1,38 @@
+[
+  {
+    "value": "1",
+    "label": "Kelas 1 SD/MI",
+    "fase": "A",
+    "usia": "6–7 tahun"
+  },
+  {
+    "value": "2",
+    "label": "Kelas 2 SD/MI",
+    "fase": "A",
+    "usia": "7–8 tahun"
+  },
+  {
+    "value": "3",
+    "label": "Kelas 3 SD/MI",
+    "fase": "B",
+    "usia": "8–9 tahun"
+  },
+  {
+    "value": "4",
+    "label": "Kelas 4 SD/MI",
+    "fase": "B",
+    "usia": "9–10 tahun"
+  },
+  {
+    "value": "5",
+    "label": "Kelas 5 SD/MI",
+    "fase": "C",
+    "usia": "10–11 tahun"
+  },
+  {
+    "value": "6",
+    "label": "Kelas 6 SD/MI",
+    "fase": "C",
+    "usia": "11–12 tahun"
+  }
+]

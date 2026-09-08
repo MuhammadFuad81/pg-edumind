@@ -1,0 +1,18 @@
+[
+  {
+    "value": "tidak-khusus",
+    "label": "Tidak khusus"
+  },
+  {
+    "value": "karakter",
+    "label": "Karakter"
+  },
+  {
+    "value": "islami",
+    "label": "Islami"
+  },
+  {
+    "value": "sendiri",
+    "label": "Atur sendiri"
+  }
+]

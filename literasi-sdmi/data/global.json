@@ -1,0 +1,49 @@
+{
+  "kemampuan_siswa": [
+    {
+      "value": "dukungan",
+      "label": "Butuh Dukungan",
+      "keterangan": "Perlu bahasa lebih sederhana dan bantuan lebih banyak."
+    },
+    {
+      "value": "berkembang",
+      "label": "Berkembang",
+      "keterangan": "Sedang menuju kemampuan yang diharapkan pada kelasnya."
+    },
+    {
+      "value": "sesuai",
+      "label": "Sesuai Jenjang",
+      "keterangan": "Sesuai kemampuan yang umumnya diharapkan pada kelasnya."
+    },
+    {
+      "value": "mahir",
+      "label": "Mahir",
+      "keterangan": "Siap menerima tantangan dan kompleksitas lebih tinggi."
+    }
+  ],
+  "mode": [
+    {
+      "value": "cepat",
+      "label": "⚡ Cepat",
+      "keterangan": "Pengaturan utama saja."
+    },
+    {
+      "value": "lengkap",
+      "label": "⚙️ Lengkap",
+      "keterangan": "Kontrol lebih rinci."
+    }
+  ],
+  "durasi": [
+    "10 menit",
+    "15 menit",
+    "20 menit",
+    "30 menit",
+    "35 menit",
+    "60 menit",
+    "70 menit",
+    "2 × 35 menit",
+    "2–3 pertemuan",
+    "1 minggu",
+    "Atur sendiri"
+  ]
+}

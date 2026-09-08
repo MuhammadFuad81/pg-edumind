@@ -1,0 +1,214 @@
+{
+  "id": "bacaan",
+  "nama": "Teks/Bacaan Literasi",
+  "modes": [
+    {
+      "value": "cepat",
+      "label": "⚡ Cepat",
+      "description": "Isi kebutuhan utama dan buat prompt lebih cepat."
+    },
+    {
+      "value": "lengkap",
+      "label": "⚙️ Lengkap",
+      "description": "Tampilkan pilihan tambahan untuk hasil lebih spesifik."
+    }
+  ],
+  "fields": [
+    {
+      "id": "jenis_teks",
+      "label": "Jenis teks",
+      "type": "select",
+      "options": [
+        {
+          "value": "Narasi",
+          "label": "Narasi"
+        },
+        {
+          "value": "Deskripsi",
+          "label": "Deskripsi"
+        },
+        {
+          "value": "Teks informasi",
+          "label": "Teks informasi"
+        },
+        {
+          "value": "Prosedur",
+          "label": "Prosedur"
+        },
+        {
+          "value": "Biografi sederhana",
+          "label": "Biografi sederhana"
+        },
+        {
+          "value": "Dialog",
+          "label": "Dialog"
+        },
+        {
+          "value": "Surat/Pengumuman",
+          "label": "Surat/Pengumuman"
+        },
+        {
+          "value": "Puisi/Pantun",
+          "label": "Puisi/Pantun"
+        },
+        {
+          "value": "Atur sendiri",
+          "label": "Atur sendiri"
+        }
+      ],
+      "default": "Teks informasi",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "topik",
+      "label": "Topik bacaan",
+      "type": "text",
+      "placeholder": "Contoh: Mengapa mangrove penting bagi pantai?",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "panjang_bacaan",
+      "label": "Panjang bacaan",
+      "type": "select",
+      "options": [
+        {
+          "value": "Sangat pendek",
+          "label": "Sangat pendek"
+        },
+        {
+          "value": "Pendek",
+          "label": "Pendek"
+        },
+        {
+          "value": "Sedang",
+          "label": "Sedang"
+        },
+        {
+          "value": "Panjang",
+          "label": "Panjang"
+        },
+        {
+          "value": "Atur sendiri",
+          "label": "Atur sendiri"
+        }
+      ],
+      "default": "Sedang",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "tujuan_membaca",
+      "label": "Tujuan membaca",
+      "type": "select",
+      "options": [
+        {
+          "value": "Mengenal informasi baru",
+          "label": "Mengenal informasi baru"
+        },
+        {
+          "value": "Menemukan informasi",
+          "label": "Menemukan informasi"
+        },
+        {
+          "value": "Memahami ide utama",
+          "label": "Memahami ide utama"
+        },
+        {
+          "value": "Memahami sebab-akibat",
+          "label": "Memahami sebab-akibat"
+        },
+        {
+          "value": "Memperkaya kosakata",
+          "label": "Memperkaya kosakata"
+        },
+        {
+          "value": "Menyimpulkan",
+          "label": "Menyimpulkan"
+        },
+        {
+          "value": "Menjadi stimulus diskusi",
+          "label": "Menjadi stimulus diskusi"
+        },
+        {
+          "value": "Menjadi stimulus menulis",
+          "label": "Menjadi stimulus menulis"
+        },
+        {
+          "value": "Atur sendiri",
+          "label": "Atur sendiri"
+        }
+      ],
+      "default": "Mengenal informasi baru",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "kosakata_baru",
+      "label": "Jumlah kosakata baru",
+      "type": "select",
+      "options": [
+        {
+          "value": "0",
+          "label": "0"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        },
+        {
+          "value": "5",
+          "label": "5"
+        },
+        {
+          "value": "8",
+          "label": "8"
+        },
+        {
+          "value": "10",
+          "label": "10"
+        }
+      ],
+      "default": "5",
+      "required": true,
+      "advanced": false,
+      "help": null
+    },
+    {
+      "id": "informasi_wajib",
+      "label": "Informasi yang wajib dimasukkan (opsional)",
+      "type": "textarea",
+      "placeholder": "Contoh: habitat, makanan, dan peran lebah bagi tumbuhan",
+      "required": false,
+      "advanced": true,
+      "help": null,
+      "rows": 4
+    },
+    {
+      "id": "bacaan_bertingkat",
+      "label": "Buat bacaan bertingkat?",
+      "type": "select",
+      "options": [
+        {
+          "value": "Tidak",
+          "label": "Tidak"
+        },
+        {
+          "value": "Ya, 3 tingkat bacaan",
+          "label": "Ya, 3 tingkat bacaan"
+        }
+      ],
+      "default": "Tidak",
+      "required": true,
+      "advanced": false,
+      "help": null
+    }
+  ],
+  "status": "pondasi-v1",
+  "catatan": "Struktur formulir dasar sudah aktif. Mesin prompt mendalam akan disempurnakan bertahap per generator."
+}
