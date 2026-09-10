@@ -1,4 +1,4 @@
-const PG_CODE = 'bank_soal_diniyah_100926';
+const PG_CODE = 'bank_soal_diniyah_110926';
         const SESSION_KEY = 'akds_session_' + PG_CODE;
         const AUTOSAVE_KEY = 'akds_autosave_' + PG_CODE;
 
@@ -101,6 +101,20 @@ const PG_CODE = 'bank_soal_diniyah_100926';
         }
 
         function updateCapaianPembelajaran() {
+            toggleMapelLainnya();
+            scheduleAutosave();
+        }
+
+        function toggleMapelLainnya() {
+            const select = document.getElementById('mata_pelajaran');
+            const wrapper = document.getElementById('wrapper_mapel_lainnya');
+            const input = document.getElementById('mata_pelajaran_lainnya');
+            if (!select || !wrapper || !input) return;
+
+            const isLainnya = select.value === 'Lainnya';
+            wrapper.classList.toggle('hidden', !isLainnya);
+            input.required = isLainnya;
+            if (!isLainnya) input.value = '';
             scheduleAutosave();
         }
 
@@ -185,6 +199,16 @@ const PG_CODE = 'bank_soal_diniyah_100926';
                 }
             }
 
+            const pilihanMapel = document.getElementById('mata_pelajaran').value;
+            if (pilihanMapel === 'Lainnya') {
+                const mapelLainnya = document.getElementById('mata_pelajaran_lainnya');
+                if (!mapelLainnya.value.trim()) {
+                    showValidation('Nama Mata Pelajaran Lainnya wajib diisi.');
+                    mapelLainnya.focus();
+                    return false;
+                }
+            }
+
             updateJumlahSoalTotal();
             const total = Number(document.getElementById('jumlah_soal').value) || 0;
             if (total < 1) {
@@ -207,6 +231,8 @@ const PG_CODE = 'bank_soal_diniyah_100926';
             updateJenjangDanPilihan('Fase B Kelas 3');
             document.getElementById('fase_kelas').value = 'Fase B Kelas 3';
             document.getElementById('mata_pelajaran').value = 'PAI';
+            document.getElementById('mata_pelajaran_lainnya').value = '';
+            toggleMapelLainnya();
             document.getElementById('bab_ke').value = 'BAB 1';
             document.getElementById('judul_bab').value = "Asyiknya Belajar Surah Al-'Alaq";
             document.getElementById('topik_unit').value = "Membaca, menulis, menghafal, dan memahami pesan pokok QS. Al-'Alaq ayat 1-5 serta mengenal hukum bacaan qalqalah";
@@ -279,6 +305,7 @@ const PG_CODE = 'bank_soal_diniyah_100926';
             });
             updateJumlahSoalTotal();
             toggleJenisStimulus();
+            toggleMapelLainnya();
             return true;
         }
 
@@ -289,7 +316,8 @@ const PG_CODE = 'bank_soal_diniyah_100926';
             const namaSekolah = value('nama_sekolah');
             const jenjang = value('jenjang_pendidikan');
             const faseKelas = value('fase_kelas');
-            const mapel = value('mata_pelajaran');
+            const pilihanMapel = value('mata_pelajaran');
+            const mapel = pilihanMapel === 'Lainnya' ? value('mata_pelajaran_lainnya') : pilihanMapel;
             const panduanMapel = getMapelGuidance(mapel);
             const babKe = value('bab_ke');
             const judulBab = value('judul_bab');
@@ -429,6 +457,7 @@ ${formatOutput.includes('.docx') ? 'Buat hasil akhir sebagai file Microsoft Word
             if (!restoreFormState()) updateJenjangDanPilihan('Fase B Kelas 3');
             updateJumlahSoalTotal();
             toggleJenisStimulus();
+            toggleMapelLainnya();
 
             document.querySelectorAll('#app-content input, #app-content textarea, #app-content select').forEach(element => {
                 element.addEventListener('change', scheduleAutosave);
