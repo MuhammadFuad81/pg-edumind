@@ -1,4 +1,4 @@
-const PG_CODE = 'bank_soal_diniyah_110926';
+const PG_CODE = 'bank_soal_diniyah_100926';
         const SESSION_KEY = 'akds_session_' + PG_CODE;
         const AUTOSAVE_KEY = 'akds_autosave_' + PG_CODE;
 
@@ -38,7 +38,7 @@ const PG_CODE = 'bank_soal_diniyah_110926';
             if (event) event.preventDefault();
             const loginScreen = document.getElementById('login-screen');
             const validUsername = loginScreen.dataset.loginUsername || 'edumind';
-            const validPassword = loginScreen.dataset.loginPassword || 'akds-110826';
+            const validPassword = loginScreen.dataset.loginPassword || 'akds-100926';
             const username = document.getElementById('username').value.trim();
             const password = document.getElementById('password').value.trim();
             const errorBox = document.getElementById('login-error');
