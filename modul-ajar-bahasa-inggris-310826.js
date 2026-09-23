@@ -1,9 +1,23 @@
-(function () {
+(function bootModulAjarInggris() {
   'use strict';
 
   // WSP menampilkan kode Full Page di halaman editor admin. Jangan jalankan
   // aplikasi di /panelMS/ agar dashboard/editor tidak tertimpa layar login.
   if (/\/panelMS\//i.test(window.location.pathname)) return;
+
+  // Tunggu body pada pemasangan di head / pemuatan awal oleh platform.
+  if (!document.body) {
+    document.addEventListener('DOMContentLoaded', bootModulAjarInggris, { once: true });
+    return;
+  }
+  // CDN cadangan atau penyisipan ulang tidak boleh mereset formulir aktif.
+  if (window.__akdsModulAjarInggrisStarted) return;
+  window.__akdsModulAjarInggrisStarted = true;
+
+  // Storage bisa ditolak pada iframe atau pengaturan privasi browser.
+  function storageGet(kind, key) { try { return window[kind].getItem(key); } catch (e) { return null; } }
+  function storageSet(kind, key, value) { try { window[kind].setItem(key, value); } catch (e) {} }
+  function storageRemove(kind, key) { try { window[kind].removeItem(key); } catch (e) {} }
 
   var APP_CODE = 'modul_ajar_bahasa_inggris_310826';
   var SESSION_KEY = 'akds_session_' + APP_CODE;
@@ -471,9 +485,9 @@
   function showApp(){ $('loginScreen').classList.add('hidden'); $('appScreen').classList.remove('hidden'); }
   function showLogin(){ $('appScreen').classList.add('hidden'); $('loginScreen').classList.remove('hidden'); $('password').value=''; }
 
-  $('loginForm').addEventListener('submit', function(e){ e.preventDefault(); if(value('username')===USERNAME && value('password')===PASSWORD){ sessionStorage.setItem(SESSION_KEY,'active'); $('loginError').classList.add('hidden'); showApp(); } else $('loginError').classList.remove('hidden'); });
+  $('loginForm').addEventListener('submit', function(e){ e.preventDefault(); if(value('username')===USERNAME && value('password')===PASSWORD){ storageSet('sessionStorage',SESSION_KEY,'active'); $('loginError').classList.add('hidden'); showApp(); } else $('loginError').classList.remove('hidden'); });
   $('togglePassword').addEventListener('click', function(){ var show=$('password').type==='password'; $('password').type=show?'text':'password'; this.setAttribute('aria-pressed',String(show)); this.setAttribute('aria-label',show?'Sembunyikan password':'Tampilkan password'); this.querySelector('i').className=show?'fa-solid fa-eye-slash':'fa-solid fa-eye'; });
-  $('logoutBtn').addEventListener('click', function(){ sessionStorage.removeItem(SESSION_KEY); showLogin(); });
+  $('logoutBtn').addEventListener('click', function(){ storageRemove('sessionStorage',SESSION_KEY); showLogin(); });
   $('jenjang').addEventListener('change', function(){ setOptions(); save(); });
   $('fase_kelas').addEventListener('change', function(){ updateDerived(); save(); });
   $('mapel').addEventListener('change', function(){ updateCP(); save(); });
@@ -489,10 +503,11 @@
   $('generatorForm').addEventListener('submit', function(e){ e.preventDefault(); generatePrompt(); });
   $('copyBtn').addEventListener('click', copyOutput); $('downloadBtn').addEventListener('click', downloadOutput);
   $('exampleBtn').addEventListener('click', function(){ setValues(Object.assign({fase_kelas:'Fase C Kelas 5'},example)); save(); $('output').textContent='Contoh Bahasa Inggris Fase C Kelas V dimuat. CP terisi otomatis. Klik “Hasilkan Prompt” untuk membuat instruksi terbaru.'; $('cp').scrollIntoView({behavior:'smooth',block:'center'}); $('formStatus').textContent='Contoh Bahasa Inggris Fase C Kelas V dimuat. CP terisi otomatis dan terkunci.'; });
-  $('resetBtn').addEventListener('click', function(){ if(!confirm('Kosongkan konfigurasi tersimpan dan muat ulang contoh?'))return; localStorage.removeItem(STORAGE_KEY); setValues(Object.assign({fase_kelas:'Fase C Kelas 5'},example)); $('output').textContent='Formulir direset. CP terisi otomatis sesuai fase/kelas. Klik “Hasilkan Prompt” setelah data utama sesuai.'; $('formStatus').textContent='Formulir direset ke contoh Bahasa Inggris Kelas V.'; });
+  $('resetBtn').addEventListener('click', function(){ if(!confirm('Kosongkan konfigurasi tersimpan dan muat ulang contoh?'))return; storageRemove('localStorage',STORAGE_KEY); setValues(Object.assign({fase_kelas:'Fase C Kelas 5'},example)); $('output').textContent='Formulir direset. CP terisi otomatis sesuai fase/kelas. Klik “Hasilkan Prompt” setelah data utama sesuai.'; $('formStatus').textContent='Formulir direset ke contoh Bahasa Inggris Kelas V.'; });
 
   setOptions('Fase C Kelas 5');
   if (!restore()) setValues(Object.assign({fase_kelas:'Fase C Kelas 5'},example));
   refreshConditionalFields();
-  if (sessionStorage.getItem(SESSION_KEY)==='active') showApp(); else showLogin();
+  if (storageGet('sessionStorage',SESSION_KEY)==='active') showApp(); else showLogin();
+  document.documentElement.setAttribute('data-akds-inggris-ready', '2026-09-23');
 })();
