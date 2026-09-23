@@ -1,7 +1,8 @@
 (() => {
   'use strict';
 
-  const APP_VERSION = 'PG-RKJM-1.1.1';
+  const APP_VERSION = 'PG-RKJM-1.1.2';
+  const DRAFT_SCHEMA_VERSION = 1;
   const BLUEPRINT_VERSION = 'BLUEPRINT-1.0';
   const MASTER_PROMPT_VERSION = 'MP-1.3';
   const REG_PROFILE_VERSION = 'RKJM-REG-2026.1';
@@ -63,6 +64,12 @@
   let lastFocused = null;
   let toastTimer = null;
   let saveTimer = null;
+  // Login/recovery screens never own the active draft. Enable writes only after hydration.
+  let draftReady = false;
+  let isHydrating = false;
+  let draftDirty = false;
+  let lastSavedContent = '';
+  let draftReadError = false;
 
   const $ = (id) => document.getElementById(id);
   const qsa = (sel, root = document) => Array.from(root.querySelectorAll(sel));
@@ -96,6 +103,9 @@
   }
 
   function enterApp() {
+    clearTimeout(saveTimer);
+    draftReady = false;
+    draftDirty = false;
     $('loginView').style.display = 'none';
     $('appView').classList.remove('app-hidden');
     $('workspaceView').classList.add('app-hidden');
@@ -127,8 +137,9 @@
       if ($('autosaveStatus')) $('autosaveStatus').textContent = `Draft ditemukan ✓${when ? ' · ' + when : ''}`;
     } else {
       meta.textContent = '';
-      if ($('autosaveStatus')) $('autosaveStatus').textContent = 'Belum ada draft';
+      if ($('autosaveStatus')) $('autosaveStatus').textContent = draftReadError ? 'Draft tidak dapat dibaca. Gunakan cadangan JSON.' : 'Belum ada draft';
     }
+    start.disabled = !hasDraft && draftReadError;
     updateArchiveMenu();
   }
 
@@ -156,10 +167,10 @@
         confirmDialog(
           'Mulai draft baru?',
           'Draft tersimpan ditemukan. Jika Anda melanjutkan, draft aktif akan dipindahkan ke Cadangan Draft Sebelumnya sebelum formulir baru dibuka. Gunakan tombol “Lanjutkan Draft” bila Anda ingin meneruskan pengisian yang lama.',
-          () => { archiveActiveDraft(); clearDraft(); state=DEFAULT_STATE(); compiledPrompt=''; hydrateAll(); openWorkspace(1); updateArchiveMenu(); toast('Draft lama diamankan sebagai cadangan sebelumnya.'); },
+          startNewDraft,
           'Ya, Mulai Draft Baru'
         );
-      } else { state=DEFAULT_STATE(); hydrateAll(); openWorkspace(1); }
+      } else if (!draftReadError) { startNewDraft(); }
     });
     $('resumeDraftWelcome').addEventListener('click',()=>{
       const restored=loadDraft(true);
@@ -180,7 +191,7 @@
     $('nextStep').addEventListener('click',()=>{collectStaticFields();if(state.app.currentStep<8)gotoStep(state.app.currentStep+1);});
     $('stepNav').addEventListener('click',(e)=>{const btn=e.target.closest('[data-step-target]');if(!btn)return;collectStaticFields();gotoStep(Number(btn.dataset.stepTarget));});
     document.addEventListener('change',handleGlobalChange); document.addEventListener('input',handleGlobalInput);
-    window.addEventListener('pagehide',flushDraft); window.addEventListener('beforeunload',flushDraft); document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')flushDraft();});
+    window.addEventListener('pagehide',flushDraft); window.addEventListener('beforeunload',(e)=>{if(!flushDraft()){e.preventDefault();e.returnValue='';}}); document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')flushDraft();});
     $('addEvidence').addEventListener('click',addEvidence); $('addPriority').addEventListener('click',addPriority); $('addObjective').addEventListener('click',addObjective); $('addProgram').addEventListener('click',addProgram);
     $('evidenceList').addEventListener('input',handleEntityInput); $('evidenceList').addEventListener('change',handleEntityInput); $('priorityList').addEventListener('input',handleEntityInput); $('priorityList').addEventListener('change',handleEntityInput); $('objectiveList').addEventListener('input',handleEntityInput); $('objectiveList').addEventListener('change',handleEntityInput); $('programList').addEventListener('input',handleEntityInput); $('programList').addEventListener('change',handleEntityInput); document.addEventListener('click',handleEntityActions);
     $('domainAccordions').addEventListener('click',(e)=>{const head=e.target.closest('.acc-head');if(!head)return;head.closest('.accordion').classList.toggle('collapsed');});
@@ -189,6 +200,7 @@
   }
 
   function handleGlobalChange(e) {
+    if (!isDraftInput(e) || e.target.closest('.entity-card, [data-domain]')) return;
     if (e.target.name === 'ministry') return requestBranchChange(e.target.value);
     if (e.target.name === 'priorityMode') state.settings.priorityMode = e.target.value;
     if (e.target.name === 'aiAssist') state.settings.aiAssist = e.target.value;
@@ -201,8 +213,8 @@
   }
 
   function handleGlobalInput(e) {
-    if (!e.target.matches('input,textarea,select')) return;
-    if (e.target.closest('.entity-card')) return;
+    if (!isDraftInput(e)) return;
+    if (e.target.closest('.entity-card, [data-domain]') || e.target.type === 'radio') return;
     collectStaticFields();
     if (e.target.id === 'rkjmStart') calculatePeriod();
     renderAllDerived(); scheduleSave();
@@ -211,7 +223,9 @@
   function requestBranchChange(newBranch) {
     const old = state.profile.ministry;
     if (!old || old === newBranch || !hasBranchSensitiveData()) {
-      state.profile.ministry = newBranch; applyBranch(); scheduleSave(); return;
+      state.profile.ministry = newBranch;
+      if (old !== newBranch) restoreBranchCache(newBranch);
+      applyBranch(); scheduleSave(); return;
     }
     const radio = document.querySelector(`input[name="ministry"][value="${old}"]`);
     if (radio) radio.checked = true;
@@ -259,8 +273,14 @@
   }
 
   function openWorkspace(step = 1) {
+    if (draftReady && !flushDraft()) return;
+    clearTimeout(saveTimer);
+    draftReady = false;
     $('welcomeView').classList.add('app-hidden'); $('resultView').classList.add('app-hidden'); $('workspaceView').classList.remove('app-hidden');
     hydrateAll(); gotoStep(step, false);
+    lastSavedContent = draftContent(state);
+    draftDirty = false;
+    draftReady = true;
   }
 
   function gotoStep(step, save = true) {
@@ -270,10 +290,11 @@
     state.app.currentStep=step;
     $('mobileStepLabel').textContent=`Langkah ${step} dari 8`; $('mobileStepPercent').textContent=`${Math.round(step/8*100)}%`; $('mobileProgressBar').style.width=`${step/8*100}%`;
     $('prevStep').disabled=step===1; $('nextStep').classList.toggle('hidden',step===8); if(step<8)$('nextStep').textContent='Simpan & Lanjut →';
-    if(step===8)showReview(); renderAllDerived(); window.scrollTo({top:0,behavior:'smooth'}); if(save)persistDraft(false);
+    if(step===8)showReview(); renderAllDerived(); window.scrollTo({top:0,behavior:'smooth'}); if(save){draftDirty=true;persistDraft(false);}
   }
 
   function collectStaticFields() {
+    if (!draftReady || isHydrating) return;
     const map={
       educationLevel:['profile','educationLevel'],unitName:['profile','unitName'],npsn:['profile','npsn'],nsm:['profile','nsm'],unitStatus:['profile','unitStatus'],location:['profile','location'],rkjmStart:['profile','rkjmStart'],rkjmEnd:['profile','rkjmEnd'],preparationYear:['profile','preparationYear'],headName:['profile','headName'],
       vision:['strategy','vision'],missions:['strategy','missions'],goals:['strategy','goals'],unitContext:['strategy','unitContext'],stakeholderNeeds:['strategy','stakeholderNeeds'],
@@ -289,12 +310,15 @@
   }
 
   function hydrateAll() {
-    const radio=document.querySelector(`input[name="ministry"][value="${state.profile.ministry}"]`);if(radio)radio.checked=true; applyBranch(); hydrateStaticFields();
+    isHydrating = true;
+    try {
+    setRadio('ministry',state.profile.ministry); applyBranch(); hydrateStaticFields();
     setRadio('priorityMode',state.settings.priorityMode);setRadio('aiAssist',state.settings.aiAssist);setRadio('depth',state.settings.depth);setRadio('outputMode',state.settings.outputMode);setRadio('swotMode',state.swot.mode||'NONE');
     renderEvidence();renderPriorities();renderObjectives();renderPrograms();renderDomainAccordions();renderSwotUi();renderAllDerived();updateChoiceCards();
+    } finally { isHydrating = false; }
   }
 
-  function setRadio(name, value) { const el = document.querySelector(`input[name="${name}"][value="${value}"]`); if (el) el.checked = true; }
+  function setRadio(name, value) { qsa(`input[name="${name}"]`).forEach(el=>{el.checked=el.value===value;}); }
   function calculatePeriod(sync = true) {
     const start = Number(state.profile.rkjmStart || $('rkjmStart')?.value || 0);
     state.profile.rkjmEnd = start ? String(start + 3) : '';
@@ -374,6 +398,7 @@
   }
 
   function handleEntityInput(e) {
+    if (!isDraftInput(e)) return;
     const card = e.target.closest('.entity-card'); if (!card) return;
     const collection = card.dataset.entity; const id = card.dataset.id; const arr = state[collection]; if (!Array.isArray(arr)) return;
     const item = arr.find(x=>x.id===id); if (!item) return;
@@ -418,7 +443,7 @@
     qsa('[data-domain-field]',root).forEach(el=>el.addEventListener('input',handleDomainInput));
     qsa('[data-domain-field]',root).forEach(el=>el.addEventListener('change',handleDomainInput));
   }
-  function handleDomainInput(e) { const acc=e.target.closest('[data-domain]'); if(!acc)return; state.domains[acc.dataset.domain][e.target.dataset.domainField]=e.target.value; renderAllDerived(); scheduleSave(); }
+  function handleDomainInput(e) { if(!isDraftInput(e))return; const acc=e.target.closest('[data-domain]'); if(!acc)return; state.domains[acc.dataset.domain][e.target.dataset.domainField]=e.target.value; renderAllDerived(); scheduleSave(); }
 
   function evidenceLevel() {
     const substantive = state.evidence.filter(x=>nonEmpty(x.sourceType)&&nonEmpty(x.finding));
@@ -787,48 +812,188 @@ Prompt Generator: PG RKJM Edumind | App ${APP_VERSION} | Master Prompt ${MASTER_
     $('modalBack').addEventListener('click',()=>{closeModal();openWorkspace(8)});
   }
 
-  function shouldPersistDraft(targetState=state) {
-    const p=targetState.profile||{},st=targetState.strategy||{},sw=targetState.swot||{}; const domainHasData=Object.values(targetState.domains||{}).some(d=>d&&Object.values(d).some(v=>nonEmpty(v)));
-    return Boolean(nonEmpty(p.ministry)||nonEmpty(p.educationLevel)||nonEmpty(p.unitName)||nonEmpty(p.npsn)||nonEmpty(p.nsm)||nonEmpty(p.location)||nonEmpty(p.rkjmStart)||nonEmpty(st.vision)||nonEmpty(st.missions)||nonEmpty(st.goals)||nonEmpty(st.unitContext)||nonEmpty(st.stakeholderNeeds)||(sw.mode&&sw.mode!=='NONE')||(targetState.evidence||[]).length||(targetState.priorities||[]).length||(targetState.objectives||[]).length||(targetState.programs||[]).length||domainHasData||((targetState.app||{}).currentStep||1)>1);
+  function isDraftInput(e) {
+    return draftReady && !isHydrating && e.target.matches('input,textarea,select') && Boolean(e.target.closest('#workspaceView'));
+  }
+
+  function draftContent(target) {
+    const { app, ...data } = target;
+    return JSON.stringify({ ...data, currentStep: app.currentStep });
+  }
+
+  function hasDraftContent(target) {
+    const base=DEFAULT_STATE();
+    // Navigation and automatic defaults alone do not create a draft.
+    return Object.keys(base).some(key=>key!=='app' && JSON.stringify(target[key])!==JSON.stringify(base[key]));
+  }
+
+  function shouldPersistDraft(target=state) {
+    return target.app.hasUserChanges===true || hasDraftContent(target);
+  }
+
+  function storageFailure() {
+    if ($('autosaveStatus')) $('autosaveStatus').textContent='Draft belum berhasil disimpan. Ekspor cadangan sebelum keluar.';
+    return false;
+  }
+
+  function parseDraft(raw) {
+    if (!raw) return null;
+    const draft=migrateState(JSON.parse(raw));
+    return shouldPersistDraft(draft) ? draft : null;
+  }
+
+  function writeDraft(target, silent=false) {
+    try {
+      const next=migrateState(target);
+      next.app.updatedAt=nowIso();
+      next.app.schemaVersion=DRAFT_SCHEMA_VERSION;
+      next.app.hasUserChanges=true;
+      const raw=JSON.stringify(next);
+      const current=localStorage.getItem(STORAGE_KEY);
+      const backup=localStorage.getItem(BACKUP_KEY);
+      let previous=null, validBackup=null;
+      try { previous=parseDraft(current); } catch(e) {}
+      try { validBackup=parseDraft(backup); } catch(e) {}
+      // Never rotate corrupt/default-only primary data over a useful backup.
+      if (previous && hasDraftContent(previous)) localStorage.setItem(BACKUP_KEY,current);
+      else if (!validBackup) localStorage.setItem(BACKUP_KEY,raw);
+      localStorage.setItem(STORAGE_KEY,raw);
+      if (localStorage.getItem(STORAGE_KEY)!==raw) throw new Error('Storage verification failed');
+      if (!silent && $('autosaveStatus')) $('autosaveStatus').textContent=`Draft tersimpan ✓ · ${formatDraftTime(next.app.updatedAt)}`;
+      return next;
+    } catch(e) { return storageFailure(); }
   }
 
   function persistDraft(silent=false) {
-    try { collectStaticFields(); state.app.updatedAt=nowIso(); const next=JSON.stringify(state); const current=localStorage.getItem(STORAGE_KEY); if(current){try{JSON.parse(current);localStorage.setItem(BACKUP_KEY,current);}catch(err){}}else localStorage.setItem(BACKUP_KEY,next); localStorage.setItem(STORAGE_KEY,next); if(!silent&&$('autosaveStatus'))$('autosaveStatus').textContent=`Draft tersimpan ✓ · ${formatDraftTime(state.app.updatedAt)}`; return true; }
-    catch(e){if(!silent&&$('autosaveStatus'))$('autosaveStatus').textContent='Draft belum berhasil disimpan';return false;}
+    clearTimeout(saveTimer);
+    if (!draftReady || isHydrating || !draftDirty) return true;
+    collectStaticFields();
+    if (draftContent(state)===lastSavedContent || !shouldPersistDraft(state)) {
+      draftDirty=false;
+      if ($('autosaveStatus')) $('autosaveStatus').textContent=state.app.updatedAt ? `Draft tersimpan ✓ · ${formatDraftTime(state.app.updatedAt)}` : 'Belum ada draft';
+      return true;
+    }
+    const saved=writeDraft(state,silent);
+    if (!saved) return false;
+    state.app=saved.app;
+    lastSavedContent=draftContent(state);
+    draftDirty=false;
+    return true;
   }
 
   function saveDraft() { persistDraft(false); }
-  function flushDraft() {
-    clearTimeout(saveTimer);
-    if (shouldPersistDraft()) persistDraft(true);
-  }
+  function flushDraft() { clearTimeout(saveTimer); return persistDraft(false); }
   function scheduleSave() {
+    if (!draftReady || isHydrating) return;
+    draftDirty=true;
     if ($('autosaveStatus')) $('autosaveStatus').textContent='Menyimpan…';
     clearTimeout(saveTimer);
     saveTimer=setTimeout(saveDraft,350);
   }
+
   function loadDraft(apply=false) {
-    const tryKey=(key)=>{try{const raw=localStorage.getItem(key);if(!raw)return null;const migrated=migrateState(JSON.parse(raw));return shouldPersistDraft(migrated)?migrated:null;}catch(e){return null;}};
-    let draft=tryKey(STORAGE_KEY),fromBackup=false;if(!draft){draft=tryKey(BACKUP_KEY);fromBackup=Boolean(draft);}if(!draft)return null;if(fromBackup){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(draft));}catch(e){}}if(apply){state=draft;hydrateAll();}return draft;
+    draftReadError=false;
+    let draft=null;
+    for (const key of [STORAGE_KEY,BACKUP_KEY]) {
+      try { draft=parseDraft(localStorage.getItem(key)); }
+      catch(e) { draftReadError=true; }
+      if (draft) break;
+    }
+    // Reading the recovery screen must never write or repair storage.
+    if (draft) {
+      draftReadError=false;
+      if (apply) { clearTimeout(saveTimer); draftReady=false; state=draft; hydrateAll(); }
+    }
+    return draft;
   }
 
   function migrateState(parsed) {
-    const base=DEFAULT_STATE(); const merged=deepMerge(base,parsed||{}); merged.app.version=APP_VERSION; return merged;
+    const object=v=>v!==null && typeof v==='object' && !Array.isArray(v);
+    const invalid=()=>{throw new Error('Invalid PG RKJM draft schema');};
+    if (!object(parsed) || !object(parsed.app) || !object(parsed.profile)) invalid();
+    if (parsed.app.schemaVersion!==undefined && parsed.app.schemaVersion!==DRAFT_SCHEMA_VERSION) invalid();
+    const merged=deepMerge(DEFAULT_STATE(),parsed);
+    if (!Number.isInteger(Number(merged.app.currentStep)) || Number(merged.app.currentStep)<1 || Number(merged.app.currentStep)>8) invalid();
+    merged.app.currentStep=Number(merged.app.currentStep);
+    if (merged.app.updatedAt!==null && (typeof merged.app.updatedAt!=='string' || !Number.isFinite(Date.parse(merged.app.updatedAt)))) invalid();
+    if (merged.app.hasUserChanges!==undefined && typeof merged.app.hasUserChanges!=='boolean') invalid();
+    const levels={ '':[''], KEMENDIKDASMEN:['','SD','SMP','SMA'], KEMENAG:['','MI','MTs','MA'] };
+    if (!Object.hasOwn(levels,merged.profile.ministry) || !levels[merged.profile.ministry].includes(merged.profile.educationLevel)) invalid();
+    const normalizeEntities=(items,link)=>{
+      if (!Array.isArray(items)) invalid();
+      const ids=new Set();
+      return items.map(item=>{
+        if (!object(item) || typeof item.id!=='string' || !/^[A-Za-z0-9_-]+$/.test(item.id) || ids.has(item.id)) invalid();
+        ids.add(item.id);
+        const copy={...item};
+        for (const [key,value] of Object.entries(copy)) {
+          if (['__proto__','prototype','constructor'].includes(key)) invalid();
+          if (key!==link && typeof value!=='string' && typeof value!=='number') invalid();
+        }
+        if (link) {
+          if (copy[link]===undefined) copy[link]=[];
+          if (!Array.isArray(copy[link]) || copy[link].some(id=>typeof id!=='string')) invalid();
+        }
+        return copy;
+      });
+    };
+    merged.evidence=normalizeEntities(merged.evidence);
+    merged.priorities=normalizeEntities(merged.priorities,'evidenceIds');
+    merged.objectives=normalizeEntities(merged.objectives,'priorityIds');
+    merged.programs=normalizeEntities(merged.programs,'objectiveIds');
+    for (const [children,parents,link] of [[merged.priorities,merged.evidence,'evidenceIds'],[merged.objectives,merged.priorities,'priorityIds'],[merged.programs,merged.objectives,'objectiveIds']]) {
+      const ids=new Set(parents.map(x=>x.id));
+      // Quarantined evidence IDs remain valid references when another branch is active.
+      if (link==='evidenceIds') Object.values(merged.branchCache).forEach(cache=>(cache.evidence||[]).forEach(x=>ids.add(x.id)));
+      if (children.some(x=>x[link].some(id=>!ids.has(id)))) invalid();
+    }
+    for (const cache of Object.values(merged.branchCache)) {
+      if (!object(cache)) invalid();
+      if (cache.nsm!==undefined && typeof cache.nsm!=='string') invalid();
+      if (cache.evidence!==undefined) cache.evidence=normalizeEntities(cache.evidence);
+    }
+    const enums=[[merged.swot.mode,['NONE','USER','AI']],[merged.swot.strategies,['NO','YES']],[merged.settings.priorityMode,['USER','AI']],[merged.settings.aiAssist,['CONSERVATIVE','ANALYTICAL']],[merged.settings.depth,['RINGKAS','STANDAR','MENDALAM']],[merged.settings.outputMode,['CHAT','WORD','CHAT_WORD']],[merged.output.includeApproval,['NO','YES']],[merged.output.includeOutstanding,['NO','YES']]];
+    if (enums.some(([value,allowed])=>!allowed.includes(value))) invalid();
+    merged.app.version=APP_VERSION;
+    return merged;
   }
-  function deepMerge(target,source) { for(const k of Object.keys(source||{})){ if(source[k]&&typeof source[k]==='object'&&!Array.isArray(source[k])&&target[k]&&typeof target[k]==='object'&&!Array.isArray(target[k])) target[k]=deepMerge(target[k],source[k]); else target[k]=source[k]; } return target; }
+
+  function deepMerge(target,source) {
+    for (const k of Object.keys(source)) {
+      if (['__proto__','prototype','constructor'].includes(k)) throw new Error('Unsafe draft key');
+      const value=source[k];
+      if (!Object.hasOwn(target,k)) { target[k]=value; continue; }
+      if (Array.isArray(target[k])) {
+        if (!Array.isArray(value)) throw new Error('Invalid draft collection');
+        target[k]=value;
+      } else if (target[k]!==null && typeof target[k]==='object') {
+        if (!value || typeof value!=='object' || Array.isArray(value)) throw new Error('Invalid draft section');
+        target[k]=deepMerge(target[k],value);
+      } else {
+        if (typeof target[k]==='string' && typeof value!=='string') throw new Error('Invalid draft field');
+        target[k]=value;
+      }
+    }
+    return target;
+  }
+
   function archiveActiveDraft(){
+    const draft=loadDraft(false);
     try {
-      const raw=localStorage.getItem(STORAGE_KEY)||localStorage.getItem(BACKUP_KEY);
-      if(!raw) return false;
-      const parsed=JSON.parse(raw);
-      if(!shouldPersistDraft(migrateState(parsed))) return false;
+      const raw=draft ? JSON.stringify(draft) : localStorage.getItem(STORAGE_KEY)||localStorage.getItem(BACKUP_KEY);
+      if (!raw) return !draftReadError;
       localStorage.setItem(ARCHIVE_KEY,raw);
+      if(localStorage.getItem(ARCHIVE_KEY)!==raw) throw new Error('Archive verification failed');
       return true;
-    } catch(e){ return false; }
+    } catch(e){ return storageFailure(); }
   }
-  function clearDraft(){localStorage.removeItem(STORAGE_KEY);localStorage.removeItem(BACKUP_KEY)}
+  function clearDraft(){
+    clearTimeout(saveTimer);
+    try {localStorage.removeItem(STORAGE_KEY);localStorage.removeItem(BACKUP_KEY);return true;}
+    catch(e){return storageFailure();}
+  }
   function loadArchivedDraft(){
-    try{const raw=localStorage.getItem(ARCHIVE_KEY);if(!raw)return null;const parsed=migrateState(JSON.parse(raw));return shouldPersistDraft(parsed)?parsed:null;}catch(e){return null;}
+    try{return parseDraft(localStorage.getItem(ARCHIVE_KEY));}catch(e){return null;}
   }
   function updateArchiveMenu(){const btn=$('recoverPreviousDraftMenu');if(btn)btn.classList.toggle('hidden',!loadArchivedDraft());}
   function recoverPreviousDraft(){
@@ -837,21 +1002,51 @@ Prompt Generator: PG RKJM Edumind | App ${APP_VERSION} | Master Prompt ${MASTER_
     const active=loadDraft(false);
     const msg=active ? 'Draft aktif saat ini akan diganti dengan Cadangan Draft Sebelumnya. Draft aktif akan diamankan terlebih dahulu sebagai cadangan baru.' : 'Cadangan Draft Sebelumnya akan dipulihkan sebagai draft aktif.';
     confirmDialog('Pulihkan draft sebelumnya?',msg,()=>{
-      if(active) archiveActiveDraft();
-      state=migrateState(archived); hydrateAll(); persistDraft(true); openWorkspace(state.app.currentStep||1); updateArchiveMenu(); toast('Draft sebelumnya berhasil dipulihkan ✓');
+      replaceDraft(archived);
     },'Ya, Pulihkan Draft');
   }
 
+  function replaceDraft(imported) {
+    if (!flushDraft()) { toast('Draft aktif belum tersimpan. Pemulihan dibatalkan.'); return; }
+    let oldArchive;
+    try {oldArchive=localStorage.getItem(ARCHIVE_KEY);} catch(e){storageFailure();return;}
+    if (!archiveActiveDraft()) { toast('Cadangan belum berhasil dibuat. Draft aktif tetap dibuka.'); return; }
+    const saved=writeDraft(imported);
+    if (!saved) {
+      // Preserve the recovery source as well if replacing the active draft fails.
+      try { if(oldArchive!==null)localStorage.setItem(ARCHIVE_KEY,oldArchive); } catch(e) {}
+      toast('Pemulihan belum berhasil. Draft aktif tidak diganti.'); return;
+    }
+    draftReady=false; state=saved; compiledPrompt=''; openWorkspace(state.app.currentStep); updateArchiveMenu(); toast('Cadangan draft berhasil dipulihkan ✓');
+  }
+
   function formatDraftTime(iso){if(!iso)return '';try{return new Intl.DateTimeFormat('id-ID',{hour:'2-digit',minute:'2-digit'}).format(new Date(iso));}catch(e){return '';}}
-  function exportDraft(){flushDraft();const raw=localStorage.getItem(STORAGE_KEY)||localStorage.getItem(BACKUP_KEY);if(!raw){toast('Belum ada draft untuk diekspor.');return;}const stamp=new Date().toISOString().replace(/[-:]/g,'').slice(0,13).replace('T','-');const blob=new Blob([raw],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`PG-RKJM-Draft-${stamp}.json`;document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);toast('Cadangan draft diekspor ✓');}
-  async function importDraftFile(file){try{const parsed=JSON.parse(await file.text());if(!parsed||typeof parsed!=='object'||!parsed.profile||!parsed.app)throw new Error();const imported=migrateState(parsed);confirmDialog('Impor cadangan draft?','Draft aktif pada perangkat ini akan diganti dengan cadangan yang dipilih.',()=>{state=imported;hydrateAll();persistDraft(true);openWorkspace(state.app.currentStep||1);updateArchiveMenu();toast('Cadangan draft berhasil dipulihkan ✓');},'Ya, Impor Draft');}catch(e){openModal('Cadangan draft tidak dapat dibaca','<p>File JSON yang dipilih bukan cadangan PG RKJM yang valid atau file rusak.</p>','<button class="btn btn-primary" id="importErrorClose" type="button">Tutup</button>');$('importErrorClose').addEventListener('click',closeModal);}}
+  function exportDraft(){
+    flushDraft();
+    // Export in-memory edits even when localStorage is full or blocked.
+    const draft=draftReady && shouldPersistDraft(state) ? state : loadDraft(false);
+    if(!draft){toast('Belum ada draft valid untuk diekspor.');return;}
+    const stamp=new Date().toISOString().replace(/[-:]/g,'').slice(0,13).replace('T','-');const blob=new Blob([JSON.stringify(draft)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`PG-RKJM-Draft-${stamp}.json`;document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);toast('Cadangan draft diekspor ✓');
+  }
+  async function importDraftFile(file){try{const imported=parseDraft(await file.text());if(!imported)throw new Error();confirmDialog('Impor cadangan draft?','Draft aktif akan diamankan sebagai cadangan sebelumnya sebelum diganti dengan file yang dipilih.',()=>replaceDraft(imported),'Ya, Impor Draft');}catch(e){openModal('Cadangan draft tidak dapat dibaca','<p>File JSON yang dipilih bukan cadangan PG RKJM yang valid atau file rusak.</p>','<button class="btn btn-primary" id="importErrorClose" type="button">Tutup</button>');$('importErrorClose').addEventListener('click',closeModal);}}
+
+  function startNewDraft() {
+    if (!flushDraft() || !archiveActiveDraft() || !clearDraft()) { toast('Draft baru dibatalkan karena cadangan belum berhasil diamankan.'); return; }
+    draftReady=false;draftDirty=false;state=DEFAULT_STATE();compiledPrompt='';
+    openWorkspace(1);updateArchiveMenu();$('autosaveStatus').textContent='Belum ada draft';
+  }
 
   function restartFlow() {
     confirmDialog('Mulai ulang PG RKJM?', 'Draft aktif akan dipindahkan ke Cadangan Draft Sebelumnya, lalu formulir aktif dikosongkan. Anda masih dapat memulihkan satu draft sebelumnya melalui menu aplikasi.', () => {
-      archiveActiveDraft(); clearDraft(); state=DEFAULT_STATE(); compiledPrompt=''; hydrateAll(); openWorkspace(1); updateArchiveMenu(); toast('Formulir baru dibuka. Draft sebelumnya tetap tersedia sebagai cadangan.');
+      startNewDraft();
     }, 'Ya, Mulai Ulang');
   }
-  function logout(){ flushDraft(); try { sessionStorage.removeItem(SESSION_KEY); } catch (err) {} location.reload(); }
+  function logout(){
+    if(!flushDraft()){toast('Belum dapat keluar: perubahan belum tersimpan. Ekspor cadangan terlebih dahulu.');return;}
+    draftReady=false;clearTimeout(saveTimer);
+    try { sessionStorage.removeItem(SESSION_KEY); } catch (err) {}
+    location.reload();
+  }
 
   function openModal(title,body,footer='') { lastFocused=document.activeElement; $('modalTitle').textContent=title; $('modalBody').innerHTML=body; $('modalFooter').innerHTML=footer; $('modalBackdrop').classList.remove('hidden'); setTimeout(()=>$('closeModal').focus(),20); }
   function closeModal(){ $('modalBackdrop').classList.add('hidden'); if(lastFocused&&lastFocused.focus)lastFocused.focus(); }
